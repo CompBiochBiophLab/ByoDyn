@@ -1,0 +1,26 @@
+#! /bin/bash
+
+# $Id: createDocumentation,v 4.5 2008/12/17 00:55:44 alglomana Exp $
+
+export BYODYN_PATH="../."
+for file in installationGuide tutorialAndQuickStartGuide userReferenceManual
+do
+	latex $file.tex
+	bibtex $file
+	latex $file.tex
+	latex $file.tex
+	dvips -o temp.ps $file
+	ps2pdf temp.ps $file.pdf
+done
+rm *.aux; rm *.dvi; rm *.log; rm *.toc; rm *.blg; rm *.bbl; rm *.ps; rm *.bbl; rm *.out
+doxygen API/config.dox
+cd API/latex
+latex refman.tex
+bibtex refman
+latex refman.tex
+latex refman.tex
+dvips -o temp.ps refman
+ps2pdf temp.ps refman.pdf
+rm *.aux; rm *.dvi; rm *.log; rm *.toc; rm *.blg; rm *.bbl; rm *.ps; rm *.bbl; rm *.out
+cd ..
+cd ..

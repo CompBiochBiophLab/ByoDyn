@@ -1,0 +1,6 @@
+# $Id: adamsScipy.rn,v 1.2 2008/07/04 13:53:10 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	adams
+runningType	simulation	noVelocity
+time&timestep   10.1       0.1

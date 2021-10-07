@@ -1,0 +1,1325 @@
+% $Id: userReferenceManual.tex,v 4.31 2008/12/17 00:55:44 alglomana Exp $
+\documentclass[a4paper, 11pt]{article}
+\marginparwidth 0pt
+\oddsidemargin  0pt
+\evensidemargin  0pt
+\marginparsep 0pt
+\topmargin   0pt
+\textwidth   6.5in
+\textheight  8.5 in
+\usepackage{fancyvrb}
+\usepackage{lscape}
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{bm}
+\usepackage{amsfonts}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\newcommand{\tick}{\ding{52}}
+\newcommand{\cross}{\ding{56}}
+\newcommand{\field}[1]{\mathbb{#1}} % requires amsfonts
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  citecolor=cyan,
+  filecolor=blue,
+  linkcolor=blue,
+  urlcolor=magenta
+}
+\begin{document}
+\begin{center}
+  \thispagestyle{empty}
+  \textbf{\Large{User Reference Manual of \texttt{ByoDyn} version 4.8}}\\[5ex]
+  \textbf{Adri\'an L\'opez Garc\'ia de Lomana, Alex G\'omez-Garrido, Miguel Hern\'andez, Pau Ru\'e Queralt and Jordi Vill\`a-Freixa}\\[10ex] --- December 17, 2008 ---\\[10ex]
+  \parbox{0.70\linewidth}{
+    This document gives detailed description about the functionalities of \texttt{ByoDyn}. 
+  }\\[60ex]
+\end{center}
+\begin{footnotesize}
+  \begin{raggedleft}
+    \textbf{Computational Biochemistry and Biophysics Laboratory}\\
+    Research Unit on Biomedical Informatics\\
+    Universitat Pompeu Fabra - Institut Municipal d'Investigaci\'o M\`edica\\
+    c/ Dr. Aiguader 88, 08003, Barcelona, Spain\\
+    \url{http://cbbl.imim.es}\\
+  \end{raggedleft}
+\end{footnotesize}
+\newpage
+\tableofcontents
+\newpage
+\section{The \texttt{ByoDyn} Team}
+Several people contributed to the development and improvement of \texttt{ByoDyn}.
+\texttt{ByoDyn} is a joint effort from the Computational Biochemistry and Biophysics Laboratory.
+It is an original idea from Jordi Vill\`a i Freixa and Adri\'an L\'opez Garc\'ia de Lomana.
+Essential contributions were implemented by \`Alex G\'omez Garrido who improved
+most of the software functionalities (SBML compatibility, sensitivity analysis,
+identifiability analysis and other issues) and Miguel Hern\'andez who
+implemented the parallel code and the byodyn-web server.
+\begin{itemize}
+\item
+  \textbf{Jordi Vill\`a i Freixa}:
+  Head of the Computational Biochemistry and Biophysics Laboratory.
+\item
+  \textbf{Adri\'an L\'opez Garc\'ia de Lomana}:
+  Born in Vitoria (Spain) in 1981.
+  Graduated in Biochemistry at University of Navarra (Spain).
+  Currently he is a Pompeu Fabra University graduate student at the Computational Biochemistry and Biophysics Laboratory.
+\item
+  \textbf{\`Alex G\'omez Garrido}:
+  Born in Barcelona (Spain) in 1983.
+  Graduated in Biology at Pompeu Fabra University (Barcelona, Spain) with the specialty of Biomedical Research the year 2006.
+  M.Sc. Bioinformatics for Health Sciences at the Pompeu Fabra University completed the year 2008.
+  Nowadays, he is a Ph.D. student in Biomedicine at the Computational Biochemistry and Biophysics Laboratory.  
+\item
+  \textbf{Miguel Hern\'andez}:
+  Grauated in Engineer in Informatics Systems by the Tecnol\'ogico de Monterrey (Mexico) the year 2003.
+  He completed his M.Sc. Bioinformatics for Health Sciences at the Pompeu Fabra University the year 2008. 
+\item 
+  \textbf{Pau Ru\'e Queralt}
+  He recieved a B.Sc. in Applied Mathematics at Universitat Polit\`ecnica de Catalunya in year 2005. 
+  Currently coursing a M.Sc. in Bioinformatics for Health Sciences at Universitat Pompeu Fabra and Universitat de Barcelona.
+  Nowadays he holds a fellowship from La Caixa.
+  His present research interests are among others, $\tau$-leap Runge-Kutta methods with extended stability domains for the efficient approximate simulation of stochastic chemical kinetics.
+  Within \texttt{ByoDyn}, he has developed the implementation of the stochastic simulation.
+\end{itemize}
+\section{\texttt{ByoDyn}}
+\texttt{ByoDyn} is a command line program.
+To run the program you need to call the executable \texttt{byodyn}.
+Several basic arguments are accepted:
+\begin{itemize}
+\item \texttt{-h} or \texttt{--help}: 
+  tells how to access the complete documentation of \texttt{ByoDyn}.
+\item \texttt{-v} or \texttt{--version}:
+  prints on the terminal the current version of the \texttt{ByoDyn} executable.
+\item \texttt{-t} or \texttt{--testing}:
+  runs the internal tests for \texttt{ByoDyn}.
+  Please run twice the command \texttt{byodyn -t} to remove the compiled python sources \texttt{.pyc}, otherwise bugs due to those files may not be detected.
+\item \texttt{-e} or \texttt{--example}:
+  creates a directory called \texttt{examples} with the required files to follow the Quick Start Guide.
+\item \texttt{-o} or \texttt{--output} \texttt{nameOfOutputDirectory}:
+  creates an output directory named \texttt{nameOfOutputDirectory} different from the default directory name \texttt{output}.
+\end{itemize}
+Alternatively we can set an option file as argument.
+We generally set \texttt{.rn} for the extension of the option file and we name it \emph{runner} file although any UNIX name is valid.
+\subsection{\texttt{ByoDyn} Outputs} \label{byodynOutput}
+All files generated by \texttt{ByoDyn} will be created by default in a directory called \texttt{output} at the place where you execute the command.
+In this directory called \texttt{output} the user can find several files of interest.
+Additionally, inside \texttt{output} there is a directory called \texttt{scratch} where \texttt{ByoDyn} stores files that in principle are not so directed to user inspection but necessary for \texttt{ByoDyn} to run.
+If the user wants to name \texttt{output} differently she can use the option \texttt{-o} or \texttt{--output} and the name of the directory.
+Besides if the users wants to place the output in another location rather than where you execute the command, she can use the same options to specify an \emph{absolute} path where the outputs will be created.
+\subsection{\texttt{ByoDyn} Input Files}
+\subsubsection{\texttt{ByoDyn} Option File} \label{optionFile}
+The \texttt{ByoDyn} option file is a text file where you define the options of \texttt{ByoDyn} for the run.
+Commented lines start by \emph{\#}.
+The common structure of the file is the following:\\
+\begin{tabular}{cccc}
+  \texttt{tagName}&\texttt{argument1}&\texttt{argument2}&...
+\end{tabular}\\
+Each functionality is called using the tags that are explained at each section but, furthermore, common requirements are explained in this section. Please refer to Section \ref{functionalities} for the further required arguments to use the different analysis tools of \texttt{ByoDyn}.
+\paragraph{Mandatory Option File Arguments}
+The following arguments are mandatory for all the funcionalities.
+\begin{itemize}
+\item
+  \begin{tabular}{cc}
+    \texttt{modelFile}&\texttt{argument}
+  \end{tabular}\\[1.5ex]
+  where \texttt{argument} will be substituted by the complete path to the model input file or simply the name of the model input file if the model input file lays at the same directory from which the calculation is launched.
+\item
+  \begin{tabular}{cc}
+    \texttt{modelFormat}&\texttt{argument}
+  \end{tabular}\\[1.5ex]
+  where \texttt{argument} should be substituted by \texttt{SBML} or \texttt{tags} depending on the model file.
+\end{itemize}
+\paragraph{Optional Option File Arguments} \label{oofa}
+The following arguments are optionals but can be used with all the funcionalities.
+\begin{itemize}
+\item
+  \begin{tabular}{ccc}
+    \texttt{integrationMethod}&\texttt{argument1}&\texttt{argument2}
+  \end{tabular}\\[1.5ex]
+  this line determines the software and the numerical method used to solve the system of differential equations.
+  The two arguments are required.
+  \begin{itemize}
+  \item \texttt{argument1}: several tools can be called to integrate the system of differential equations. 
+    Valid options are \texttt{python} for \texttt{SciPy} routines,
+    \texttt{octave} for \texttt{Octave}, \texttt{openModelica} for \texttt{Open
+    Modelica}, \texttt{xpp} for \texttt{XPPAUT} and \texttt{automatic}. 
+    \texttt{matlab} option is valid but the code to use \texttt{MATLAB} is still under development on this version. \texttt{Open Modelica} is the most compatible with the SBML features. 
+    Also, \texttt{XPPAUT} option will be required to solve SBML models holding
+    delay functions. 
+    Furthemore, if the user does not want to choose the
+    integration method for hiself or he does not know which is the best
+    integrator for his model, he can use the \texttt{automatic} option, in this
+    case ByoDyn choose the best integrator depending of model features and the
+    software installed.
+  \item \texttt{argument2}: this argument specifies the numerical method used to integrate the system of differential equations.
+    Available options are \texttt{default}, \texttt{adams}, \texttt{non-stiff}, \texttt{bdf} and \texttt{stiff}.
+    The most commonly option will be \texttt{default}.
+    The other four options are only compatible using \texttt{SciPy} or \texttt{Octave}.
+  \end{itemize}
+\item 
+  \begin{tabular}{cccc}\texttt{parameter}&\texttt{argument1}&\texttt{argument2}&\texttt{...}\end{tabular}\\[1.5ex]
+  If we are interested on running a simulation of a model varying the value of one of its parameters, alternatively to edit the model, we can specify its value using the \texttt{tagName} \texttt{parameter} and then, separated by tabs, the parameters to set using the following syntax:\\[1.5ex]
+  \texttt{parameterName=parameterValue}\\[1.5ex]
+  To avoid parsing problems, please use this syntax strictly, specially avoid blank spaces like in:\\[1.5ex]
+  \texttt{parameterName = parameterValue}\\[1.5ex]
+  Note that this option is only valid while working with SBML format model files.
+\item
+  \begin{tabular}{c}
+    \texttt{checkConsistencySBML}
+  \end{tabular}\\[1.5ex]
+  This variable indicates that \texttt{ByoDyn} will run a strict full checking of SBML file syntax using the method \texttt{checkConsistency} of libSBML and it will return the errors if any. 
+  No further arguments are required.
+\item
+  \begin{tabular}{cc}
+    \texttt{figureFormat}&\texttt{argument}\\
+  \end{tabular}\\[1.5ex]
+  This variable is used to select alternative formats for the output figures.
+  By default figures will be postscript files, but figures on PNG format are also available.
+  The variable \texttt{figureFormat} takes \texttt{ps} or \texttt{png} as possible values for \texttt{argument}.
+\end{itemize}
+
+\subsubsection{\texttt{ByoDyn} Model Files}
+\paragraph{SBML files}
+This is the preferred input format for the models subject to analysis by \texttt{ByoDyn}.
+For further information please check \\\url{http://sbml.org/index.psp}.
+\subparagraph{SBML Compatibility}
+Our intention is that \texttt{ByoDyn} would be compatible with any valid SBML\citep{hucka03} file.
+Currently we are testing against the eleventh release of the BioModels Database
+\citep{lenovere06}. Previously, we have tested against the ninth release, where 149 of 150 models was simulated correctly.
+The results have been published in the BioUML home page where a table shows the comparison of different SBML simulators (\url{http://www.biouml.org/biomodels.shtml}).
+The detailed results are also published at \url{http://www.sys-bio.org/}, in the comparison section \url{http://sys-bio.org/fbergman/compare/}.
+We also include in Table \ref{sbmlCompatibilityTable} information about the supported SBML features, indicating which is the most suitable \texttt{ByoDyn} integration option:
+\begin{landscape}
+  \begin{table}
+    \begin{tabular}{c||ccccccc}
+      &\multicolumn{7}{c}{\texttt{SBML} feature}\\
+      \hline
+      Simulation Engine&Rate Rules&Assignment Rules&Algebraic Rules&Events&Events with Delays&Delay&Function Definition\\
+      \hline
+      \hline
+      \texttt{SciPy}&\tick&\cross&\cross&\cross&\cross&\cross&\tick\\
+      \texttt{Octave}&\tick&\tick&\tick&\cross&\cross&\cross&\tick\\
+      \texttt{Open Modelica}&\tick&\tick&\tick&\tick&\tick&\cross&\tick\\
+      \texttt{XPPAUT}&\tick&\tick&\cross&\cross&\cross&\tick&\tick\\
+    \end{tabular}
+    \caption{\footnotesize
+      \texttt{SBML} features compatible with \texttt{ByoDyn}.
+      \label{sbmlCompatibilityTable}}
+  \end{table}
+\end{landscape}
+\paragraph{Tag Format Files}
+This is a home made format.
+Using this format we can specify multicellular systems although the systems will be restricted to static 2D matrices.
+Each cell will host the same biochemical topology and will eventually interact with 8 neighbour cells.
+The format of specifying the model is here outlined.
+First, commented lines start by \emph{\#} and will not be read.
+Similarly to the \texttt{ByoDyn} option file described in section \ref{optionFile} we will specify each feature line by line using the name of the variable and the value of the variable separated by tabular.\\[1.5ex]
+\begin{tabular}{cccc}
+  \texttt{variableName}&\texttt{variableValue1}&\texttt{variableValue2}&...
+\end{tabular}\\[1.5ex]
+Nowadays \texttt{ByoDyn} handles six variables to define a model:
+\begin{itemize}
+\item
+  \begin{tabular}{cc}
+    \texttt{systemName}&\texttt{argument}
+  \end{tabular}\\[1.5ex]
+  where \texttt{argument} will be the name of model.
+\item
+  \begin{tabular}{cc}
+    \texttt{xlength}&\texttt{argument}
+  \end{tabular}\\[1.5ex]
+  where \texttt{argument} will be an integer specifying the cellular length of the system. 
+\item
+  \begin{tabular}{cc}
+    \texttt{ywidth}&\texttt{argument}
+  \end{tabular}\\[1.5ex]
+  where \texttt{argument} will be an integer specifying the cellular width of the system. 
+\item
+  \begin{tabular}{cccc}
+    \texttt{nodes}&\texttt{argument1}&\texttt{argument2}&\texttt{...}
+  \end{tabular}\\[1.5ex]
+  where arguments are the names of nodes of the biochemical system.
+\item
+  \begin{tabular}{ccccc}
+    \texttt{topology}&\texttt{topologyType}&\texttt{constant1}&\texttt{constant2}&\texttt{...}
+  \end{tabular}
+  \begin{itemize}
+  \item
+    \texttt{topology} tag is used to specify the biochemical relationships among nodes.
+  \item
+    \texttt{topologyType}, the first argument, has the following structure:\\[1.5ex]
+    \texttt{affectedNode/reactionType/affectingNode1/affectingNode2/...}\\[1.5ex]
+    \begin{itemize}
+    \item
+      \texttt{affectedNode} is the biochemical node affected by the interaction.
+      In the chemical reaction it represents a product, in the other hand, in the system of differential equations, \texttt{affectedNode}, will be at the left hand side of the equations.
+    \item
+      \texttt{reactionType} refers to a tag which specifies the biochemical nature of the interaction.
+      Please check section \ref{affectors} for full explanations about the available possibilities.
+    \item
+      \texttt{affectingNode1}, \texttt{affectingNode2}, ... are the nodes affecting the rate of change of \texttt{affectedNode}.
+      The number of nodes is specific of each \texttt{reactionType}, please have look to the specific one at section \ref{affectors}.
+      At any case, the affecting nodes are understood as reactants in the chemical reaction and the terms representing them will be placed at the right hand side of the equations.
+    \end{itemize}
+    Keep in mind that any of the affected or affecting nodes had to be defined at the \texttt{nodes} variable.
+  \item
+    The following arguments, \texttt{constant1}, \texttt{constant2} ... refer to the reaction constants of \texttt{reactionType}.
+    The number of arguments varies depending on the affector, please check section \ref{affectors} for more information.
+    At any case the general structure of the constants will be the following:\\[1.5ex]
+    \texttt{constantName/value}
+    \begin{itemize}
+    \item
+      \texttt{constantName} the name of the constant. 
+      Please use any alphanumeric Al combination, specially, avoid using points (``.'').
+    \item
+      \texttt{value} a floating value of the defined constant.
+    \end{itemize}
+  \end{itemize}
+\item
+  \begin{tabular}{ccccc}
+    \texttt{initialCondition}&\texttt{node}&\texttt{argument1}&\texttt{argument2}&\texttt{...}
+  \end{tabular}
+  \begin{itemize}
+  \item \texttt{initialCondition} is the tag to specify the initial conditions of the system.
+  \item \texttt{node} defines any of the nodes of the system defined in the variable \texttt{nodes}.
+  \item Then with \texttt{argument1}, \texttt{argument2}, ... we specify for each cell of the system the initial concentration of node \texttt{node} with the following syntax:\\[1.5ex]
+    \texttt{posX,posY/value}
+    \begin{itemize}
+    \item \texttt{posX,posY} defines the position of a given cell. 
+      In the case of a unicellular system, the position will be specified as \texttt{0,0}.
+    \item \texttt{value} is a floating number defining the value of the initial concentration of the particular node in the specified cell.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+\subparagraph{Affectors} \label{affectors}
+Affectors are a family of tags of common biochemical processes that encode a mathematical term on the differential equation affecting the rate of change of a specific node.
+We mainly discriminate between dimensional and non-dimensional affectors. 
+Dimensional affectors are general mathematical terms for the determination of dynamics of specific biological phenomena.
+On the other hand, non-dimensional affectors are mathematical terms derived from the adimensionalisation of the model described in \cite{garciadelomana08}, related to lateral inhibition during pattern formation. 
+For the general dimensional terms, here we describe the currently available ones:
+\begin{itemize}
+\item \texttt{complexExtraBack}: 
+  This affector defines the rate of change of a ligand and a receptor when forming a complex on the extracellular matrix.
+  The complex rate of change will be defined by the affector \texttt{complexExtraFwd}.
+  The ligand and the receptor sit on different cells.
+  The syntax of the \texttt{topologyType} is the following:\\[1.5ex]
+  \texttt{node/complexExtraBack/receptorNode/ligandNode}\\[1.5ex]
+  Furthermore it requires a single constant, the binding constant.
+  The mathematical term added to the differential equations are two, one to the ligand ($l$) the other to the receptor ($r$):
+  \begin{equation}
+    \frac{\mathrm{d}[r]_i}{\mathrm{d}t} = - 1/64\;k^{binding}_{r-l}[r]_i \sum_{j = 1}^{j = k} [l]_j
+  \end{equation}
+  \begin{equation}
+    \frac{\mathrm{d}[l]_i}{\mathrm{d}t} = - 1/64\; k^{binding}_{r-l}[l]_i \sum_{j = 1}^{j = k} [r]_j
+  \end{equation}
+  Just note that $1/64$ comes from the understanding that each cell interacts with its $k=8$ neighbours.
+  Therefore, if we assume that membrane proteins distribute homogeneously along the cell surface, $1/8$ of the total amount of a particular membrane protein at each cell will interact with $1/8$ of the total amount of the interacting protein for each of the $k$ neighbour cells.
+\item \texttt{complexExtraFwd}: 
+  This affector defines the rate of change of the complex when ligand and receptor sit on different cells.
+  The ligand and receptor rate of change will be defined by the affector \texttt{complexExtraBack}.
+  The syntax of the \texttt{topologyType} is the following:\\[1.5ex]
+  \texttt{complexNode/complexExtraFwd/receptorNode/ligandNode}\\[1.5ex]
+  It also requires additionally a single constant, the binding constant.
+  The mathematical term added to the differential equation of the rate of change of the complex ($c$) is the following ($r$ and $l$ refers to receptor and ligand respectively):
+  \begin{equation}
+    \frac{\mathrm{d}[c]_i}{\mathrm{d}t} = +  1/64\; k^{binding}_{r-l}[r]_i\sum_{j = 1}^{j = k}[l]_j
+  \end{equation}
+  Again note that the $1/64$ comes from the fact that each cell interacts with its $k=8$ neighbours and the assumption that membrane proteins distribute homogeneously along the cell surface.
+\item \texttt{constant}: 
+  This affector defines the rate of change of a constant node ($n$), then the mathematical term added to the differential equation will be simply zero:
+  \begin{equation}
+    \frac{\mathrm{d}[n]_i}{\mathrm{d}t} = + 0
+  \end{equation}
+  The syntax of the \texttt{topologyType} is the following:\\[1.5ex]
+  \texttt{node/constant}\\[1.5ex]
+  No further constants are required.
+\item \texttt{constitutive}: 
+  This affector defines the rate of change of a node expressed constitutively.
+  The syntax of the \texttt{topologyType} is the following:\\[1.5ex]
+  \texttt{node/constitutive}\\[1.5ex]
+  A further single \texttt{constant1} field is required. 
+  The constant ($r$) must take any positive value: $r>0$.
+  The mathematical term added to the differential equation of the node ($n$) will be:
+  \begin{equation}
+    \frac{\mathrm{d}[n]_i}{\mathrm{d}t} = + r
+  \end{equation}
+\item \texttt{degradation}: 
+  This affector defines the rate of change of a node due to degradation.
+  The syntax of the \texttt{topologyType} is the following:\\[1.5ex]
+  \texttt{node/degradation/node}\\[1.5ex]
+  An additional degradation constant is required.
+  The mathematical term added to the degradating node ($n$) will be:
+  \begin{equation}
+    \frac{\mathrm{d}[n]_i}{\mathrm{d}t} = - k^{degradation}[n]_i
+  \end{equation}
+\item \texttt{dissociationExtraBack}: 
+  This affector defines the rate of change of a complex due to dissociation of the receptor and ligand.
+  In this case the complex is formed extracellularly, belonging the ligand and the receptor to different cells.
+  The rate of change of the two nodes resulting from the dissociation will be defined by \texttt{dissociationExtraFwd}.
+  An additional dissociation constant is required.
+  The syntax used for the \texttt{topologyType} of \texttt{dissociationExtraBack} is:\\[1.5ex]
+  \begin{footnotesize}
+    \texttt{complexNode/dissociationExtraBack/resultingDissociationReceptor/resultingDissociationLigand}
+  \end{footnotesize}\\[1.5ex]
+  Note that \texttt{resultingDissociationReceptor} and \texttt{resultingDissociationLigand} are not necessarily the nodes \texttt{receptorNode} and the \texttt{ligandNode} respectively from \texttt{topologyType} \texttt{complexExtraBack} or \texttt{complexExtraFwd}.
+  After the complex dissociation two new nodes may arise.
+  Finally, the mathematical term added to the differential equation of the complex ($c$) will be:
+  \begin{equation}
+    \frac{\mathrm{d}[c]_i}{\mathrm{d}t} = - k^{dissociation}_c \sum_{j = 1}^{j = k} \frac{1}{8}[c]_i
+  \end{equation}
+  We assume that the membrane complex is distributed homogeneously along the cell surface and that $k=8$ neighbours are in contact of each cell.
+  Using the above formula we take into consideration boundary effects.
+\item \texttt{dissociationExtraFwd}: 
+  This affector defines the rate of change of the two nodes resulting from the dissociation of a complex formed from membrane proteins of two different cells.
+  On the other hand the rate of change of the complex due to its dissociation will be defined by \texttt{dissociationExtraBack}.
+  The syntax of the \texttt{topologyType} of \texttt{dissociationExtraFwd} will be:\\[1.5ex]
+  \begin{tiny}
+    \texttt{resultingDissociationReceptor/dissociationExtraFwd/resultingDissociationReceptor/resultingDissociationLigand/complexNode}
+  \end{tiny}
+  or\\
+  \begin{tiny}
+    \texttt{resultingDissociationLigand/dissociationExtraFwd/resultingDissociationReceptor/resultingDissociationLigand/complexNode}
+  \end{tiny}\\[1.5ex]
+  for the resulting nodes respectively, depending on if they come from the ligand or the receptor nodes forming the complex.
+  Also, an additional dissociation constant is required.
+  The mathematical terms affecting the new nodes are:
+  \begin{equation}
+    \frac{\mathrm{d}[r']_i}{\mathrm{d}t} = + k^{dissociation}_{c} \sum_{j = 1}^{j = k}\frac{1}{8}[c]_i
+  \end{equation}
+  \begin{equation}
+    \frac{\mathrm{d}[l']_i}{\mathrm{d}t} = + k^{dissociation}_{c}\sum_{j = 1}^{j = k}\frac{1}{8}[c]_j
+  \end{equation}
+  where $c$ is the complex and $r'$ and $l'$ are the receptor and ligand derived new nodes respectively.
+  $k$ is the number of neighbour cells of cell $i$.
+\item \texttt{inhibition}: 
+  This affector defines the rate of change of a node due to its inhibition by another one.
+  The syntax of the \texttt{topologyType} will be:\\[1.5ex]
+  \texttt{inhibitedNode/inhibition/inhibitor}\\[1.5ex]
+  Further three constants should be added, a basal rate, an inhibition constant and a cooperativity coefficient.
+  The mathematical term added to the differential equation of the inhibited node ($n$) is:
+  \begin{equation}
+    \frac{\mathrm{d}[n]_i}{\mathrm{d}t} = + \frac{k^{basal}}{1 + ([I]_i/k_{inhibition})^s}
+  \end{equation}
+  being $k^{basal}$ a basal expression rate, $k_{inhibition}$ the inhibition constant, $s$ the cooperativity coefficient and $I$ the inhibitor.
+\item \texttt{transcription}:
+  This affector defines the rate of change of a mRNA ($m$) due to transcription from a given transcription factor ($TF$).
+  The syntax for the \texttt{topologyType} is the following:\\[1.5ex]
+  \texttt{transcriptNode/transcription/transcriptionFactor}\\[1.5ex]
+  Further three constants are required, the $V_{max}$, the $K_M$ and a cooperativity coefficient ($s$).
+  The mathematical term added to the differential equation of the transcript node ($m$) is the following:
+  \begin{equation}
+    \frac{\mathrm{d}[m]_i}{\mathrm{d}t} = +\frac{V_{max}[TF]_i^s}{K_M^s + [TF]_i^s}
+  \end{equation}
+\item \texttt{translation}: 
+  This affector defines the rate of expression of a protein ($p$) due to its translation from a transcript ($m$).
+  The syntax for the \texttt{topologyType} is:\\[1.5ex]
+  \texttt{proteinNode/translation/transcriptNode}\\[1.5ex]
+  A further constant, the translation rate, is required.
+  The mathematical term added to the differential equation of node $p$ will be:
+  \begin{equation}
+    \frac{\mathrm{d}[p]_i}{\mathrm{d}t} = + k^{translationRate}  [m]_i
+  \end{equation}
+\end{itemize}
+On the other hand other affectors are available, which were used for the models described in \cite{garciadelomana08}.
+For the adimensionalisation of the terms we have assumed $t=T_0\;\tau$ and $[x]_i=[x]_0\;x_i(\tau)$:
+\begin{itemize}
+\item \texttt{NonDimConstitutiveDegradation}:
+  This affector defines a constitutive expression and degradation for a given node ($n$).
+  The syntax for the \texttt{topologyType} is:\\[1.5ex]
+  \texttt{node/NonDimConstitutiveDegradation/node}\\[1.5ex]
+  Two further constants are required, the constitutive expression constant ($r_{\mathrm{n}}$) and the degradation constant ($K_{\mathrm{deg}}^{\mathrm{n}}$).
+  The mathematical term added to the differential equations is the following:
+  \begin{equation}
+    \frac{\partial n_i}{\partial \tau} = T_0\;K_{\mathrm{deg}}^{\mathrm{n}}\;\left(r_{\mathrm{node}}-node_{i}(\tau)\right)
+  \end{equation}
+\item \texttt{NonDimTranslationDegradationBinding}:
+  This affector defines the rate of change of a binding membrane protein ($p$).
+  The concentration is affected by the strength of translation from a gene product $g$, the amount of complex ($c$) formation (\emph{binding}) and the degradation of the protein.
+  The syntax for the \texttt{topologyType} is:\\[1.5ex]
+  \texttt{translatedProtein/NonDimTranslationDegradationBinding/geneTranscript/ligand}\\[1.5ex]
+  Three additional constants are required, in order:
+  $K_{\mathrm{deg}}^{\mathrm{p}}$ as degradation constant for the protein, $K_{\mathrm{bind}}^{\mathrm{p}}$ as binding constant with the ligand and finally a characteristic concentration, $[l]_0$ which refers to the ligand $l$.
+  The mathematical term added to the differential equations would be:
+  \begin{eqnarray}
+    \frac{\partial p_i}{\partial\tau} \nonumber & = & T_0\;K_{\mathrm{deg}}^{\mathrm{p}}\;\left(g_{i}(\tau)-p_{i}(\tau)\right) \\
+    &  & -\frac{k}{n^2}\;K_{\mathrm{bind}}^{\mathrm{c}}\;[l]_0\;p_{i}(\tau)\;\sum_{j=1}^{k}l_{j}(\tau) 
+  \end{eqnarray}
+  where $n$ defines the number of possible neighbouring cells, 8 in our case, and $k$ refers to the actual number of neighbour cells of cell $i$.
+\item \texttt{NonDimInhibitionDegradation}:
+  This affector defines the rate of change of a gene transcript ($g$) whose transcription is regulated by an inhibitor ($I$).
+  The syntax for the \texttt{topologyType} is:\\[1.5ex]
+  \texttt{geneTranscript/NonDimInhibitionDegradation/inhibitor}\\[1.5ex]
+  Three additional constants are required.
+  $K_{\mathrm{deg}}^{\mathrm{g}}$, the degradation rate of $g$, $\kappa_{\mathrm{I}}$ which indicates the inhibitor concentration at which the gene transcript is expressed at half of the maximal concentration and $s$ which is a cooperative coefficient of the regulation.
+  The mathematical term added to the differential equations is the following:
+  \begin{equation}
+    \frac{\partial g_i}{\partial \tau} = T_0\;K_{\mathrm{deg}}^{\mathrm{g}}\;\left(1-\frac{I_{i}^{s}(\tau)}{\kappa_{\mathrm{I}}+I_{i}^{s}(\tau)}-g_{i}(\tau)\right)
+  \end{equation}
+\item \texttt{NonDimBindingDegradation}:
+  This affector defines the rate of change of a membrane complex ($C$).
+  The biological phenomena affecting the concentration of $C$ would be complex formation or binding from a receptor $R$ and a ligand $L$ and degradation.
+  The syntax for the \texttt{topologyType} is:\\[1.5ex]
+  \texttt{complex/NonDimBindingDegradation/receptor/ligand}\\[1.5ex]
+  Three additional constants are required.
+  $K_{\mathrm{deg}}^{\mathrm{C}}$, the degradation rate of $C$, $K_{\mathrm{bind}}^{\mathrm{p}}$ as binding constant with the ligand and finally a characteristic concentration, $[L]_0$ which refers to the ligand.
+  The mathematical term added to the differential equations is the following:
+  \begin{equation}
+    \frac{\partial C_i}{\partial \tau} = T_0\;\left(\frac{k}{n^2}\;K_{\mathrm{bind}}^{\mathrm{C}}\;[L]_0\;R_{i}(\tau)\;\sum_{j=1}^{k}L_{j}(\tau)-K_{\mathrm{deg}}^{\mathrm{C}}\;C_{i}(\tau)\right)\\
+  \end{equation}
+  where again $k$ and $n$ refer respectively to the actual and possible number of neighbour cells.
+\item \texttt{NonDimTranscriptionDegradation}:
+  This affector refers to the rate of change of a gene transcript $g$ which is positively regulated by an activator $A$ and finally it is also subjected to degradation.
+  The syntax for the \texttt{topologyType} is:\\[1.5ex]
+  \texttt{geneTranscript/NonDimTranscriptionDegradation/Activator}\\[1.5ex]
+  Three additional constants are required.
+  $K_{\mathrm{deg}}^{\mathrm{g}}$, the degradation rate of $g$, $\kappa_{\mathrm{A}}$ which indicates the activator concentration at which the gene transcript is expressed at half of the maximal concentration and $s$ which is a cooperative coefficient of the regulation.
+  The mathematical term added to the differential equations is the following:
+  \begin{equation}
+    \frac{\partial g_i}{\partial \tau} = T_0\;K_{\mathrm{deg}}^{\mathrm{g}}\;\left(\frac{A_{i}^{s}(\tau)}{\kappa_{\mathrm{A}}+A_{i}^{s}(\tau)}-g_{i}(\tau)\right)
+  \end{equation}
+\item \texttt{NonDimTranslationDegradation}:
+  This affector refers to the rate of change of a protein $p$ which is translated from a gene transcript $g$ and degradated.
+  The syntax for the \texttt{topologyType} is:\\[1.5ex]
+  \texttt{protein/NonDimTranslationDegradation/geneTranscript}\\[1.5ex]
+  Only the degradation constant is required, $K_{\mathrm{deg}}^{\mathrm{p}}$.
+  The mathematical term added to the differential equations is the following:
+  \begin{equation}
+    \frac{\partial p_i}{\partial \tau} = T_0\;K_{\mathrm{deg}}^{\mathrm{p}}\;\left(g_{i}(\tau)-p_{i}(\tau)\right)
+  \end{equation}
+\end{itemize}
+\subsection{\texttt{ByoDyn} Functionalities}\label{functionalities} 
+Different types of analysis can be performed using \texttt{ByoDyn}.
+Directing the flow of the program to a specific task is defined in the \texttt{ByoDyn} option file, mainly with the \texttt{runningType} argument.
+Possible values for \texttt{runningType} are \texttt{exporting}, \texttt{simulation}, \texttt{parameterEstimation}, \texttt{calculateFunction}, \texttt{dynamicsReconstruction}, \texttt{scoreSurface}, \texttt{sensitivityAnalysis}, \texttt{identifiabilityAnalysis} or \texttt{optimalExperimentalDesign}. 
+\subsubsection{Exporting}
+Instead of changing the parameter value of a given model using other methods, you can modify the SBML model using the exporting option of \texttt{ByoDyn}.
+\paragraph{Specific Option File Arguments}
+Just in this special case only four variables are required in the runner file:
+\begin{itemize}
+\item \texttt{modelFile} and \texttt{modelFormat} as described on Section \ref{optionFile}.
+\item \begin{tabular}{cc}\texttt{runningType}&\texttt{exporting}\end{tabular}\\[1.5ex]
+  Only one argument, \texttt{exporting}, is required.
+\item \texttt{parameter} as described in Section \ref{oofa} used to specify the model new parameter values.
+\end{itemize}
+\paragraph{Specific Outputs}
+Again, in this special case, only a new SBML file will be created on the \texttt{output} directory.
+The file will maintain the \texttt{.xml} extension and the name will be taken from the model name defined on the original SBML file.
+\texttt{scratch} directory will be empty.
+\subsubsection{Deterministic Simulation} \label{simulation}
+Simulation of a model consists on the numerical integration of the system of differential equations.
+\paragraph{Specific Option File Arguments} \label{simulationFileArguments}
+Two necessary arguments need to be added to the option file to run a simulation:
+\begin{itemize}
+\item \begin{tabular}{ccc}\texttt{runningType}&\texttt{argument1}&\texttt{argument2}\end{tabular}\\[1.5ex]
+  Two values for the variable \texttt{runningType} need to be defined. 
+  The first one, \texttt{argument1}, will be \texttt{simulation}.
+  The second one, \texttt{argument2} will be either \texttt{velocity} or \texttt{noVelocity} whether if you want or not to analyse not only the integration of the system of differential equations but also the rate of change of the nodes' concentration along time.
+\item \begin{tabular}{ccc}\texttt{time\&timestep}&\texttt{argument1}&\texttt{argument2}\end{tabular}\\[1.5ex]
+  Here again two values for the variable \texttt{time\&timestep} are required.
+  \texttt{argument1} will be a float defining the total time of the simulation and \texttt{argument2} another float defining the time step.
+\end{itemize}
+Furthermore, other non-required options can be set:
+\begin{itemize}
+\item \begin{tabular}{cc}\texttt{plotKeys}&\texttt{argument}\end{tabular}\\[1.5ex]
+  When models hold many nodes, trajectories graphs may be overwhelmed by nodes' names. 
+  \texttt{argument} can be set to \texttt{YES} or \texttt{NO} to plot or hide nodes' names.
+  If the argument \texttt{plotKeys} is not specified, by default nodes' names are included in graphs.
+\item \begin{tabular}{cc}\texttt{optionalOutputFormat}&\texttt{csv}\end{tabular}\\[1.5ex]
+This is an option referring to the format of the simulation output data.
+The values of the trajectories are stored by default in a text file (See \ref{specificOutputSimulation}) separated by tabular.
+If the user wants to save the data in a comma separated value format, this option should be used for an additional text file on the requested format.
+\item \begin{tabular}{c}\texttt{withoutGraphics}\end{tabular}\\[1.5ex]
+For faster integration, the system of equations is solved but the plots are not created, saving a great amount of time if necessary.
+This optional \texttt{tagName} does not require further arguments.
+\item \begin{tabular}{c}\texttt{separatedGraphs}\end{tabular}\\[1.5ex]
+  For the unicellular models instead of plotting all the nodes in the same figure, sometimes, specially for models with large number of nodes and/or which different scales, it is much more convinient to see the trajectory of each node independently from the others.
+  For that purpose, set the option \texttt{separatedGraphs} and instead of a figure, the user will find a directory called \texttt{separatedGraphs} within the output directory with a file for the trajectory of each node separately.
+  Files will be named as nodes' names with \texttt{.ps} extension.
+  If the argument \texttt{velocity} (see \ref{simulationFileArguments}) was set, a new directoy called \texttt{velocity} within \texttt{separatedGraphs} will be created containing the same type of graphs but referred to the rate of change of the nodes' concentration along time.
+\end{itemize}
+\paragraph{Specific Outputs} \label{specificOutputSimulation}
+Inside the output directory (See \ref{byodynOutput}) we will find the following files common to any simulation:
+\begin{itemize}
+\item \textit{modelName}\texttt{.description.txt}:
+  A short description of the input model. 
+  We state the name of the model, the number of nodes, the number of constant species and the number of constant and non-constant parameters.
+\item \textit{modelName}\texttt{.N.out}: 
+  This \texttt{.out} is a file with the concentration of each node (in columns) along time (first column).
+  \texttt{N} refers to the processor rank that produced the data. 
+  If the calculation was done single thread, \texttt{N} will be 0.
+  If the runner option \\[1.5ex]
+  \begin{tabular}{cc}\texttt{optionalOutputFormat}&\texttt{csv}\end{tabular}\\[1.5ex]
+  has been set, another file called \textit{modelName}\texttt{.N.csv} will also appear equivalent to \textit{modelName}\texttt{.N.out} but in comma separated value format.
+\item \textit{modelName}\texttt{.ps}: 
+  is equivalent from the \texttt{.out} file but represented as a graph.
+\item \textit{modelName}\texttt{.tex}: 
+  it is a file with the topology of the system in latex format. 
+  Just use the program \texttt{pdflatex} to obtain the formulae in pdf format.
+  This file contains in separated sections the kinetic laws and ODEs built in function of the kinetic laws.
+  Furthemore, if the sbml file has got user defined functions, events or rules, it contains also sections for this equations.   
+
+\item \texttt{scratch} directory: 
+  this is a directory that contains necessary files for \texttt{ByoDyn} but of secondary interest for the user.
+  Depending on the engine use to simulate the model different files will appear.
+\end{itemize}
+\paragraph{Simulation Engines}
+There are four simulation engines available. The user can choose his prefered
+integrator depending of model features, in the case of SBML look table
+\ref{sbmlCompatibilityTable}, and the software installed. On other hand, if the user prefer that ByoDyn choose the integration method, he could use the argument
+\texttt{automatic} as section \ref{oofa} explains. Here, we describe the
+specific syntax to call the different engines available.
+\subparagraph{\texttt{SciPy}}
+The syntax of the option \texttt{integrationMethod} should be specified as follows:\\[1.5ex]
+\begin{tabular}{ccc}\texttt{integrationMethod}&\texttt{python}&\texttt{default}\end{tabular}\\[1.5ex]
+As described in \ref{optionFile}, \texttt{SciPy} allows for other integration methods additional to \texttt{default} that are \texttt{adams}, \texttt{non-stiff}, \texttt{bdf} and \texttt{stiff}. 
+
+On the \texttt{scratch} directory  we could find the following files:
+\begin{itemize}
+\item \textit{modelName}\texttt{.N.integ.py}:
+  This is a Python script that contain the system of equations and the integration options.
+  It creates the solution of the trajectories in \textit{modelName}\texttt{.N.out} at the \texttt{output} directory.
+\item \textit{modelName}\texttt{.gnu}:
+  This is a Gnuplot script that contains the commands necessary to create the graph of the trajectories, \textit{modelName}\texttt{.ps}, in the output directory.
+\end{itemize}
+
+Additionally, only with the \texttt{SciPy} option, if the second argument of \texttt{runningType}, is set to \texttt{velocity}\\[1.5ex]
+\begin{tabular}{ccc}\texttt{runningType}&\texttt{simulation}&\texttt{velocity}\end{tabular}\\[1.5ex]
+the calculation of the velocity of change of the concentration is computed.
+Two additional files will appear at the output directory:
+\begin{itemize}
+\item \textit{modelName}\texttt{.N.veloc.out}:
+  This is a file of the same format of \textit{modelName}\texttt{.N.out} but referring to the velocity of change of the concentrations for each node.
+\item \textit{modelName}\texttt{.veloc.ps}:
+  This is a graphical file showing the trajectories of the velocities of the change in concentration.
+\end{itemize}
+Equivalent to \textit{modelName}\texttt{.gnu}, a file named \textit{modelName}\texttt{.veloc.gnu} will also appear in the \texttt{scratch} directory.
+\subparagraph{\texttt{Octave}}
+The syntax of the option \texttt{integrationMethod} should be specified as follows:\\[1.5ex]
+\begin{tabular}{ccc}\texttt{integrationMethod}&\texttt{octave}&\texttt{default}\end{tabular}\\[1.5ex]
+As described in \ref{optionFile}, \texttt{Octave} allows for other integration methods additional to \texttt{default} that are \texttt{adams}, \texttt{non-stiff}, \texttt{bdf} and \texttt{stiff}.
+On the \texttt{scratch} directory  we could find the following files:
+\begin{itemize}
+\item \textit{modelName}\texttt{.N.oc}:
+  This is a Octave script that contain the system of equations and the integration options.
+  It creates the solution of the trajectories in \textit{modelName}\texttt{.N.data} at the \texttt{scratch} directory.
+  Together with \textit{modelName}\texttt{.N.time}, these files will be joined to create the file \textit{modelName}\texttt{.N.out} at the \texttt{output} directory.
+\item \textit{modelName}\texttt{.gnu}:
+  This is a Gnuplot script that contains the commands necessary to create the graph of the trajectories, \textit{modelName}\texttt{.ps}, in the output directory.
+\end{itemize}
+\subparagraph{\texttt{Open Modelica}}
+The syntax of the option \texttt{integrationMethod} should be specified as follows:\\[1.5ex]
+\begin{tabular}{ccc}\texttt{integrationMethod}&\texttt{openModelica}&\texttt{default}\end{tabular}\\[1.5ex]
+Some specific files produced during the model integration using \texttt{Open Modelica} will appear at the \texttt{scratch} directory:
+\begin{itemize}
+  \item \textit{modelName}\texttt{.mo}:
+    This file contains the topology of the model in \texttt{Open Modelica} syntax.
+  \item \textit{modelName}\texttt{.mos}:
+    This file contains the \texttt{Open Modelica} commands for the simulation.
+  \item \textit{modelName}\texttt{.cpp}:
+    \texttt{Open Modelica} generates \texttt{C++} code from the above commands.
+  \item \textit{modelName}\texttt{.makefile}:
+    A \texttt{makefile} from \texttt{Open Modelica} is generated to compile the \texttt{C++} sources.
+  \item \textit{modelName}\texttt{.exe}:
+    An executable is created as a result of the \texttt{makefile} compilation.
+  \item \textit{modelName}\texttt{.log}:
+    A log file resulting from the compilation is generated.
+  \item \textit{modelName}\texttt{.libs}:
+    A file defining possible additional libraries for the compilation of the \texttt{C++} code.
+  \item \textit{modelName}\texttt{\_functions.cpp}:
+    A file defining possible additional functions for the compilation of the \texttt{C++} code.
+  \item \textit{modelName}\texttt{\_init.txt}:
+    A text file generated by \texttt{Open Modelica} defining the initial value for the simulation terms.
+  \item \textit{modelName}\texttt{\_res.plt}:
+    A text file generated by \texttt{Open Modelica} with the values of the trajectories along time that will be plotted.    
+  \item \texttt{output.log}:  
+    A text file generated by \texttt{Open Modelica} with runtime information about the code transformation.
+\end{itemize}
+\subparagraph{\texttt{XPPAUT}}
+The syntax of the option \texttt{integrationMethod} should be specified as follows:\\[1.5ex]
+\begin{tabular}{ccc}\texttt{integrationMethod}&\texttt{xpp}&\texttt{default}\end{tabular}\\[1.5ex]
+Some specific files produced during the model integration using \texttt{XPPAUT} will appear at the \texttt{scratch} directory:
+\begin{itemize}
+  \item \textit{modelName}\texttt{.N.xpp}:
+    Commands for the simulation of the model using \texttt{XPPAUT} syntax.
+  \item \textit{modelName}\texttt{.XPP.log}:
+    Text file with the run time messages of \texttt{XPPAUT} given the \texttt{-silent} running option.
+  \item \textit{modelName}\texttt{.XPP.data}:
+    Text file produced by \texttt{XPPAUT} containing the results of the integration of the system.
+\end{itemize}
+\subparagraph{Others}
+Other engines have been implemented by ourselves based on known integration methods as Euler and Runge-Kutta.
+These engines are less tested than previously described and some options might not be available.
+We ask the users to report us any lack of compatibility to fix those issues.
+
+A specific option available while using these engines is a quick access to the trajectories plot directly from the terminal.
+If the optional \texttt{tagName} \texttt{showingPlot} is added to the runner file, once the simulation is done, a graphical window will open displaying the graph of the simulation. 
+This \texttt{tagName} does not require further arguments.
+
+The specific syntax to call these integration engines is:
+\begin{itemize}
+\item Euler: \\[1.5ex]
+  \begin{tabular}{ccc}\texttt{integrationMethod}&\texttt{euler}&\texttt{default}\end{tabular}
+\item Runge-Kutta:\\[1.5ex]
+  \begin{tabular}{ccc}\texttt{integrationMethod}&\texttt{rungeKutta}&\texttt{default}\end{tabular}
+\end{itemize}
+\subsubsection{Stochastic Simulation}
+Stochastic simulation of a model consists on the numerical exact or approximated realisation of an event as described by the associated Chemical Master Equation. 
+Exact Stochastic Simulation is carried on in \texttt{ByoDyn} by the \emph{Stochastic Simulation Algorithm (SSA)}. 
+Currently we have implemented the Gillespie algorithm.
+In addition, \texttt{ByoDyn} can generate approximated simulations by means of several explicit $\tau$--leaping techniques.
+\paragraph{Specific Option File Arguments} \label{simulationFileArguments}
+Five compulsory options must appear in the file to run a stochastic simulation: \texttt{modelFile}, \texttt{modelFormat} as for the rest of simulations. 
+However the three other fields are interpreted differently:
+\begin{itemize}
+\item \begin{tabular}{ccc}\texttt{runningType}&\texttt{argument1}&\texttt{argument2}\end{tabular}\\[1.5ex]
+  Two values for the variable \texttt{runningType} need to be defined. 
+  The first one, \texttt{argument1}, will be \texttt{simulation}.
+  The second one, \texttt{argument2} will always be \texttt{noVelocity}, \texttt{velocity} is not accepted from the stochastic simulators.
+\item \begin{tabular}{cccc}\texttt{stochasticMethod}&\texttt{argument1}&\texttt{argument2}&\texttt{argument3}\end{tabular}\\[1.5ex]
+  Three arguments for the variable \texttt{runningType} need to be defined. 
+  The first one, \texttt{argument1}, defines the stochastic method to be used, this can be \texttt{ssa} for the \emph{SSA} or \texttt{tau-leap} for the explicit one--stage $\tau$--leap method.
+  At the current version of \texttt{ByoDyn} only Guillespie method for \emph{SSA} and the regular one--stage $\tau$--leap method have been implemented. 
+  Therefore the values for the second argument should be \texttt{gillespie} or \texttt{default} for the \emph{SSA} or the $\tau$--leap methods respectively.
+  We are currently working on the implementation and development of new methods that will be provided in the next releases.
+  The last argument, \texttt{argument3}, is an integer specifying how many simulations must be run.
+\item \begin{tabular}{ccc}\texttt{time\&timestep}&\texttt{argument1}&\texttt{argument2}\end{tabular}\\[1.5ex]
+  Two values for the variable \texttt{time\&timestep} are required.
+  \texttt{argument1} will be a float defining the total time of the simulation.
+  However, the \texttt{argument2} contrary to deterministic simulations, it is not a float defining the time step. 
+  For the stochastic options, as there is no properly a time step, this argument defines the resolution at which points will be plotted.
+  For the specific case of Gillespie simulations, if it is set to zero, the exact times of every rections occuring will be provided.
+\end{itemize}
+
+Finally, some optional settings are:
+\begin{itemize}
+\item \texttt{onlyLastState}\\[1.5ex]
+  This option is used to store the species amounts only for the last step (once simulation time is surpassed). 
+  It is useful when analysing the stationary distribution of the system.
+  It can also be combined with the option \texttt{separatedGraphs} explained in Section \ref{simulationFileArguments}.
+\end{itemize}
+\paragraph{Specific Outputs}
+While in general the outuput for the stochastic simulations is the same as for the deterministic integrations, there are few differences worth noting:
+\begin{itemize}
+  \item \textit{modelName}\texttt{.N.stoch.M.out}:
+    When several stochastic runs are required, the trajectories of each \texttt{M} simulation is stored at the file named \textit{modelName}\texttt{.N.stoch.M.out}. 
+    \texttt{N}, as described in Section \ref{specificOutputSimulation}, refers to the processor number.
+    In the case the variable \texttt{onlyLastState} is used, only the value for each species at the end of the simulation is stored.
+  \item \textit{modelName}\texttt{.ps}:
+    For the stochastic simulations, trajectories are shown in two differnt ways. 
+    For the case of the Gillespie method, if the second argument of \texttt{time\&timestep} is set to zero, all different trajectories are plotted in the same figure.
+    However, if the second argument of \texttt{time\&timestep} is positive, the mean with its corresponding standard deviation is plotted at each printing step.
+    That is true for both the graphs containing all nodes' trajectories and for those produced using the variable \texttt{separatedVariables} where each node is plotted separately.
+    Finally, if the variable \texttt{onlyLastState} is used, instead of the trajectories, the histograms for the number of particles for each species at the last step of the simulation is shown.
+    Again, the separated histograms for each species will be build if the variable \texttt{separatedGraphs} is used.
+\end{itemize}
+\subsubsection{Optimisation} \label{optimisationSection}
+In the case we have some knowledge about the temporal values of the concentration of the node we would like to calibrate the model in order to reproduce the experimental behaviour.
+For model calibration, an inverse problem, we define a fitness function, which is the distance between the experimental input and the model simulation.
+Therefore, using minimization algorithms, we will modify the model parameters ($\bm{\theta}$) to make this function as lower as possible.
+At this point, the new parameter values will reproduce the experimental target.
+
+Specifically, the fitness function is defined as:
+\begin{equation} \label{fitnessFunction}
+  F(\mathbf{\bm{\theta}}) = \frac{1}{L}\sum_{l=1}^{L}\frac{\left(\tilde{y_{l}} - y_{l}(\bm{\theta})\right)^2}{\sigma_{l}^2}
+\end{equation}
+where $L$ is the number of experimental points available, $\tilde{y_{l}}$ are the measured experimental values, $\sigma_{l}^2$ is the variance of the measurement and $y_{l}(\bm{\theta})$ are the simulated values for the experimental points.
+Note that the number of experimental points is not necessary the same for each node.
+
+We have different minimization methods to calibrate the models.
+These routines are quite expensive computationally and it is always a goal to find a good compromise between the time required and the quality of the solution withdrawn.
+
+The faster approach is a random search where no optimisation is done actually but simply random positions from the parameter space are chosen and the fitness function is evaluated.
+For the local search, a gradient-based algorithm is used to find a local minimum either from a random starting point or from a given position. 
+Genetic algorithms can also be used as global search methods.
+Finally we have combined last two approaches into two types of hybrid algorithms.
+Interestingly, best results are obtained from the hybrid approach (See Section \ref{hybridAlgorithm}), specifically the \emph{Hybrid One Phase}.
+\paragraph{Specific Option File Arguments} \label{fileArgumentsOptimisation}
+Several arguments on the runner file are compulsory for \texttt{ByoDyn} to run an optimisation.
+\begin{itemize}
+\item \begin{tabular}{ccc}\texttt{runningType}&\texttt{argument1}&\texttt{argument2}\end{tabular}\\[1.5ex]
+  The previously used variable \texttt{runningType} need to have two arguments, the first one will always be \texttt{parameterEstimation} and the second one will be used to select the minimization method we want to call. 
+  Possible arguments are: \texttt{randomSearch}, \texttt{localSearch}, \texttt{geneticAlgorithm}, \texttt{hybridTwoPhases}, \texttt{hybridOnePhase} or \texttt{parallelGA}\footnote{This option is a developer argument used for the use of \texttt{PGAPack} library which is under current development.}.
+  We explain them extensively in Section \ref{minimizationMethods}.
+\item \begin{tabular}{cccc}\texttt{parametersToVary}&\texttt{argument1}&\texttt{argument2 ...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+  The parameters of the model allowed to be changed to minimize the fitness function has to be defined except if the \texttt{timeArgument} for \texttt{target} is defined for zero.
+  Each of the arguments of \texttt{parametersToVary} will be a parameter of the model subject to change.
+  The syntax of each of the arguments is the following:\\[1.5ex]
+  \texttt{parameterName/lowerRangeValue/upperRangeValue/scale}\\[1.5ex]
+  \texttt{parameterName} should be substituted by the name of the model parameter that you want to calibrate.
+  An special mention requires local parameters on the \emph{KineticLaw} from SBML models. 
+  Because they are allowed to take different values at different \emph{KineticLaw}, we understand them as different parameters.
+  Therefore, \texttt{ByoDyn} adds to the name of the local parameter the reaction name in order to distinguish them. 
+  The best approach is to run a simulation and inspect the resulting file \textit{modelName}\texttt{.description.txt} to figure out the appropriate names of the parameters.
+  
+  \texttt{lowerRangeValue} and \texttt{upperRangeValue} should be substituted by the numerical values of the minimum and maximum values allowed respectively for the parameter to be explored.
+  The minimization routines will explore numerical values of the parameter within this region.
+
+  \texttt{scale} should be substituted either by \texttt{lin} or \texttt{log} to whether explore the parameter dimension in linear or logarithmic scale respectively.
+  We recommend to use logarithmic scale if the range is wider than one or two orders of magnitude.
+\item \begin{tabular}{ccccc}\texttt{target}&\texttt{timeArgument}&\texttt{argument1}&\texttt{argument2 ...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+  The experimental information has to be provided using the runner file argument \texttt{target}.
+  The first argument \texttt{timeArgument} should the the time point at which you target the value of the model nodes.
+  Separated by tabular the user has to specify the value of the nodes using additional arguments with the following syntax:\\[1.5ex]
+  \texttt{name/cellCoordinate/value/variance}\\[1.5ex]
+  \texttt{name} should be the name of the model node to target.
+  \texttt{cellCoordinate} is the index of the cell holding the node to target. 
+  For the case of a model of one cell, it should be \texttt{0,0}.
+  Each of the values represents the index of the two dimensions of the cellular matrix.
+  \texttt{value} should be replaced by the experimental value of the node at that time.
+  Finally, if the experimental measurement has a variance associated to it, it should be inserted in the \texttt{variance} field.
+  In the case that no variance is available, set this value to 1.
+\item \begin{tabular}{ccc}\texttt{stopper}&\texttt{argument1}&\texttt{argument2}\end{tabular}\\[1.5ex]
+  The minimization algorithm needs to be constrained by the user to stop at a certain point using the runner file argument of \texttt{stopper}.
+  Two variants are allowed, to stop the algorithm based on the number of iterations or the value of the fitness function:
+  \begin{itemize}
+    \item \textit{Iterations:}
+      Set \texttt{argument1} to \texttt{iteration} and \texttt{argument2} to an integer defining the number of iterations required.
+    \item \textit{Fitness Function Value:}
+      Set \texttt{argument1} to \texttt{score} and \texttt{argument2} to the value of the fitness function at which \texttt{ByoDyn} should stop.
+    \item \textit{Number of Simulations:}
+      Set \texttt{argument1} to \texttt{numberOfSimulations} and \texttt{argument2} to the maximum number of simulations allowed during the model calibration.
+      The number of function evaluations is measured at each step of the minimization methods, therefore, methods that involve multiple simulations for each step of the minimization routines as the genetic algorithm or the local search, it will be approximated by excess.
+      Same holds for the hybrid methods.
+  \end{itemize}
+\end{itemize}
+Other general arguments are possible for all minimization methods although they are not compulsory, they are optional arguments:
+\begin{itemize}
+\item \begin{tabular}{cccc}\texttt{parameter}&\texttt{argument1}&\texttt{argument2}&\texttt{...}\end{tabular}\\[1.5ex]
+  It can be used the same way as described in \ref{oofa} and it can be used to start the minimisation from an specific point on the parameter space.
+\end{itemize}
+\paragraph{Specific Ouputs} \label{specificOutputOptimisation}
+In the output directory of \texttt{ByoDyn} you will find the following files common to any optimisation:
+\begin{itemize}
+\item \textit{modelName}\texttt{.N.out}:
+  This file holds the the concentration of each node (in columns) along time (first column) equivalently to the one described in Section \ref{specificOutputSimulation}.
+  It refers to the last function evaluation from the minimization algorithm.
+\item \texttt{modelName} directory: 
+  This directory will contain the solutions from the model calibration. 
+  Depending on the algorithm used to calibrate the model, different files and directories will be found although the structure will be consistent. 
+  Please check Section \ref{minimizationMethods} for more detailed information.
+\item \texttt{scratch} directory:
+  This is a directory that contains necessary files for \texttt{ByoDyn} but of lower interest for the user.
+  Depending on the engine use to simulate the model and the minimization algorithm, different files will appear.
+\end{itemize}
+\paragraph{Minimization Methods} \label{minimizationMethods}
+Several methods are available for model calibration.
+\subparagraph{Random Search} \label{randomSearch}
+This is not an actual method of minimization but random points of the parameter space are chosen and the fitness function is evaluated.
+
+In order to direct the flow of the program to this function the user has to define the \texttt{runningType} as follows:\\[1.5ex]
+\begin{tabular}{ccc}\texttt{runningType}&\texttt{parameterEstimation}&\texttt{randomSearch}\end{tabular}\\[1.5ex]
+In the directory \texttt{modelName} two new structures can be found:
+\begin{itemize}
+  \item \textit{modelName}\texttt{.xml}: 
+    This file represents the best solution from the minimization in SBML format.
+  \item \texttt{parametersFromRandom} directory:
+    This directory contains a file for each of the parameters made free during the parameter estimation.
+    Each of the lines of the files represents a parameter space point that has been evaluated during the algorithm flow.
+    The structure of each of the files is the following:\\[1.5ex]
+    \begin{tabular}{cccc}\texttt{parameterValue}&\texttt{lowerRangeValue}&\texttt{upperRangeValue}&\texttt{fitnessFunctionValue}\end{tabular}
+\end{itemize}
+\subparagraph{Local Search} 
+It has been reported \citep{rodriguez-fernandez06} that one of the best gradient based methods to calibrate biochemical systems is \texttt{dn2fb} routine from \texttt{PORT} library.
+We have implemented a call to that library for that purpose.
+
+The user can access this functionality by setting the runner file argument \texttt{runningType} as follows:
+\begin{tabular}{ccc}\texttt{runningType}&\texttt{parameterEstimation}&\texttt{randomSearch}\end{tabular}\\[1.5ex]
+Specific outputs intrinsic from this type of run will be located in two places:
+\begin{itemize}
+\item \texttt{modelName} directory:
+  Apart from \textit{modelName}\texttt{.xml} and the directory \texttt{parametersFromRandom} another directory will appear \texttt{parametersFromLocalSearch}.
+  Again \textit{modelName}\texttt{.xml} will be an SBML file with the model parameters which gave the best match with the experimental data set and the directory \texttt{parametersFromRandom} will hold the files corresponding to the starting points of the optimisation (check \ref{randomSearch} for further information about the contents and structure of the directory).
+  \texttt{parametersFromLocalSearch} holds the same structure as \texttt{parametersFromRandom} but it contains the results of the local search.
+\item \texttt{scratch} directory:
+  In the case of the local search, the \texttt{scratch} directory is used to compile the Fortran routines and convert the Fortran code into python readable modules.
+  \begin{itemize}
+    \item \texttt{localSearch.f}:
+      This file is the Fortran source that calls \texttt{dn2fb} routine from \texttt{PORT} library.
+    \item \texttt{auxVar.dc}:
+      This text file contains the value of specific variables necessary for the Fortran routines that change depending on the model number of variables and parameters. 
+      It is imported by \texttt{localSearch.f}.
+    \item \texttt{makefile}:
+      This makefile compiles the Fortran sources and convert them into a python importable module.
+    \item \texttt{compilationMessages}:
+      This file collects the messages of the compilation.
+    \item \texttt{localSearch.so}:
+      Lastly this module is the result of the makefile which will be imported by \texttt{ByoDyn}.
+  \end{itemize}
+\end{itemize}
+\subparagraph{Genetic Algorithm} \label{ga}
+We have implemented a genetic algorithm based on \cite{goldberg89}. 
+This option arguments are sufficient to launch the genetic algorithm optimisation, however some algorithm tuning parameters can be modified using the following structure:\\[1.5ex]
+\begin{tabular}{cc}\texttt{gaOptions}&\texttt{tag/value}\end{tabular}
+\begin{itemize}
+\item Population size: 
+  \texttt{tag} should be substituted by \texttt{populationSize}.
+  \texttt{value} is set by default to 10 although any integer higher than three can be used.
+  In the case of odd numbers the population might be adjusted to the immediate lower even number.
+  At any case we suggest to set a population size larger than 3.
+\item Translocation rate:
+  \texttt{tag} should be substituted by \texttt{translocationRate}.
+  \texttt{value} is set by default to 0.8 although any value from 0 to 1 can be used.
+\item Mutation rate:
+  \texttt{tag} should be substituted by \texttt{mutationRate}.
+  \texttt{value} is set by default to 0.3 although any value from 0 to 1 can be used.
+\end{itemize}
+
+The user can access this functionality by setting the runner file argument \texttt{runningType} as follows:\\[1.5ex]
+\begin{tabular}{ccc}\texttt{runningType}&\texttt{parameterEstimation}&\texttt{geneticAlgorithm}\end{tabular}\\[1.5ex]
+Specific outputs intrinsic to this type of run will be located in two places within the output directory:
+\begin{itemize}
+\item \textit{modelName}\texttt{.st}: a file called \texttt{modelName.st} where the statistics of the genetic algorithm iterations are stored.
+The structure is the following:\\[1.5ex]
+\begin{tabular}{cccc}\texttt{Generation}&\texttt{n}&\texttt{meanValue}&\texttt{bestValue}\end{tabular}\\[1.5ex]
+For each of the generations, the generation number is stored in \texttt{n}, the mean value of the fitness value of the population is stored next, at \texttt{meanValue} and finally the fitness value of the best element is stored at \texttt{bestValue}.
+\item in the \texttt{modelName} directory: a directory called \texttt{parameterFromGA} will be created. It will contain the several files named as the parameter subject to calibration, containing the best individual.
+Furthermore an SBML file containing the best combination of parameters will be stored in the directory \texttt{modelName}.
+\end{itemize}
+\subparagraph{Hybrid Algorithm}\label{hybridAlgorithm}
+We understand a hybrid algorithm as a mixture between a two algorithms of different strategies.
+In our case, the hybrid algorithm will consist on the combination of a global stochastic search (a genetic algorithm) and a gradient based search (a local search).
+There are two types of hybrid algorithms implemented in \texttt{ByoDyn}:
+\begin{itemize}
+\item \emph{Hybrid Two Phases:}
+  We ran first a genetic algorithm until the stopping criterion is accomplished, either score or iteration.
+  For the case of the score criterion, all elements of the current iteration that are below the threshold are selected for a local search. 
+  Results are stored in two different directories of \texttt{modelName} from the output directory named \texttt{parametersFromGA} and \texttt{parametersFromHybridOnePhase}.
+  Within the last one, only the best fitted element is saved.
+
+  The syntax for \texttt{runningType} is the following:\\[1.5ex]
+  \begin{tabular}{ccc}\texttt{runningType}&\texttt{parameterEstimation}&\texttt{hybridTwoPhases}\end{tabular}
+
+If the \texttt{stopper} is based on the score, the score will be evaluated for the genetic algorithm. 
+The same is true for the \texttt{numberOfSimulations}, which will be approximated.
+\item \emph{Hybrid One Phase:}
+  In this case the degree of mixture is much larger.
+  For each of the elements of the genetic algorithm we launch a local search optimization. 
+  The resulting values of score and parameters are the ones used as actual values of the elements of that generation. 
+  For the obtention of the next generation, the same procedures as for the genetic algorithm are taken.
+  The best fitted element of the optimisation is stored in directory called \texttt{parametersFromHybridOnePhase}.
+  
+  The syntax for \texttt{runningType} is the following:\\[1.5ex]
+  \begin{tabular}{ccc}\texttt{runningType}&\texttt{parameterEstimation}&\texttt{hybridOnePhase}\end{tabular}
+\end{itemize}
+We want to note some differences for this running type.
+\begin{itemize}
+  \item 
+    If the \texttt{stopper} is based on the score, the score will be evaluated at each of the generations of the genetic algorithm.
+    The same is true for the \texttt{numberOfSimulations}, which will be approximated.
+\item 
+  Another difference is the structure of the file \textit{modelName}\texttt{.st} stored in the output directory.
+  In this case, for each generation, the fitness value of all elements of the population are stored.
+\item
+  Within the directory \texttt{modelName} a directory will be created named \texttt{parametersFromHybridOnePhase}.
+  Several files named as the parameters made free for the calibration will be found. 
+  However, differing from Section \ref{ga} only the best combination of parameters is stored.
+\end{itemize}
+
+From our experience, the hybrid algorithm has been the best performing algorithm, specially the hybrid one phase.
+However the running time is quite long and we recommend it for complicate minimisation problems. 
+For short and easy model calibrations, the local search algorithm might be a better choice.
+%\paragraph{Minimising initial conditions}
+%A special case worth to describe in a different section is the case of initial conditions.
+%If any of the \texttt{timeArgument} values is set to zero, the initial conditions of the model will be optimised accordingly.
+%The calibration of the initial conditions can be done jointly with the model parameters.
+%However if only the initial conditions need to be calibrated, the otherwise compulsory argument \texttt{parametersToVary} is not required.
+%Moreover, if any of the values of \texttt{timeArgument} is set to zero, the argument \texttt{initialConcentrationsToVary} need to be specied:
+%\begin{itemize}
+%\item \begin{tabular}{cccc}\texttt{initialConcentrationsToVary}&\texttt{argument1}&\texttt{argument2}&\texttt{...}\end{tabular}\\[1.5ex]
+%  If any of the \texttt{timeArgument} values is set to zero, the user needs to set the corresponding arguments for \texttt{initialConcentrationsToVary}.
+%  The structure of the arguments would be the same as for \texttt{argumentN}, specified in \texttt{target}.
+%  The starting points for the initial conditions conditions will be selected at the begining of the optimisation as a random point from a normal distribution of mean \texttt{value} and variance \texttt{variance}.
+%\end{itemize}
+%Initial concentrations can be calibrated using any of the minimisation methods.
+%For the special case where no parameter is involved on the calibration, only the initial conditions, different files called \texttt{scoresForInitialConcentrations}\textit{MinimisationMethod} will be created s%toring the fitness function values for each of the iterations.
+%\textit{MinimisationMethod} corresponds to the method used to retrieve the score.
+%\subsubsection{Monte Carlo Sampling}
+%\subsubsection{Solution Clustering}
+\subsubsection{Fitness Function Calculation}
+In some cases we want to evaluate how far is a given model from the experimental data.
+In that case, a runner similar to a simulation runner should be created, adding the corresponding experimental concentrations to evaluate as in Section \ref{optimisationSection}.
+To be precise, the runner file should contain as arguments: \texttt{modelFile}, \texttt{modelFormat}, \texttt{integrationMethod}, \texttt{runningType}, \texttt{time\&timestep} and \texttt{target}. 
+\texttt{runningType} should be defined as follows:\\[1.5ex]
+\begin{tabular}{cc}\texttt{runningType}&\texttt{calculateFunction}\end{tabular}\\[1.5ex]
+holding the unique additional value.
+
+No specific output files are generated but simply the fitness function of the system (model \emph{plus} target data) is displayed on the screen.
+
+Just note that the argument \texttt{parameter} can always be used to specify the value of some of the model parameters without need to edit the SBML file.
+The parameter value used to evaluate the fitness function will be the one specified on runner file.
+\subsubsection{Trajectories Reconstruction}
+Once we have run an optimisation and we have collected a bunch of parameter values we feel comfortable with, we want to see the trajectories of the new models.
+For that specific purpose you should create a runner file with the defined common fields of \texttt{modelFile}, \texttt{modelFormat}, \texttt{integrationMethod} and \texttt{time\&timestep}.
+Furthermore the user has to set the \texttt{runningType} to \texttt{dynamicsReconstruction}:\\[1.5ex]
+\begin{tabular}{cc}\texttt{runningType}&\texttt{dynamicsReconstruction}\end{tabular}\\[1.5ex]
+This tag will direct the flow of \texttt{ByoDyn} to take the new parameter values, modify the model and run the simulations of the new defined models.
+Finally the directory with the solutions has to be specified using the tag \texttt{solutionsDirectory}:\\[1.5ex]
+\begin{tabular}{cc}\texttt{solutionsDirectory}&\texttt{/path/to/parameters/files}\end{tabular}\\[1.5ex]
+Typically the files containing the parameter solutions were obtained from an optimisation named as one of the \texttt{parametersToVary} and with the following syntax:
+\begin{verbatim}
+#
+# generated by ByoDyn version 4.0
+#
+parameterValue	lowerRange	upperRange	fitnessValue
+...                ...                ...                 ...
+...                ...                ...                 ...
+\end{verbatim}
+Those files are automatically parsed when you call \texttt{ByoDyn} with a runner file as argument containing the variable \texttt{runningType} selected for \texttt{dynamicsReconstruction}.
+
+The result is a set of pdf files stored in a specific directory called \texttt{reconstructedDynamics} inside the  output directory, one for each node of the system, showing the trajectories for all the parameter solutions.
+Moreover, if the targets are appended (they are not required), they will be plotted too.
+
+If you want to highlight a given trajectory, the parameter values combination that is on first position on the parameter solution files will be plotted using black thick lines.
+This option could be useful, for example, by setting the first value of the parameter files to be the ones of the original model.
+Therefore it can be compared the original model behaviour with the trajectories of the new parameters.
+  
+Finally, the numerical values of the trajectories are stored in $.sd$ files on the scratch directory.
+\subsubsection{Fitness Function Surfaces}
+Another type of analysis that can be performed from a given solution of the optimisation analysis is the calculation of the fitness in the close vicinity of a parameter space point.
+Selecting pairs of model parameters, \texttt{ByoDyn} will construct a fitness value surface at the parameter range. 
+This result is achieved by constructing a grid of points on the selected parameter space and evaluating the fitness (Eq. \ref{fitnessFunction}) at each point.
+\paragraph{Specific Option File Arguments}
+The generally compulsory fields of \texttt{modelFile}, \texttt{modelFormat}, \texttt{integrationMethod} and \texttt{time\&timestep} are also required for this functionality.
+Moreover three more arguments are required:
+\begin{itemize}
+  \item \begin{tabular}{ccccc}\texttt{runningType}&\texttt{argument1}&\texttt{argument2}&\texttt{...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+    The first argument of \texttt{runningType} should always be \texttt{scoreSurface}.
+    The second argument will be an integer representing the resolution of the surface: it indicates the number of equidistant points at which the fitness function is evaluated for each parameter component.
+    From the second to $N$ arguments, they determine the pair of model parameters for which the surface is calculated.
+    The syntax for these arguments will be \texttt{parameterA/parameterB}.
+    A surface will be calculated for each of the parameter pair combination selected.
+  \item \texttt{parametersToVary} and \texttt{target} are also required as described in Section \ref{fileArgumentsOptimisation}.
+\end{itemize}
+\paragraph{Specific Outputs}
+Some files derived from the simulation are \textit{modelName}.\texttt{.N.out} in \texttt{output} directory and \textit{modelName}.\texttt{N.integ.py} in \texttt{output/scratch} directory.
+Moreover, the specific files of interest are:
+\begin{itemize}
+  \item \textit{parameterA}/\textit{parameterB}.\texttt{.txt}: 
+    This text file contains the fitness function values of the grid.
+  \item \textit{parameterA}/\textit{parameterB}.\texttt{.ps}:
+    This postscript figure is the graphical representation of the previous file.
+    In color code the value of the fitness function is represented on the model parameter space.
+    A scale and each of the parameter ranges is also depicted.
+\end{itemize}
+A text file and a postscript figure will be created for each of the parameter combinations selected on the runner file.
+\subsubsection{Sensitivity Analysis} \label{sensitivityAnalysis}
+The sensitivity analysis consists on the calculation of the variation of the output of the model with respect to some source of variation.
+In our case we evaluate the variation on the trajectories of $k$ nodes with an infinitesimal change on the value of $p$ model parameters. 
+\begin{equation}
+  S(t) = \frac{\partial \bf{y}(t)}{\partial \bm{\theta}} = 
+  \left(
+    \begin{array}{cccc}
+      \frac{\partial y_1(t)}{\partial \theta_1} & \frac{\partial y_1(t)}{\partial \theta_2} & \cdots & \frac{\partial y_1(t)}{\partial \theta_p} \\
+      \frac{\partial y_2(t)}{\partial \theta_1} & \frac{\partial y_2(t)}{\partial \theta_2} & \cdots & \frac{\partial y_2(t)}{\partial \theta_p} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      \frac{\partial y_N(t)}{\partial \theta_1} & \frac{\partial y_N(t)}{\partial \theta_2} & \cdots & \frac{\partial y_N(t)}{\partial \theta_p} \\
+    \end{array}
+  \right)
+\end{equation}
+For each node $i$ and each parameter $j$ the sensitivity along time would be,
+\begin{equation}
+  S_{i,j}(t) = \frac{\partial y_i(t)}{\partial \theta_j} = \lim_{h\to\infty}\frac{y_i(\theta_j+h, t) - y_i(\theta_j, t)}{h}
+\end{equation}
+we normalize the values of the sensitivity, 
+\begin{equation} \label{normalisedSensitivity}
+  \Sigma_{i,j}(t) = \frac{\theta_j}{y_i(t)}\;S_{i,j}(t)
+\end{equation}
+\paragraph{Specific Option File Arguments} \label{fileArgumentsSensitivity}
+Apart from the compulsory arguments of \texttt{modelFile}, \texttt{modelFormat}, \texttt{integrationMethod} and \texttt{time\&timestep}, other arguments are necessary:
+\begin{itemize}
+  \item \begin{tabular}{cc}\texttt{runningType}&\texttt{sensitivityAnalysis}\end{tabular}\\[1.5ex]
+    The argument \texttt{runningType} is also compulsory but its value should be set to \texttt{sensitivityAnalysis}.
+    In this case, on the contrary of other functionalities, only a single value is required.
+\item \begin{tabular}{cccc}\texttt{sensitivityParameters}&\texttt{argument1}&\texttt{argument2}&\texttt{...}\end{tabular}\\[1.5ex]
+  This argument is required to select the name of the parameters for which the sensitivity will be calculated.
+  Each of the \texttt{argument} should be substituted by the name of the model parameters of interest.
+\end{itemize}
+\paragraph{Specific Outputs}
+Within the output directory, two files named \textit{modelName}\texttt{.N.out} and \textit{modelName}\texttt{.ps} are created as for the simulation.
+Moreover other specific files from the sensitivity analysis are created in the output directory:
+\begin{itemize}
+  \item \textit{modelName}\texttt{.sens.global.timeCourse.ps}:
+    Once calculated $\Sigma_{i,j}(t)$, the overall sensitivity for each of the parameters is calculated,
+    \begin{equation} \label{overallSensitivity}
+      \bar{\Sigma}_{j}(t) = \frac{1}{k}\sum_{i=1}^{k}\sqrt{\Sigma_{i,j}^{2}(t)}
+    \end{equation}
+    and plotted for each parameter $j$ in this file.
+  \item \textit{modelName}\texttt{.sens.global.txt}: 
+    In order to have a single value along time, we compute the global sensitivity for each parameter, $\langle \bar{\Sigma_j} \rangle$, defined as follows, 
+    \begin{equation}
+      \langle \bar{\Sigma_j} \rangle = \frac{1}{t_T}\sum_{t=0}^{t=t_T}\bar{\Sigma}_{j}(t)
+    \end{equation}
+    Their values are shown in this text file.
+  \item \textit{modelName}\texttt{.sens.relative.txt}:
+    From $\Sigma_{i,j}(t)$ in Eq. \ref{normalisedSensitivity}, we can obtain a single value along the time, $\langle \Sigma_{i,j} \rangle$ defined as follows:
+    \begin{equation}
+      \langle \Sigma_{i,j} \rangle = \frac{1}{t_T}\sum_{t=0}^{t=t_T}\sqrt{\Sigma_{i,j}^2(t)}
+    \end{equation}
+    Each value of the matrix is saved in this text file.
+  \item \textit{modelName}\texttt{.sens.relative.ps}:
+    This file is the graphical representation of \textit{modelName}\texttt{.sens.relative.txt}.
+  \item \texttt{scratch}: 
+    In the scratch directory, apart from the files \textit{modelName}\texttt{.gnu} and \textit{modelName}\texttt{.0.integ.py} characteristic from the simulation (See Section \ref{simulation}), we have several files specific from the sensitivity analysis:
+    \begin{itemize}
+      \item \textit{modelName}\texttt{.sens.global.gnu}:
+        This is a Gnuplot script that contains the commands necessary to create the graph of the trajectories, \textit{modelName}\texttt{.sens.global.timeCourse.ps}, in the output directory.
+      \item \textit{modelName}\texttt{.sens.global.out}:
+        This is a file of the same format of \textit{modelName}\texttt{.N.out} but referring to the overall sensitivity described in Eq. \ref{overallSensitivity}. 
+        These data will be used to create the figure \textit{modelName}\texttt{.sens.global.timeCourse.ps}.
+      \item \textit{modelName.parameterName}\texttt{.out}:
+        For each of the perturbed parameters, the calculation of the output of the system has to be done. 
+        It is stored in these files, with an equivalent structure to \textit{modelName}\texttt{.N.out}
+    \end{itemize}
+\end{itemize}
+\subsubsection{Identifiability Analysis} \label{identifiability}
+Identifiability analysis is a major help for parameter estimation. 
+It uses sensitivity-based variables to determine local topological difficulties on the fitness function minimisation:
+\begin{itemize}
+  \item parameters whose change affects minimally the output of the system.
+  \item parameter correlations that which make different parameter combinations yield the same system output.
+\end{itemize}
+Quantification of these features provides the essential bricks of information necessary for optimal experimental design (OED).
+OED is a technique that points us which measurements are more useful to make the parameter estimation problems more tractable.
+More information is available at Section \ref{oed}.
+
+The development of our code is based on \cite{rodriguez-fernandez06,yue06}. 
+However we describe here precisely the identifiability-related variable that \texttt{ByoDyn} calculates.
+
+The first main pillar on which the identifiability analyses are based is the Fisher information matrix (FIM).
+The FIM is defined as the variance of the score and topologically it gives an idea of the sharpness of the local well of the fitness function $F$, defined on Eq. \ref{fitnessFunction}.
+\begin{equation}
+  FIM \equiv var(U) = \field{E}\left[\left(\frac{\partial}{\partial \bm{\theta}} ln L(\bm{\theta};\bm{y})\right)^2\right]
+\end{equation}
+With some calculus we can show that
+\begin{equation}
+  \field{E}\left[\left(\frac{\partial}{\partial \bm{\theta}} ln L(\bm{\theta};\bm{y})\right)^2\right] = 
+  \int_{-\infty}^{\infty} \frac{\left(\frac{\partial}{\partial\bm{\theta}}L(\bm{\theta};\bm{y})\right)^2}{L(\bm{\theta};\bm{y})}\;dx
+\end{equation}
+and 
+\begin{equation}
+  \field{E}\left[\frac{\partial^2}{\partial \bm{\theta}^2} ln L(\bm{\theta};\bm{y})\right] = 
+  \int_{-\infty}^{\infty} \frac{\partial^2}{\partial\bm{\theta}^2}L(\bm{\theta};\bm{y})\;dx -
+  \int_{-\infty}^{\infty} \frac{\left(\frac{\partial}{\partial \bm{\theta}} ln L(\bm{\theta};\bm{y})\right)^2}{L(\bm{\theta};\bm{y})}\;dx
+\end{equation}
+Assuming the condition, 
+\begin{equation}
+  \int_{-\infty}^{\infty} \frac{\partial^2}{\partial \bm{\theta}^2} L(\bm{\theta};\bm{y})dx = 0
+\end{equation}
+which is true for the multivariate normal distribution $\bm{y}$, the FIM can be written as, 
+\begin{equation} \label{minusExpected}
+  FIM=-\field{E}\left[\frac{\partial^2}{\partial \bm{\theta}^2} ln L (\bm{\theta};\bm{y})\right]
+\end{equation}
+Again as the variable of measurement is a multivariate normal distribution, the likelihood function is defined as, 
+\begin{equation} \label{likelihood}
+  L(\bm{\theta};\bm{y})=\frac{1}{2\pi\frac{NK}{2}\sqrt{\displaystyle\prod_{i=1}^{N}\prod_{k=1}^{K}\sigma_{i,k}^{2}}}e^{-\frac{1}{2}\displaystyle\sum_{i=1}^{N}\sum_{k=1}^{K}\left(\frac{\tilde{y}_{i,k}-y_{i,k}(\bm{\theta})}{\sigma_{i,k}}\right)^2}
+\end{equation}
+We prepare Eq. \label{likelihood} in order to insert it on Eq. \ref{minusExpected}, we calculate the $ln$ of the likelihood, 
+\begin{equation}
+  -ln\;L(\bm{\theta};\bm{y})=\frac{NK}{2}+\frac{1}{2}\sum_{i=1}^{N}\sum_{k=1}^{K}ln\;\sigma_{i,k}^2+\frac{1}{2}\sum_{i=1}^{N}\sum_{k=1}^{K}\left(\frac{\tilde{y}_{i,k}-y_{i,k}(\bm{\theta})}{\sigma_{i,k}}\right)^2
+\end{equation}
+which can be reduced to
+\begin{equation} \label{minusLikelihood}
+  -ln\;L(\bm{\theta};\bm{y})=\frac{1}{2}\sum_{i=1}^{N}\sum_{k=1}^{K}\left(\frac{\tilde{y}_{i,k}-y_{i,k}(\bm{\theta})}{\sigma_{i,k}}\right)^2
+\end{equation}
+At this point we can insert Eq. \ref{minusLikelihood} into Eq. \ref{minusExpected}, 
+\begin{equation}
+  FIM=\frac{\partial^2}{\partial\bm{\theta}^2}\;\frac{1}{2}\displaystyle\sum_{i=1}^{N}\sum_{k=1}^{K}\left(\frac{\tilde{y}_{i,k}-y_{i,k}(\bm{\theta})}{\sigma_{i,k}}\right)^2
+\end{equation}
+which can be defined as
+\begin{equation}
+  \begin{array}{ccc}
+    FIM=\frac{\partial^2J}{\partial\bm{\theta}^2}, & \mathrm{if} & J=\frac{1}{2}\displaystyle\sum_{i=1}^{N}\sum_{k=1}^{K}\left(\frac{\tilde{y}_{i,k}-y_{i,k}(\bm{\theta})}{\sigma_{i,k}}\right)^2 \\
+  \end{array}
+\end{equation}
+At this point we calculate the gradient of $J$ with respect to the parameters, $\nabla_{\theta_{j}}J$, 
+\begin{equation}
+  \nabla_{\theta_{j}}J=\frac{\partial J}{\partial \theta_j} = 
+  - \displaystyle\sum_{i=1}^{N}\sum_{k=1}^{K}\frac{1}{\sigma_{i,k}^{2}}r_{i,k}\frac{\partial y_{i,k}(\bm{\theta})}{\partial \theta_j} =
+  - \displaystyle\sum_{i=1}^{N}\sum_{k=1}^{K}\frac{1}{\sigma_{i,k}^{2}}r_{i,k}s_{i,j,k}
+\end{equation}
+in which $r_{i,k}=\tilde{y}_{i,k}-y_{i,k}(\bm{\theta})$.
+The second derivative will be the Hessian matrix, 
+\begin{equation}
+  H(j,u)=\frac{\partial^2J}{\partial\theta_j\partial\theta_u}=
+  \sum_{i=1}^{N}\sum_{k=1}^{K}\frac{1}{\sigma_{i,k}^2}s_{i,j,k}\;s_{i,u,k}-
+  \sum_{i=1}^{N}\sum_{k=1}^{K}r_{i,k}\frac{1}{\sigma_{i,k}^2}\frac{\partial s_{i,j,k}}{\partial \theta_u}
+\end{equation}
+If the residuals are small, the second term can be neglected and the Hessian matrix is approximated by
+\begin{equation}
+  H(j,u)=\sum_{i=1}^{N}\sum_{k=1}^{K}\frac{1}{\sigma_{i,k}^2}s_{i,j,k}\;s_{i,u,k}
+\end{equation}
+At this point, we are summing up sensitivities of different nodes and therefore we understand that it is more appropriate to use normalised sensitivities $\Sigma_{i,j}$ instead of $s_{i,j}$ as in Eq. \ref{normalisedSensitivity}.
+\begin{equation} \label{FIM}
+FIM=\sum_{i=1}^{N}\sum_{k=1}^{K}\frac{1}{\sigma_{i,k}^{2}}\Sigma_{i,j,k}^{T}\Sigma_{i,u,k}
+\end{equation}
+Other measures of interest is the covariance matrix which is the inverse of the FIM, 
+\begin{equation} \label{cov}
+  cov=FIM^{-1}
+\end{equation}
+and the correlation matrix, 
+\begin{equation} \label{corr}
+  \rho_{j.u}=\frac{cov_{j,u}}{\sqrt{cov_{j,j}\;cov_{u,u}}}
+\end{equation}
+Finally, OED techiniques, as we introduced above, use information from identifiability measurements to make the optimisation problem much more tractable. 
+This is achieved modifying the shape of the fitness function surface in such a way that the optimisation methods outperform the previous situation.
+Basically correlations are avoided and Hessian components are made more homogeneous.
+Different criteria can be used to improve the $FIM$ \citep{rodriguez-fernandez06}:
+\begin{itemize}
+  \item modified A-optimal criteria: $\mathrm{max}\;\mathrm{tr}(FIM)$, which represents minimising the arithmetic mean of the identification errors.
+  \item D-optimal criteria: $\mathrm{max}\;\mathrm{det}(FIM)$, which represents minimising the geometric mean of the identification errors.
+    Topologically means minimising the asymptotic confidence ellipsoids volume.
+  \item E-optimal criteria: $\mathrm{max}\;\lambda_{\mathrm{min}}(FIM)$, which represents minimising the largest idetifiability error.
+    We search for minimising the largest dispersion.
+  \item modified E-optimal criteria: $\mathrm{min}\;\frac{\lambda_{\mathrm{max}}(FIM)}{\lambda_{\mathrm{min}}(FIM)}$, which represents minimising the ratio of the largest to the smallest dispersion axes.
+    Topologically means to make the ellipsoid volumes as spherical as possible.
+\end{itemize}
+\paragraph{Specific Option File Arguments}
+The generally compulsory fields of \texttt{modelFile}, \texttt{modelFormat}, \texttt{integrationMethod} and \texttt{time\&timestep} are also required for this functionality.
+Moreover three more arguments are required:
+\begin{itemize}
+  \item \begin{tabular}{cc}\texttt{runningType}&\texttt{identifiabilityAnalysis}\end{tabular}\\[1.5ex]
+    The argument \texttt{runningType} is also required for all other functionalities but in this case its value should be set to \texttt{identifiabilityAnalysis}.
+  \item \begin{tabular}{cccc}\texttt{sensitivityParameters}&\texttt{argument1}&\texttt{argument2}&\texttt{...}\end{tabular}\\[1.5ex]
+    This argument is required with the same structure and meaning as in Sec. \ref{fileArgumentsSensitivity}.
+  \item \begin{tabular}{ccccc}\texttt{target}&\texttt{timeArgument}&\texttt{argument1}&\texttt{argument2 ...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+    Used the same way as described in Sec. \ref{fileArgumentsOptimisation}.
+\end{itemize}
+Additionally, the tag\\[1.5ex]
+\begin{tabular}{cccc}\texttt{identifiabilityCriteria}&\texttt{argument1}&\texttt{argument2}&\texttt{...}\end{tabular}\\[1.5ex]
+can be used as described in Section \ref{oed} to restrict the analysis of the identifiability to only the specified criteria.
+
+Finally, as in previous section, note that the argument \texttt{parameter} can always be used to specify the value of some of the model parameters without need to edit the SBML file.
+\paragraph{Specific Outputs}
+As previously described, files characteristic from the simulation arise on the output directory, \textit{modelName}\texttt{.N.out} and \textit{modelName}\texttt{.ps}.
+Moreover, in the output directory of \texttt{ByoDyn} you will find the following files specific from the identifiability analysis:
+\begin{itemize}
+  \item \textit{modelName}\texttt{.FIM.txt}:
+    This is a text file containing the numerical values of the $FIM$ described in Eq. \ref{FIM}.
+  \item \textit{modelName}\texttt{.COV.txt}:
+    This is a text file containing the numerical values of $cov$ described in Eq. \ref{cov}.
+  \item \textit{modelName}\texttt{.correlation.txt}:
+    This a text file containing the numerical values of the parameter correlation matrix, $\rho_{j.u}$, defined in Eq. \ref{corr}.
+  \item \textit{modelName}\texttt{.correlation.ps}:
+    This is a postscript file, a figure representing the data contained in \textit{modelName}\texttt{.correlation.txt}.
+    Red colour is used for positive correlation, blue for negative. 
+    The level of intensity is referred to the grade of the correlation.
+    Please note that the diagonal of the matrix ($\rho_{j.u}$, defined in Eq. \ref{corr}), which will be 1, it is the maximum value possible and therefore it will be coloured as pure red.
+  \item \textit{modelName}\texttt{.criteria.txt}:
+    This is a text file with the numerical values of the different criteria used for OED: modified A, D, E and modified E-optimal design criteria.  
+  \item \texttt{scratch} directory:
+    In the scratch directory, apart from the files \textit{modelName}\texttt{.gnu} and \textit{modelName}\texttt{.0.integ.py} characteristic from the simulation (See Section \ref{simulation}), several files named \textit{modelName}.\texttt{parameterName.out} are created with the same structure as the ones described in the sensitivity analysis (See Section \ref{sensitivityAnalysis}).
+\end{itemize}
+\subsubsection{Optimal Experimental Design} \label{oed}
+OED is used to find which is the most informative constrain for a successful model calibration.
+In our context that means to find which is the new temporal experimental data that improves one of the selected criteria explained on Section \label{identifiability}.
+\paragraph{Specific Option File Arguments}
+The generally compulsory fields of \texttt{modelFile}, \texttt{modelFormat}, \texttt{integrationMethod} and \texttt{time\&timestep} are also required for this functionality.
+Moreover six more arguments are required:
+\begin{itemize}
+  \item \begin{tabular}{ccc}\texttt{runningType}&\texttt{optimalExperimentalDesign}&\texttt{addNewPoint}\end{tabular}\\[1.5ex]
+    The argument \texttt{runningType} is also required for all other functionalities but in this case its value should be set to \texttt{optimalExperimentalDesign} and a second argument \texttt{addNewPoint} is required too.
+    \item \begin{tabular}{ccccc}\texttt{sensitivityParameters}&\texttt{argument1}&\texttt{argument2}&\texttt{...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+      This argument is required with the same structure and meaning as in Section \ref{fileArgumentsSensitivity}.
+    \item \begin{tabular}{cccccc}\texttt{target}&\texttt{timeArgument}&\texttt{argument1}&\texttt{argument2}&\texttt{...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+      Also this required argument, it will be used as described in Section \ref{optimisationSection}.
+    \item \begin{tabular}{ccccc}\texttt{identifiabilityCriteria}&\texttt{argument1}&\texttt{argument2}&\texttt{...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+      This variable define which criteria is used to select the most informative experimental point.
+      If more than one criteria is asked, several arguments can be used.
+      The possible values for the arguments are \texttt{MA}, \texttt{D}, \texttt{E} or \texttt{ME} for modified A, D, E or modified E-optimal experimental design criteria.
+    \item \begin{tabular}{cc}\texttt{OEDResolution}&\texttt{argument}\end{tabular}\\[1.5ex]
+      The variable \texttt{OEDResolution} is used to define the precision of the sampling points for optimal experimental design. 
+      The only accepted argument will be an integer defining the rate of precision compared with the simulation, that means that if \texttt{argument} is set to $1$, the analysis of the identifiability will be calculated at each time point of the simulation, otherwise, if it is set, for example, to $10$, the identifiability analysis will be calculated only once every ten simulation steps.
+    \item \begin{tabular}{ccccc}\texttt{targetSpecies}&\texttt{argument1}&\texttt{argument2}&\texttt{...}&\texttt{argumentN}\end{tabular}\\[1.5ex]
+      The model node names for which the OED is evaluated have to be stated.
+\end{itemize}
+Briefly note that other common variables to all functionalities as \texttt{parameters} are also valid for OED.
+\paragraph{Specific Outputs}
+Within the output directory, two files named \textit{modelName}\texttt{.N.out} and \textit{modelName}\texttt{.ps} are created as for the simulation.
+Moreover other specific files from the sensitivity analysis are created in the output directory:
+\begin{itemize}
+  \item \textit{modelName}\texttt{.oed.txt}:
+    This is a text file where the most optimal values are stored.
+    For each required criteria the best temporal point for each selected model species is saved.
+  \item \textit{modelName}\texttt{.oed.}\textit{criteria}\texttt{.ps}:
+    For each OED criteria a postscript figure is created showing the value of the corresponding criteria for each selected node and time.
+\end{itemize}
+In the scratch directory, apart from the files \textit{modelName}\texttt{.gnu} and \textit{modelName}\texttt{.0.integ.py} characteristic from the simulation (See Section \ref{simulation}), we have too several files \textit{modelName.parameterName}\texttt{.out} characteristic of the sensitivity analysis (See Section \ref{sensitivityAnalysis}) that correspond to the perturbed model output, stored while sensitivity was numerically calculated.
+\section{\texttt{ByoDyn} on Parallel Environments}
+\texttt{ByoDyn} can run in a parallel environment.
+This option is not explicitly defined as a command within the program, it should be set according to the hardware available. 
+Running \texttt{ByoDyn} in parallel have the advantage of reducing the amount of time, and/or increasing the amount of operations as much as processors we may have available. 
+
+Specifically, we have implemented the parallelization of the genetic algorithm, improving the time of the optimisations. When the user runs a genetic algorithm in \texttt{ByoDyn} in a parallel environment, the individuals of the population will be balanced in all the processors trying to decrease the total wall time of the process.
+At an ideal situation where we have $n$ processors for $n$ individuals, \texttt{ByoDyn} will run each individual on each processor.  
+Whereas if the number of processors available is the half, \texttt{ByoDyn} will run two individuals on each processor. 
+For a better performance we recommend to set the number of individuals as a multiple of the total number of processors (i.e. 16 individuals with 2, 4, 8, 16 processors). 
+Other combinations are valid, although we may have \emph{lazy} processors at some point.  
+\subsection{Performance}
+The speed up of the genetic algorithm time will depend on the number of processors, basically. 
+In general the speed-up is multiplied as much as processors we have, i.e. with a fixed number of individuals from 1 to 2 processors, we will observe an improvement of almost 2 times; from 1 to 4 processors, an improvement of nearly 4 times. 
+The speed-up is not perfectly linear as some running time is dedicated for the communication between processors (overhead), as well as the extra effort which is dedicated to split up and summarize the information from the different processors. 
+
+A relative short time in the simulation of each of the individuals represents a bottleneck for the speed-up.
+Assuming a population of $n$ individuals of a relative big size, distributed in a parallel machine of $n$ CPUs.
+We define the processing time of each individual as $T$. 
+On the other hand we also have an small time $\tau$ dedicated to communication processes.
+In the case $T \approx \tau$ the speed-up at high number of processors will be very poor.
+For example, the speed-up from 1 to 2 processors the speed-up will be $2$ if we assume that $nT \gg \tau$:
+\begin{equation}
+  \mathrm{speed-up} = \frac{t_{\mathrm{1 CPU}}}{t_{\mathrm{2 CPUs}}} = \frac{nT+\tau}{\frac{n}{2}T+\tau} 
+\end{equation}
+Assuming $nT\gg\tau$ because the number of processors is high, we simplify as, 
+\begin{equation}
+  \mathrm{speed-up} = \frac{nT}{\frac{n}{2}T} =  2
+\end{equation}
+which is a linear speed-up. 
+On the contrary, the speed-up will be poor if we use many processors:
+\begin{equation}
+  \mathrm{speed-up} = \frac{t_{\mathrm{50 CPU}}}{t_{\mathrm{100 CPUs}}} = \frac{2T+\tau}{T+\tau}
+\end{equation}
+$T\approx\tau$,
+\begin{equation}
+  \mathrm{speed-up} = \frac{3T}{2T} = \frac{3}{2}
+\end{equation}
+The decrease of the speed-up, from a theoretical 2 to 3/2 does not seem so bad in principle.
+But, we assumed a constant $\tau$ for a communication time from $n/2$ to $n$ processors, which is not true for a real system. 
+In fact, the communication time $\tau$ from $n/2$ to $n$ could perfectly be $2\tau$ as the number of instructions is doubled. 
+If we take that into account, the speed-up of the last example lowers to 1:
+\begin{equation}
+  \mathrm{speed-up} = \frac{t_{\mathrm{50 CPU}}}{t_{\mathrm{100 CPUs}}} = \frac{2T+\tau}{T+2\tau} = 1
+\end{equation}
+Finally we need to take into consideration the fact that increasing the population number $n$, the variability of the population increases, widening the time differences between the \emph{fast} and \emph{slow} integration models. 
+Therefore the \emph{communication} time will increase dramatically and the speed-up will be concomitantly affected.    
+\subsection{External  Software Requirements}
+An implementation of the MPI (Message Passage Interface) API (application programming interface) is required. 
+Although any available should do work fine, we used OpenMPI (\url{www.open-mpi.org}). 
+The resulting binaries will be the \texttt{mpirun} program and by default those implementations have \emph{wrappers} compilers for some languages like \texttt{mpicc}, for C, \texttt{mpiCC} for C++ and general Fortran implementations.  
+Keep in mind that depending on the implementation of MPI you chose, you will be constrained to use it with other software. 
+In our case, we require an implementation of the MPI for Python. 
+By default, most of the MPI API's do not include this \emph{wrapper}, although, once we have installed the \texttt{mpirun} executable in our computer, we can use the MPI Python \emph{wrapper} of the Python library \texttt{ScientificPython}. 
+The library includes a \emph{wrapper} Python for MPI.
+Please refer to the Installation Guide of \texttt{ByoDyn} for further details about how to create the \emph{wrapper}.
+For the specific case of the \texttt{ScientificPython} \emph{wrapper}, we will need the \texttt{mpicc} in order to be able to compile the MPI module for Python.
+\subsection{Launching \texttt{ByoDyn} in Parallel}
+Once all requirements have been successfully installed, you should execute \texttt{ByoDyn} as follows:\\[2ex]
+\texttt{mpirun <mpirun options> mpipython byodyn <byodyn options>}\\[2ex]
+So for example to run a simple case of \texttt{ByoDyn} with 2 processors and the \texttt{ByoDyn} running options \texttt{optimisation.rn} as input, we will type:\\[2ex]
+\texttt{mpirun -np 2 mpipython byodyn optimisation.rn}\\[2ex]
+We need to have in mind that all the settings like alias and paths must be already fixed, in order to be able to run \texttt{ByoDyn} in parallel without any problem.
+We also recommend to run a genetic algorithm or a hybrid one phase (See Section \ref{ga} and \ref{hybridAlgorithm}) given the fact that the parallel routine is the genetic algorithm.
+Therefore, we recommend a command like:\\[2ex]
+\texttt{mpirun -np 2 /usr/bin/mpipython /home/user/software/bin/byodyn\\ /home/user/project/optimisationg.rn}
+\subsection{QosCosGrid}
+QosCosGrid (\url{http://www.qoscosgrid.eu/}) is a group effort to enable parallel execution of complex systems tools on quasi-opportunistic grids.
+Currently on testing status, \texttt{ByoDyn} has been able to run on cross-cluster environments taking profit of the QosCosGrid services \citep{coti08}.
+\section{Acknowledgements}
+The \texttt{ByoDyn} team wants to acknowledge the constant help of Michael Johnston on computer problems during the development of the software.
+We want to acknowledge Mike Hucka and Ben Bornstein for helping on the support of SBML.
+Also Miquel de C\'aceres, David Sportouch and Elisenda Feliu for helpful discussions and help.
+Finally Pau Ru\'e for reporting bugs.
+\bibliography{library.bib}
+\bibliographystyle{plainnat}
+\end{document}<

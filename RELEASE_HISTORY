@@ -1,0 +1,94 @@
+Version 4.8
+	
+	(1) Added compatibility to stoichiometryMath expressions of SBML.
+	(2) Fixed bug building the latex equations file. The stoichiometry and constant nodes of ODEs are correctly handled.
+	(3) Importing the module matplotlib.pyplot instead of pylab in order to avoid display problems.
+	(4) Test for automatic simulation added.
+	(5) Test for stochastic simulations added.
+	(6) Stochastic simulation added into the Quick Start Guide.
+	(7) Fixing a bug on the script which creates the documentation.
+
+Version 4.6
+	
+	(1) Fixed bug about targeting points on multicellular models.
+	(2) OED data is saved on a text file.
+	(3) Fixed bug about the GA solution storing.
+	(4) Allowing to use nonConstant parameters as parametersToVary in parameter estimation tasks.
+	(5) Fixed bug in sensitivity analysis. When the simulation has an incorrect number of time points there was an error handling the targets.
+	(6) Adding checking of errors when the correlation matrix is built. Sometimes, there are numerical problems and has some values out of ranges (-1, 1).
+	(7) Feature request about erasing .pyc files before testing completed.
+	(8) Fixed a bug for XPPAUT simulator: after changing to the scratch directory it was not returning to the current directory.
+	(9) Fixed a bug on sensitivity analysis, metamodel object was missing on plotWriter function of matrixWorker module.
+	(10) Monte Carlo sampling method has been implemented. It uses a Metropolis-Hastings algorithm for getting a sample from the lower regions of the fitness function surface. 
+	(11) Fixed a bug for OpenModelica simulator: after changing to the scratch directory it was not returning to the current directory.
+	(12) Fixed a bug about the axes labelling on the fitness function surface.
+	(13) Fixed bug 2019517: function arguments on xpp format do not accept empty spaces.
+	(14) Fixed bugs 2019513, 2019511 and 2012712. Function replaceNames of simulatorXPP module was not taking into account ' %s,' possibility.
+	(15) New tag 'separatedGraphs' added. Test added.
+	(16) Fixed bug for sensitivity analysis with models containing constant nodes.
+	(17) Fixed bug about random parameter storing. When a local search algorithm was launched, only the results of the optimisation were saved but not the initial points.
+	(18) Fixed bug about rate rules for compartment. A for loop was not properly handled.
+	(19) Implementation of automatic choice of simulation engine.
+	(20) New format for the latex file of equations. Now, it includes in different sections the functions, events, the rules and the kinetic laws. Furthemore, the ODEs is simplified to kinetic laws names. 
+	(21) Fixed bug about optimisation of files with assignment rules and integrated with xpp. There was an error evaluating the assignment rule from python because xpp was changing some variable names in the equation.
+	(22) Fixed bug about handling of events. An event cannot be triggered in the initial time (t=0).
+	(23) Fixed bug 2317234: when the species are defined with boundary condition true and constant false should be used in rules or events. Otherwise, ByoDyn converts this species like constant species.
+	
+Version 4.1
+
+	(1) Adding checkConsistencySBML variable to runner file. It allows to run a strict checking of SBML file using the method checkConsistency of libSBML. 
+	(2) Fixed bug 1989828. Fractions of latex formulae were not properly handled.
+	(3) Fixed bug about SBML model saving for global parameters.
+	(4) Fixed bug about figure ranges for dynamics reconstruction.
+	(5) Fixed bug on the file surface6000.rn of the tutorial. Constrain at time 125 was targeting the nodes twice.
+	(6) Fixed bug on the lateral inhibition models of the tutorials.
+	(7) Adding the figureFormat variable to the runner file. Figures can be output on PNG format.
+
+Version 4.0
+	
+	(1) Fixing a bug about parameter determination on the sensitivity analysis.
+	(2) Change of spelling from 'optimization' to 'optimisation'.
+	(3) 'identifiabilityCriteria' argument cannot anymore be used for identifiability analysis, all criteria are given.
+	(4) Documentation for score surface completed.
+
+Version 3.20
+	
+	(1) Local parameters of the SBML KineticLaw are properly handled.
+	(2) Testers directory changed name to benchmark.
+	(3) Fixed a bug writing SBML files. Dots are not allowed on ids.
+	(4) Simulation graph trajectories are not anymore lines but a succession of points.
+	(5) Local optimisations are now silent, no output on screen is made.
+	(6) Fitness function calculation documentation completed.
+	(7) Fixed a bug about maximum delays accepted.
+	(8) Rescaling to higher values of fitness functions when the results of the integration in optimisations is truncated.
+	(9) Warning added in order to handle the Runtime Error in the import of pylab produced when the display access is not open.
+	(10) Runner arguments "withVelocities" and "noVelocities" are now "velocity" and "noVelocity".
+	(11) SBML file is written directly from the modified read object, it is not built from scratch.
+	(12) Optimisation documentation finished.
+	(13) Bug fixed about the sensitivity calculation. The OS coefficients should be calculated as the mean of the node values not the square root of the sumatory of the square values, divided by the number of nodes.
+	(14) A new runner file called fitnessFunctionCalculation has been added to the examples directory.
+	(15) Sensitivity analysis documentation completed.
+
+Version 3.18
+
+	(1) Documentation of dynamicsReconstruction completed.
+	(2) Documentation of the affectors completed.
+	(3) Addition of pylab as a required module for ByoDyn
+	(4) PORT library used instead of PORT3
+	(5) Support for libSBML > 3.0.0
+	(6) HybridOnePhase optmization improved speed by 10 simulations each generation. Bug of redundandant code fixed.
+	(7) Matrix plot fonts improved.
+	(8) Identifiability added to the quick start guide.
+	(9) Table for the SBML compatibility added in the documentation.
+	(10) Documentation for simulation completed.
+	(11) Model integration using XPPAUT.
+	(12) Support for SBML delays and function definitions.
+	(13) Implementation of Optimal Experimental Design module and the protocol of add a new experimental point (addNewPoint).
+
+Version 3.12
+	
+	(1) Parallel implementation is finished for the optimisation.
+	(2) Model integration using OpenModelica.
+	(3) Support for SBML Events and Rules.
+	(4) Support for identifiability analysis.
+

@@ -1,0 +1,10 @@
+# $Id: stochastic.rn,v 1.1 2008/12/17 00:55:44 alglomana Exp $
+##############################################
+# created by Adrian L. García de Lomana
+# this is an example of runner file to run stochastic simulations
+##############################################
+modelFile	isomerisation.xml
+modelFormat	SBML
+runningType	simulation	noVelocity
+stochasticMethod ssa gillespie 10
+time&timestep   200	  0

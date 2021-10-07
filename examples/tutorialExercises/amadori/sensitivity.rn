@@ -1,0 +1,11 @@
+# $Id: sensitivity.rn,v 4.1 2008/06/09 15:41:25 alglomana Exp $
+##############################################
+# created by Adrian L. Garcia de Lomana 300507
+# this is an example of runner file to perform a sensitivity analysis
+##############################################
+modelFile Amadori.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType	sensitivityAnalysis
+time&timestep  170 .17
+sensitivityParameters  k8v8	k4v4	k1v1	k6v6	k14v14	k5v5	k10v10	k2v2	k13v13	k16v16	k11v11	k3v3	k9v9	k12v12	k7v7	k15v15

@@ -1,0 +1,12 @@
+# $Id: surface6.rn,v 4.1 2008/06/09 15:41:25 alglomana Exp $
+##############################################
+# created by Adrian L. Garcia de Lomana 300507
+# this is an example of runner file to build the fitness function surface
+##############################################
+modelFile repressilator.xml
+modelFormat SBML
+integrationMethod python default
+runningType scoreSurface 10	n/tau_mRNA
+time&timestep 1000 1
+parametersToVary     n/1./4/lin	tau_mRNA/.2/20./log
+target 500.0	PZ/0,0/1273.00339935/1.0	PX/0,0/731.546090105/1.0	PY/0,0/57.6839361242/1.0	Y/0,0/15.8235657987/1.0	X/0,0/16.230450783/1.0	Z/0,0/1398.28322354/1.0

@@ -1,0 +1,6 @@
+# $Id: stiffScipy.rn,v 1.1 2008/07/04 13:53:10 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	stiff
+runningType	simulation	noVelocity
+time&timestep   10.4       0.1

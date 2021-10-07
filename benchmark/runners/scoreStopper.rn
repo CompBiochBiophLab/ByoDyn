@@ -1,0 +1,10 @@
+# $Id: scoreStopper.rn,v 1.1 2008/07/15 08:18:09 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType	parameterEstimation	localSearch
+time&timestep   10.       0.1
+stopper score 1e-4
+parametersToVary  k10v10/0.00707/0.707/log	k2v2/0.00156/0.156/log
+target 5.0	  DFG/0,0/7.48742223445/1.0	Gly/0,0/1.00371129471/1.0
+target 10.0	  DFG/0,0/6.22905463511/1.0	Gly/0,0/2.16685586377/1.0

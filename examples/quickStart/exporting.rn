@@ -1,0 +1,9 @@
+# $Id: exporting.rn,v 4.1 2008/06/09 15:41:23 alglomana Exp $
+##############################################
+# created by Adrian L. Garcia de Lomana 060608
+# this is an example of runner file to export an SBML using different parameters
+##############################################
+modelFile BIOMD0000000050.xml
+modelFormat	SBML
+runningType	exporting 
+parameter k4v4=0.07

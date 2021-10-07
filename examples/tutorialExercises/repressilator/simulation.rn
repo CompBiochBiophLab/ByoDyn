@@ -1,0 +1,10 @@
+#$ Id: simulation.rn,v 1.1 2007/10/26 16:05:02 alglomana Exp $
+##############################################
+# created by Adrian L. Garcia de Lomana 300507
+# this is an example of runner file to run a simulation
+##############################################
+modelFile repressilator.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType	simulation	velocity
+time&timestep   1000		1

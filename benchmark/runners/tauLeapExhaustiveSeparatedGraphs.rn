@@ -1,0 +1,7 @@
+# $Id $
+modelFile models/isomerisation.xml
+modelFormat	SBML
+runningType	simulation	noVelocity
+stochasticMethod tau-leap default 3
+time&timestep   200	  5
+separatedGraphs

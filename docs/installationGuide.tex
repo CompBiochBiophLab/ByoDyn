@@ -1,0 +1,165 @@
+% $Id: installationGuide.tex,v 4.14 2008/12/17 00:55:44 alglomana Exp $
+\documentclass[a4paper, 11pt]{article}
+\marginparwidth 0pt
+\oddsidemargin  0pt
+\evensidemargin  0pt
+\marginparsep 0pt
+\topmargin   0pt
+\textwidth   6.5in
+\textheight  8.5 in
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  citecolor=cyan,
+  filecolor=blue,
+  linkcolor=blue,
+  urlcolor=magenta
+}
+\begin{document}
+\begin{center}
+  \thispagestyle{empty}
+  \textbf{\Large{Installation Guide for \texttt{ByoDyn} version 4.8}}\\[5ex]
+  \textbf{Adri\'an L\'opez Garc\'ia de Lomana, Alex G\'omez-Garrido, Miguel Hern\'andez, Pau Ru\'e Queralt and Jordi Vill\`a-Freixa}\\[10ex] --- December 17, 2008 ---\\[10ex]
+  \parbox{0.70\linewidth}{
+    This document specifies the requirements and different steps to install \texttt{ByoDyn} on a Linux box (Fedora Core 2, 4 and 6). 
+  }\\[60ex] 
+\end{center}
+\begin{footnotesize}
+  \begin{raggedleft}
+    \textbf{Computational Biochemistry and Biophysics Laboratory}\\
+    Research Unit on Biomedical Informatics\\
+    Universitat Pompeu Fabra - Institut Municipal d'Investigaci\'o M\`edica\\
+    c/ Dr. Aiguader 88, 08003, Barcelona, Spain\\
+    \url{http://cbbl.imim.es}\\
+  \end{raggedleft}
+\end{footnotesize}
+\newpage
+\tableofcontents
+\newpage
+\section{\texttt{ByoDyn} Requirements} \label{requirements}
+\subsection{Mandatory} \label{mandatory}
+\begin{itemize}
+\item
+  \textbf{Python}: version 2.5 or newer is required \url{http://www.python.org/download}.
+\item
+  \textbf{SciPy}: version 0.6.0 or newer available at \url{http://www.scipy.org/}.
+  To install SciPy you also need \texttt{numpy} available at \url{http://numeric.scipy.org/}.
+  Please install \texttt{numpy} version 1.1.0 or newer.
+  For an smooth use of SciPy, make sure you have built BLAS and LAPACK libraries as explained at \url{http://www.scipy.org/Installing_SciPy/BuildingGeneral}.
+\item
+  \textbf{libSBML}: version 3.2.0 or newer available at \url{http://www.sbml.org/libsbml.html}.
+  Make sure you use at least the Python binder adding the flag \texttt{--with-python} while configuring.
+\item
+  \textbf{PORT Library}: from Netlib. 
+  Please follow the requiered specified steps for the correct functioning of the local search routines of \texttt{ByoDyn}:
+  \begin{itemize}
+  \item 
+    Use the following command to download the code:\\\texttt{rsync -avz netlib.org::netlib/port .}
+  \item
+    Modify the \texttt{Makefile}:
+    \begin{itemize}
+    \item
+      If your Fortran compiler is not \texttt{f77} add the following line at the top the file:\\[1.5ex]
+      \texttt{FC=gfortran}\\[1.5ex]
+      \texttt{gfortran} is the default Fortran compiler in the latest Fedora distribution.
+      If you have another compiler, change \texttt{gfortran} by the one you have.
+    \item
+      Change the line\\[1.5ex]
+      \texttt{LIB=portP}\\[1.5ex]
+      by \\[1.5ex]
+      \texttt{LIB=port}\\[1.5ex]
+      we are simply changing the name of the library.
+    \item
+      Remove the line\\[1.5ex]
+      \texttt{n5err.o$\backslash$}\\[1.5ex]
+      the file \texttt{n5err.f} was not found in the server and is not required in this case
+    \item
+      Change the line\\[1.5ex]
+      \texttt{update lib\$(LIB).a \$?}\\[1.5ex]
+      by\\[1.5ex]
+      \texttt{ar rcs lib\$(LIB).a \$?}
+    \item
+      Change the line\\[1.5ex]
+      \texttt{FFLAGS=-O}\\[1.5ex]
+      by\\[1.5ex]
+      \texttt{FFLAGS=-O -fPIC}\\[1.5ex]
+      if your architecture is 64 bits.
+    \end{itemize}
+  \item
+    Execute \texttt{make}.
+  \end{itemize}
+  Once you compile the source code, the file called \texttt{libport.a} has to be copied to the \\\texttt{byodyn/lib/local\_search/PORT} directory.
+\item
+  \textbf{Gnuplot}: Gnuplot 3.7 or newer needed to create the output graphs. 
+  Available at \url{http://www.gnuplot.info/}.
+\item
+  \textbf{matplotlib}: Version 0.91.1 or newer is required.
+  You can download it from \url{http://matplotlib.sourceforge.net/}.
+  It is required for the plots output by \texttt{ByoDyn}.\\
+\end{itemize}
+\subsection{Optional}
+In addition to this, other pieces of software add extra functionality to the \texttt{ByoDyn} platform:
+\begin{itemize}
+\item
+  \textbf{Doxygen:} required to build the API of \texttt{ByoDyn} in HTML and PDF formats.
+  It has been tested under Doxygen version 1.5.2.
+\item
+  \textbf{Octave}: is an optional tool to substitute SciPy functions for the integration of systems of ordinary differential equations (ODEs).
+  On the contrary Octave is required for the solution of differential-algebraic equations (DAEs).
+  Moreover Octave is compulsory required for clustering.
+  Octave version 3.0.1 or newer is required.
+  Octave is available at \url{http://www.octave.org/}.  
+\item
+  \textbf{OpenModelica}: version 1.4.3 or newer is required for the resolution of ODEs, DAEs and DAEs with events.
+  Information for the installation can be found at \url{http://www.ida.liu.se/~pelab/modelica/OpenModelica.html}.
+  Some environmental variables are required:
+  \begin{itemize}
+  \item \texttt{OPENMODELICAHOME}: pointing to the the \texttt{openmodelica} directory.
+  \item \texttt{PATH}: \texttt{omc} and \texttt{./} should be on the \texttt{PATH} for a correct execution of the software.
+  \end{itemize}
+\item
+  \textbf{XPP/XPPAUT}: version 5.91 or newer is required for solving SBML models with delays.
+  Information for the installation can be found at \url{http://www.math.pitt.edu/~bard/xpp/xpp.html}.
+\item
+  \textbf{Open MPI}: the command \texttt{mpirun} is required to run \texttt{ByoDyn} in parallel.
+  Version 1.2.3 or higher should be available.
+\item
+  \textbf{ScientificPython}: the module \texttt{Scientific.MPI} is required for launching parallel calculations.
+  Version 2.6 or newer is required.
+  Please check \url{http://dirac.cnrs-orleans.fr/plone/software/scientificpython/} for further information.
+  Be sure you also create and call the executable \texttt{mpipython}.
+  To build it please follow the instructions described in the \texttt{README.MPI} file of Scientific.
+  If you will run \texttt{ByoDyn} on a single processor machine, the installation of this software is not required.
+\end{itemize}
+\section{Installation of \texttt{ByoDyn}}
+Once all those software pieces have been installed into the machine and are accessible by \texttt{ByoDyn} you should set up a few things before you run it.
+\begin{itemize}
+\item
+  First, add the \texttt{ByoDyn} executable to your path. 
+  For bash this would be done by:
+  \begin{itemize}
+  \item
+    edit your \texttt{\$HOME/.bashrc}.
+  \item
+    define the \texttt{ByoDyn} path: \texttt{export BYODYN\_PATH=\$HOME/where\_ByoDyn\_is}\\
+    For example if you have \texttt{ByoDyn} at \texttt{\$HOME/a\_directory/another\_directory} you should add the line\\
+    \texttt{export BYODYN\_PATH=\$HOME/a\_directory/another\_directory/byodyn}\\
+    at the \texttt{.bashrc} file.
+  \item
+    Add \texttt{ByoDyn} executable file to the path: \texttt{export PATH="\$BYODYN\_PATH/bin:\$PATH"}
+  \end{itemize}
+\item
+  Make sure that the file \texttt{libport.a} is at the correct directory as specified at the Section \ref{mandatory}.
+\item
+  Finally, execute the command \texttt{byodyn}.
+  The following lines should prompt: \\
+  \begin{footnotesize}
+    \texttt{ByoDyn version 4.6 is running ...\\
+      Run byodyn -h for help.\\
+      ... exiting from ByoDyn.}
+  \end{footnotesize}
+\end{itemize}
+At the case of a newly installed \texttt{ByoDyn}, we suggest to run the \texttt{ByoDyn} tests in order check the correct functioning of the program.
+For that, type \texttt{byodyn --testing} on your terminal.
+\end{document}

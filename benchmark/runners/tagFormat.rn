@@ -1,0 +1,6 @@
+# $ Id$
+modelFile models/li3.in 
+modelFormat	tags
+integrationMethod	python	default
+runningType	simulation	noVelocity
+time&timestep   3000       30

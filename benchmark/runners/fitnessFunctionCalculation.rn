@@ -1,0 +1,8 @@
+# $Id: fitnessFunctionCalculation.rn,v 1.1 2008/07/15 08:18:09 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat SBML
+integrationMethod python default
+runningType calculateFunction
+time&timestep   10.       0.1
+target 5.0	  DFG/0,0/6.48742223445/1.0	Gly/0,0/1.00371129471/1.0
+target 10.0	  DFG/0,0/6.22905463511/1.0	Gly/0,0/2.16685586377/1.0

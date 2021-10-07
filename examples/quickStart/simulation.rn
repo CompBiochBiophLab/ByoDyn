@@ -1,0 +1,10 @@
+# $Id: simulation.rn,v 4.1 2008/06/09 15:41:24 alglomana Exp $
+##############################################
+# created by Adrian L. Garcia de Lomana 300507
+# this is an example of runner file to run a simulation
+##############################################
+modelFile BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType	simulation	velocity
+time&timestep   170		.17

@@ -1,0 +1,7 @@
+# $Id: separatedGraphs.rn,v 1.1 2008/07/29 21:01:59 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType	simulation	velocity
+time&timestep   10.       0.1
+separatedGraphs

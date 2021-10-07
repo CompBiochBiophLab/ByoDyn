@@ -1,0 +1,7 @@
+# $Id: gillespieExhaustiveSeparatedGraphs.rn,v 1.2 2008/12/16 16:02:33 alglomana Exp $
+modelFile models/isomerisation.xml
+modelFormat	SBML
+runningType	simulation	noVelocity
+stochasticMethod ssa gillespie 3
+time&timestep   200	  0
+separatedGraphs

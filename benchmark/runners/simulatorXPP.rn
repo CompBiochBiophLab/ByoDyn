@@ -1,0 +1,6 @@
+# $Id: simulatorXPP.rn,v 1.1 2008/07/14 08:28:16 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	xpp	default
+runningType	simulation	noVelocity
+time&timestep   10.       0.1

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" metaid="metaid_000001" level="2" version="1">
+  <model metaid="metaid_0000002" id="Scheper1999" name="Scheper1999_CircClock">
+    <notes>
+      <body xmlns="http://www.w3.org/1999/xhtml"><p>This model originates from BioModels Database: A Database of Annotated Published Models. It is copyright (c) 2005-2008 The BioModels Team.<br></br> For more information see the <a href="http://www.ebi.ac.uk/biomodels/legal.html">terms of use</a>.</p></body>
+    </notes>
+    <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000002">
+<dc:creator rdf:parseType="Resource">
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<vCard:N rdf:parseType="Resource">
+<vCard:Family>Le Novere</vCard:Family>
+<vCard:Given>Nicolas</vCard:Given>
+</vCard:N>
+<vCard:EMAIL>lenov@ebi.ac.uk</vCard:EMAIL>
+<vCard:ORG>
+<vCard:Orgname>EMBL-EBI</vCard:Orgname>
+</vCard:ORG>
+</rdf:li>
+</rdf:Bag>
+</dc:creator>
+<dcterms:created rdf:parseType="Resource">
+<dcterms:W3CDTF>2005-06-24T13:13:24</dcterms:W3CDTF>
+</dcterms:created>
+<dcterms:modified rdf:parseType="Resource">
+<dcterms:W3CDTF>2007-09-25T10:33:32</dcterms:W3CDTF>
+</dcterms:modified>
+<bqmodel:is>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.ebi.ac.uk/biomodels/#BIOMD0000000024"/>
+</rdf:Bag>
+</bqmodel:is>
+<bqmodel:isDescribedBy>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.pubmed.gov/#9870936"/>
+</rdf:Bag>
+</bqmodel:isDescribedBy>
+<bqbiol:is>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.genome.jp/kegg/pathway/#dme04710"/>
+<rdf:li rdf:resource="http://www.ncbi.nlm.nih.gov/Taxonomy/#7227"/>
+<rdf:li rdf:resource="http://www.ncbi.nlm.nih.gov/Taxonomy/#10036"/>
+</rdf:Bag>
+</bqbiol:is>
+<bqbiol:isVersionOf>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.geneontology.org/#GO:0007623"/>
+</rdf:Bag>
+</bqbiol:isVersionOf>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+    <listOfUnitDefinitions>
+      <unitDefinition metaid="metaid_0000015" id="time">
+        <listOfUnits>
+          <unit kind="second" multiplier="3600" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment metaid="metaid_0000014" id="compartment_0000004" name="cytoplasm" size="1e-15">
+        <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000014">
+<bqbiol:is>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.geneontology.org/#GO:0005737"/>
+</rdf:Bag>
+</bqbiol:is>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+      </compartment>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species metaid="metaid_0000007" id="EmptySet" compartment="compartment_0000004" initialAmount="0" boundaryCondition="true" constant="true"/>
+      <species metaid="metaid_0000008" id="M" name="mRNA" compartment="compartment_0000004" initialAmount="1e-15">
+        <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000008">
+<bqbiol:isVersionOf>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.ebi.ac.uk/chebi/#CHEBI:33699"/>
+<rdf:li rdf:resource="http://www.genome.jp/kegg/compound/#C00046"/>
+</rdf:Bag>
+</bqbiol:isVersionOf>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+      </species>
+      <species metaid="metaid_0000009" id="P" name="protein" compartment="compartment_0000004" initialAmount="1e-15">
+        <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000009">
+<bqbiol:is>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.genome.jp/kegg/compound/#C00017"/>
+</rdf:Bag>
+</bqbiol:is>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+      </species>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction metaid="metaid_0000010" id="TC" name="mRNA production" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000010">
+<bqbiol:isVersionOf>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.geneontology.org/#GO:0009299"/>
+</rdf:Bag>
+</bqbiol:isVersionOf>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+        <listOfReactants>
+          <speciesReference species="EmptySet"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="P"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> compartment_0000004 </ci>
+              <apply>
+                <divide/>
+                <ci> rM </ci>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <power/>
+                    <apply>
+                      <divide/>
+                      <ci> P </ci>
+                      <ci> k </ci>
+                    </apply>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="rM" value="1"/>
+            <parameter id="k" value="1"/>
+            <parameter id="n" value="2"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_0000011" id="TL" name="protein production" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000011">
+<bqbiol:isVersionOf>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.geneontology.org/#GO:0043037"/>
+</rdf:Bag>
+</bqbiol:isVersionOf>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+        <listOfReactants>
+          <speciesReference species="EmptySet"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="M"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> compartment_0000004 </ci>
+              <ci> rP </ci>
+              <apply>
+                <power/>
+                <apply>
+                  <csymbol encoding="text" definitionURL="http://www.sbml.org/sbml/symbols/delay"> delay </csymbol>
+                  <ci> M </ci>
+                  <ci> parameter_0000009 </ci>
+                </apply>
+                <ci> m </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="rP" value="1"/>
+            <parameter id="m" value="3"/>
+            <parameter id="parameter_0000009" name="tau" value="4"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_0000012" id="Md" name="messenger degradation" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000012">
+<bqbiol:isVersionOf>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.geneontology.org/#GO:0006402"/>
+</rdf:Bag>
+</bqbiol:isVersionOf>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+        <listOfReactants>
+          <speciesReference species="M"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EmptySet"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> compartment_0000004 </ci>
+              <ci> qM </ci>
+              <ci> M </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="qM" value="0.21"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_0000013" id="Pd" name="protein degradation" reversible="false">
+        <annotation>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" >
+<rdf:Description rdf:about="#metaid_0000013">
+<bqbiol:isVersionOf>
+<rdf:Bag>
+<rdf:li rdf:resource="http://www.geneontology.org/#GO:0030163"/>
+</rdf:Bag>
+</bqbiol:isVersionOf>
+</rdf:Description>
+</rdf:RDF>
+</annotation>
+
+        <listOfReactants>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EmptySet"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> compartment_0000004 </ci>
+              <ci> qP </ci>
+              <ci> P </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="qP" value="0.21"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

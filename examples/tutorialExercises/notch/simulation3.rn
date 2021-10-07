@@ -1,0 +1,9 @@
+#$ Id: simulation3.rn,v 1.1 2007/10/30 15:17:27 alglomana Exp $
+##############################################
+# created by Adrian L. Garcia de Lomana 301007
+##############################################
+modelFile li3.in 
+modelFormat	tags
+integrationMethod	python	default
+runningType	simulation	noVelocity
+time&timestep   3000       0.1

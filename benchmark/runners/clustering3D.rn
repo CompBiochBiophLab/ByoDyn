@@ -1,0 +1,4 @@
+# $Id: clustering3D.rn,v 1.1 2008/08/04 18:56:02 alglomana Exp $
+runningType	clustering
+clusteringDataFile runners/clustering/clusteringData.3.txt
+bandwidth	   1

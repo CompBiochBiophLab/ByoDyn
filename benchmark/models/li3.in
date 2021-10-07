@@ -1,0 +1,21 @@
+# $Id: li3.in,v 1.1 2008/07/16 14:06:54 alglomana Exp $
+systemName   otic9cell
+xlength	      3
+ywidth	      3
+nodes	notch	NOTCH	delta	DELTA	ND	NOTCHACTIVE	DELTAACTIVE	hes5	HES5
+topology 	notch/NonDimConstitutiveDegradation/notch		K_deg_notch/0.0016649	r_notch/0.620926
+topology	NOTCH/NonDimTranslationDegradationBinding/notch/DELTA	K_deg_NOTCH/0.01	K_bind_ND/0.25		DELTA_0/3
+topology	delta/NonDimInhibitionDegradation/HES5			K_deg_delta/0.01	kappa_HES5/0.1		s/2.0
+topology	DELTA/NonDimTranslationDegradationBinding/delta/NOTCH	K_deg_DELTA/0.01	K_bind_ND/0.25		NOTCH_0/5
+topology	ND/NonDimBindingDegradation/NOTCH/DELTA	 		K_deg_ND/0.01		K_bind_ND/0.25		DELTA_0/3
+topology	hes5/NonDimTranscriptionDegradation/ND	 		K_deg_hes5/0.01		kappa_ND/0.1		m/2.0
+topology	HES5/NonDimTranslationDegradation/hes5	  		K_deg_HES5/0.01
+initialCondition	notch	0,0/0.467529204169	0,1/0.457513575988	0,2/0.485231848029	1,0/0.492248559406	1,1/0.48713287579	1,2/0.457200300727	2,0/0.484544401506	2,1/0.45102119541	2,2/0.479502368645
+initialCondition	NOTCH	0,0/0.0	0,1/0.0	0,2/0.0	1,0/0.0	1,1/0.0	1,2/0.0	2,0/0.0	2,1/0.0	2,2/0.0
+initialCondition	delta	0,0/0.00496614094561	0,1/0.0353144640842	0,2/0.0474705657615	1,0/0.0242043196766	1,1/0.00554781579626	1,2/0.0258705401005	2,0/0.0365742442331	2,1/0.0188988473309	2,2/0.0177076621114
+initialCondition	DELTA	0,0/0.0	0,1/0.0	0,2/0.0	1,0/0.0	1,1/0.0	1,2/0.0	2,0/0.0	2,1/0.0	2,2/0.0
+initialCondition	ND	0,0/0.0	0,1/0.0	0,2/0.0	1,0/0.0	1,1/0.0	1,2/0.0	2,0/0.0	2,1/0.0	2,2/0.0
+initialCondition	NOTCHACTIVE	0,0/0.0	0,1/0.0	0,2/0.0	1,0/0.0	1,1/0.0	1,2/0.0	2,0/0.0	2,1/0.0	2,2/0.0
+initialCondition	DELTAACTIVE	0,0/0.0	0,1/0.0	0,2/0.0	1,0/0.0	1,1/0.0	1,2/0.0	2,0/0.0	2,1/0.0	2,2/0.0
+initialCondition	hes5	0,0/0.0	0,1/0.0	0,2/0.0	1,0/0.0	1,1/0.0	1,2/0.0	2,0/0.0	2,1/0.0	2,2/0.0
+initialCondition	HES5	0,0/0.0	0,1/0.0	0,2/0.0	1,0/0.0	1,1/0.0	1,2/0.0	2,0/0.0	2,1/0.0	2,2/0.0

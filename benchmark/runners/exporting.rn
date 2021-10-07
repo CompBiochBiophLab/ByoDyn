@@ -1,0 +1,5 @@
+# $Id: exporting.rn,v 4.2 2008/07/03 10:57:14 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+runningType	exporting 
+parameter k4v4=0.07

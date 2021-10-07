@@ -1,0 +1,6 @@
+# $Id: gillespieGeneral.rn,v 1.2 2008/12/16 13:33:33 alglomana Exp $
+modelFile models/isomerisation.xml
+modelFormat	SBML
+runningType	simulation	noVelocity
+stochasticMethod ssa gillespie 300
+time&timestep   200	  5

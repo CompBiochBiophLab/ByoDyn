@@ -1,0 +1,7 @@
+# $Id: sensitivity.rn,v 4.1 2008/07/15 16:58:55 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType sensitivityAnalysis
+time&timestep   10.       0.1
+sensitivityParameters  k10v10	k2v2

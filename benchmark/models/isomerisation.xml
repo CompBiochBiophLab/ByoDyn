@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner" level="2" version="1">
+<model id="isomerisation">
+<listOfCompartments>
+	<compartment id="default"/>
+</listOfCompartments>
+<listOfSpecies>
+	<species id="s1" name="A" compartment="default" initialAmount="100" charge="0"></species>
+	<species id="s2" name="B" compartment="default" initialAmount="0" charge="0"></species>
+</listOfSpecies>
+<listOfReactions>
+	<reaction id="re1" reversible="false" fast="false">
+		<listOfReactants>
+			<speciesReference species="s1"></speciesReference>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="s2"></speciesReference>
+		</listOfProducts>
+		<kineticLaw>
+			<math xmlns="http://www.w3.org/1998/Math/MathML">
+				<apply>
+					<times/>
+					<ci> s1 </ci>
+					<ci> k1 </ci>
+				</apply>
+			</math>
+			<listOfParameters>
+				<parameter id="k1" name="k1" value=".01"/>
+			</listOfParameters>
+		</kineticLaw>
+	</reaction>
+	<reaction id="re2" reversible="false" fast="false">
+		<listOfReactants>
+			<speciesReference species="s2"></speciesReference>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="s1"></speciesReference>
+		</listOfProducts>
+		<kineticLaw>
+			<math xmlns="http://www.w3.org/1998/Math/MathML">
+				<apply>
+					<times/>
+					<ci> s2 </ci>
+					<ci> k1 </ci>
+				</apply>
+			</math>
+			<listOfParameters>
+				<parameter id="k1" name="k1" value=".01"/>
+			</listOfParameters>
+		</kineticLaw>
+	</reaction>
+</listOfReactions>
+</model>
+</sbml>

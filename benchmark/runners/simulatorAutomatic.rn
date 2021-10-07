@@ -1,0 +1,6 @@
+# $Id: simulatorAutomatic.rn,v 1.1 2008/12/15 11:48:35 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	automatic	default
+runningType	simulation	noVelocity
+time&timestep   10.       0.1

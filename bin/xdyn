@@ -1,0 +1,131 @@
+#! /usr/bin/env python
+
+#
+#  Project: ByoDyn
+#
+#  Copyright (C) 2008 Alex Gomez-Garrido, Adrian L. Garcia-Lomana and Jordi Villa-Freixa
+#
+#  Authors: Alex Gomez-Garrido
+#
+#  Created: 2007-03-12 by Alex Gomez-Garrido
+#
+#  This application is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public
+#  License as published by the Free Software Foundation; either
+#  version 2 of the License, or (at your option) any later version.
+#
+#  This application is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  Library General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public
+#  License along with this library; if not, write to the Free
+#  Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
+#
+
+# $Id: xdyn,v 4.2 2008/12/03 16:37:38 alglomana Exp $
+
+import sys, os
+import initiator
+import errorMessages
+try:
+	from Tkinter import *
+	from tkFileDialog import askopenfilename
+except ImportError:
+     raise errorMessages.GUIException, 'Error in Tkinter module import. You needed to install Tkinter correctly.Please visit "http://wiki.python.org/moin/TkInter" for instructions.'
+
+class ClassXDyn:
+	def __init__(self):
+        	self.runnerFile = None
+		self.root = Tk()
+		return None	
+	def newRunner(self):
+		print "This function is not enable....";
+	def loadRunner(self):
+		self.runnerFile = askopenfilename(filetypes=[("allfiles","*"),("pythonfiles","*.py")])
+	def goAway(self):
+		sys.exit(1)
+		
+	def execute(self):
+		if self.runnerFile == None:
+			print 'Error: you need build or load a runner file'
+		else:	
+			initiator.initial(self.runnerFile)
+			
+	def showAbout(self):
+		print 'Welcome to ByoDyn\n';
+		
+		
+	def saveRunner(self):
+		print "This function is not enable....";
+			
+	def readSBML(self):
+		print "This function is not enable....";
+ 	
+	def closeSesion(self):
+		self.runnerFile = None
+		
+	def simulation(self):
+		print "This function is not enable....";
+	def runnerEditor(self):
+		print "This function is not enable....";
+	def descriptionSBML(self):
+		print "This function is not enable....";
+	def menu(self):	
+		menu = Menu(self.root)
+		self.root.config(menu=menu)
+		filemenu = Menu(menu)
+		menu.add_cascade(label='File', menu=filemenu)
+		filemenu.add_command(label='New runner', command=self.newRunner)
+		filemenu.add_command(label='Load runner', command=self.loadRunner)
+		filemenu.add_command(label='Save runner', command=self.saveRunner)
+		filemenu.add_separator()
+		filemenu.add_command(label='Read SBML', command=self.readSBML)
+		filemenu.add_separator()
+		filemenu.add_command(label='Close sesion', command=self.closeSesion)	
+		filemenu.add_command(label='Exit', command=self.goAway)
+		
+		viewmenu = Menu(menu)
+		menu.add_cascade(label='View', menu=viewmenu)
+		viewmenu.add_command(label='Runner editor', command=self.runnerEditor)
+		viewmenu.add_command(label='SBML description', command=self.descriptionSBML)		
+		
+		executemenu = Menu(menu)
+		menu.add_cascade(label='Run', menu=executemenu)
+		executemenu.add_command(label='Execute runner', command=self.execute)
+		executemenu.add_command(label='Simulation', command=self.simulation)
+		
+		resultmenu = Menu(menu)
+		menu.add_cascade(label='Results', menu=resultmenu)	
+		
+		helpmenu=Menu(menu)
+		menu.add_cascade(label='Help', menu=helpmenu)
+		helpmenu.add_command(label='About...', command=self.showAbout)
+
+	def toolbar(self):
+		toolbar = Frame(self.root)
+		b = Button(toolbar, text="new", width=6, command=self.newRunner)
+		b.pack(side=LEFT, padx=2, pady=2)
+		b = Button(toolbar, text="open", width=6, command=self.loadRunner)
+		b.pack(side=LEFT, padx=2, pady=2)
+		toolbar.pack(side=TOP, fill=X)
+		runButton = Button(toolbar, text="Execute ByoDyn", command=self.execute)
+		runButton.pack(side=LEFT, padx=2,pady=2)
+		exitButton = Button(toolbar, text = 'Exit', command =self.root.destroy)
+    		exitButton.pack(side = LEFT, padx=2,pady=2)
+
+	def mainPart(self):
+		mainPart = Label(self.root, text = 'ByoDyn\nhttp://cbbl.imim.es/ByoDyn\n\nAlex Gomez-Garrido, Adrian L. Garcia-Lomana, Jordi Villa-Freixa\nComputational Biochemistry and Biophysics lab\n\nUniversity Pompeu Fabra', background = 'white', foreground = 'blue', padx = 120, pady = 120)
+		mainPart.pack(fill='both',expand=1)
+
+	def window(self):	
+    		self.root.title('ByoDyn GUI')
+		self.menu()
+		self.toolbar()
+		self.mainPart()
+		mainloop()		
+		return None
+
+xDyn = ClassXDyn()
+xDyn.window()

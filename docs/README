@@ -1,0 +1,3 @@
+On this directory you will find four documentation files: an installation guide, a tutorial and quickstart guide, a user reference manual and the API.
+Those files are in ".tex" format or not been generated yet, in order to build the pdf files (and html for the API), execute the corresponding script "createDocumentation".
+At any case, although older than the tex files here, you can find already built pdf files at SourceForge.net site.

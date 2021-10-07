@@ -1,0 +1,7 @@
+# $Id: checkConsistency.rn,v 1.1 2008/07/04 16:17:01 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType	simulation	noVelocity
+time&timestep   10.       0.1
+checkConsistencySBML

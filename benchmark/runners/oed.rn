@@ -1,0 +1,12 @@
+# $Id: oed.rn,v 4.3 2008/07/15 16:58:55 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML 
+integrationMethod	python	default
+runningType	optimalExperimentalDesign	addNewPoint
+time&timestep   10.       0.1
+sensitivityParameters  k10v10	k2v2
+identifiabilityCriteria MA D E ME
+OEDResolution	50
+targetSpecies	AA	DFG	Gly
+target 5.0	  DFG/0,0/7.48742223445/1.0	Gly/0,0/1.00371129471/1.0
+target 10.0	  DFG/0,0/6.22905463511/1.0	Gly/0,0/2.16685586377/1.0

@@ -1,0 +1,6 @@
+# $Id: scipyODE.rn,v 1.2 2008/07/03 13:46:05 alglomana Exp $
+modelFile models/BIOMD0000000050.xml
+modelFormat	SBML
+integrationMethod	python	default
+runningType	simulation	velocity
+time&timestep   10.       0.1

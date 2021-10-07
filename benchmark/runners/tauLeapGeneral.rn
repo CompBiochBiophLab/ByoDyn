@@ -1,0 +1,6 @@
+# $Id: tauLeapGeneral.rn,v 1.1 2008/12/16 16:02:33 alglomana Exp $
+modelFile models/isomerisation.xml
+modelFormat	SBML
+runningType	simulation	noVelocity
+stochasticMethod tau-leap default 300
+time&timestep   200	  5
