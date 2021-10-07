@@ -1,0 +1,19 @@
+/boxFrame{
+   5 dict begin
+   /graylevel exch def
+   /yfin  exch def
+   /xfin  exch def
+   /yini  exch def
+   /xini  exch def
+
+   gsave
+   newpath
+   xini yini moveto        
+   xini yfin lineto        % Left
+   xfin yfin lineto        % Top
+   xfin yini lineto        % Right
+   closepath               % Bottom
+   graylevel setgray stroke
+   grestore
+   end
+} def

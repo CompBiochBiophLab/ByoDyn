@@ -1,0 +1,62 @@
+%
+%  Project: ByoDyn
+%
+%  Copyright (C) 2006 Adrian L. Garcia-Lomana & Jordi Villa-Freixa
+%
+%  Author: Adrian L. Garcia-Lomana
+%
+%  Created: 2004-08-30 by Adrian L. Garcia-Lomana
+%
+%  This application is free software; you can redistribute it and/or
+%  modify it under the terms of the GNU General Public
+%  License as published by the Free Software Foundation; either
+%  version 2 of the License, or (at your option) any later version.
+%
+%  This application is distributed in the hope that it will be useful,
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+%  Library General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public
+%  License along with this library; if not, write to the Free
+%  Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
+% 
+
+% $Id: frame.ps,v 4.3 2008/08/26 14:23:29 alglomana Exp $
+
+%
+% define the grid
+% to call this function:
+% XINI YINI XFIN YFIN XSTEPS YSTEPS LEVELGRAY grid
+%
+/grid {
+   gsave
+   7 dict begin
+   /graylevel exch def                          %define the arguments
+   /ytimes exch def                          
+   /xtimes exch def
+   /yfing  exch def
+   /xfing  exch def
+   /yinig  exch def
+   /xinig  exch def
+   /xsteps xfing xinig sub xtimes div  def    %define the number of grid boxes
+   /ysteps yfing yinig sub ytimes div  def
+   yinig ysteps yfing {                      %loop for horizontal lines
+      /yini exch def
+      newpath
+      xinig yini moveto
+      xfing yini lineto
+      closepath
+      graylevel setgray stroke
+   } for
+   xinig xsteps xfing {                   %loop for vertical lines
+      /xini exch def
+      newpath
+      xini yinig moveto
+      xini yfing lineto
+      closepath
+      graylevel setgray stroke
+   } for
+   grestore
+   end
+} def
