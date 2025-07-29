@@ -1,0 +1,63 @@
+\doxysection{optimiser.\+py File Reference}
+\label{optimiser_8py}\index{optimiser.py@{optimiser.py}}
+
+
+This module is responsible of the optimisation of fitness function.  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \textbf{ optimiser}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ optimiser.\+calculate\+Confidence\+Intervals} (model, metamodel, outputfiles)
+\item 
+\textbf{ optimiser.\+central} (metamodel, model, outputfiles, solutions)
+\item 
+\textbf{ optimiser.\+check\+Data\+Points} (model, metamodel)
+\item 
+\textbf{ optimiser.\+check\+Initial\+Conditions\+To\+Vary} (model, metamodel)
+\item 
+\textbf{ optimiser.\+check\+Parameters\+To\+Vary} (model, metamodel)
+\item 
+\textbf{ optimiser.\+check\+Target\+Nodes} (model, metamodel)
+\item 
+\textbf{ optimiser.\+evaluate\+Iteration} (karyotype, model, metamodel, outputfiles, scores, iteration)
+\item 
+\textbf{ optimiser.\+evaluate\+Solution} (iteration, score, metamodel, model, outputfiles)
+\item 
+\textbf{ optimiser.\+evaluate\+Stopping} (metamodel, iteration, scores)
+\item 
+\textbf{ optimiser.\+ga\+Initialise\+Population} (model, metamodel)
+\item 
+\textbf{ optimiser.\+ga\+Natural\+Selection} (karyotype, iteration, scores, metamodel, outputfiles)
+\item 
+\textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer} (iteration, karyotype, metamodel, model, outputfiles)
+\item 
+\textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer\+Local} (iteration, karyotype, metamodel, model, outputfiles)
+\item 
+\textbf{ optimiser.\+ga\+Sex} (karyotype, best\+Chromosomes, sex\+Chromosomes, model, metamodel)
+\item 
+\textbf{ optimiser.\+get\+Simulate\+Value} (original\+Simulation\+Values, node, target, model, metamodel)
+\item 
+\textbf{ optimiser.\+linear\+Variation} (minimal\+Value, maximal\+Value)
+\item 
+\textbf{ optimiser.\+logarithmic\+Variation} (minimal\+Value, maximal\+Value)
+\item 
+\textbf{ optimiser.\+normal\+Variation\+For\+Initial\+Condition} (metamodel, model)
+\item 
+\textbf{ optimiser.\+random\+Search} (metamodel, model, outputfiles)
+\item 
+\textbf{ optimiser.\+score\+Obtainer} (metamodel, model, outputfiles)
+\item 
+\textbf{ optimiser.\+store\+Solution} (score, metamodel, model, working\+Directory)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module is responsible of the optimisation of fitness function. 
+
+It directs the flow of the program to the genetic algorithm or the local search. It contains most of the parallel code. 

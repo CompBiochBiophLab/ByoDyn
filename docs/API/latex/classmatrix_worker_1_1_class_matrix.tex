@@ -1,0 +1,262 @@
+\doxysection{matrix\+Worker.\+Class\+Matrix Class Reference}
+\label{classmatrix_worker_1_1_class_matrix}\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ black\+And\+White\+Color\+Calculator} (self, value, max)
+\item 
+\textbf{ blue\+Red\+Color\+Calculator} (self, value, max)
+\item 
+\textbf{ file\+Writer} (self, message, output\+File)
+\item 
+\textbf{ get\+Covariance\+Matrix} (self)
+\item 
+\textbf{ get\+Empirical\+Mean} (self)
+\item 
+\textbf{ get\+Max\+Eigen\+Value} (self)
+\item 
+\textbf{ get\+Min\+Eigen\+Value} (self)
+\item 
+\textbf{ get\+Trace} (self)
+\item 
+\textbf{ is\+Singular} (self)
+\item 
+\textbf{ plot\+Writer} (self, metamodel, output\+File, color)
+\item 
+\textbf{ set\+Col\+Names} (self, names)
+\item 
+\textbf{ set\+Eigen\+Values} (self)
+\item 
+\textbf{ set\+Row\+Names} (self, names)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ col\+Names}
+\item 
+\textbf{ eigen\+Values}
+\item 
+\textbf{ eigen\+Vectors}
+\item 
+\textbf{ m}
+\item 
+\textbf{ row\+Names}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classmatrix_worker_1_1_class_matrix_a5cec6c750e173dbb5daafc2e82394e45} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        Constructor of the class ClassMatrix.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classmatrix_worker_1_1_class_matrix_a633a085955bca9b670c2f713b2edeb39} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!blackAndWhiteColorCalculator@{blackAndWhiteColorCalculator}}
+\index{blackAndWhiteColorCalculator@{blackAndWhiteColorCalculator}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{blackAndWhiteColorCalculator()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+black\+And\+White\+Color\+Calculator (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{value,  }\item[{}]{max }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function calculates the colour intensity in the black-white scale.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ matrix\+Worker.\+Class\+Matrix.\+plot\+Writer()}.
+
+\label{classmatrix_worker_1_1_class_matrix_ad09b39c456b58bd2b30cad5b5fb79ac3} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!blueRedColorCalculator@{blueRedColorCalculator}}
+\index{blueRedColorCalculator@{blueRedColorCalculator}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{blueRedColorCalculator()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+blue\+Red\+Color\+Calculator (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{value,  }\item[{}]{max }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function calculates the colour intensity in a blue-red scale.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ matrix\+Worker.\+Class\+Matrix.\+plot\+Writer()}.
+
+\label{classmatrix_worker_1_1_class_matrix_ad977cd5b020297449c11ff95e3b46b3f} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!fileWriter@{fileWriter}}
+\index{fileWriter@{fileWriter}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{fileWriter()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+file\+Writer (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{message,  }\item[{}]{output\+File }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function writes a text file with a matrix.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+col\+Names}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+m}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+row\+Names}.
+
+\label{classmatrix_worker_1_1_class_matrix_ac34e39f80150d49b0830354e8b5075e9} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!getCovarianceMatrix@{getCovarianceMatrix}}
+\index{getCovarianceMatrix@{getCovarianceMatrix}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{getCovarianceMatrix()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+get\+Covariance\+Matrix (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+m}.
+
+\label{classmatrix_worker_1_1_class_matrix_ac06f0e4a1b5e716f56ab76d902aca65d} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!getEmpiricalMean@{getEmpiricalMean}}
+\index{getEmpiricalMean@{getEmpiricalMean}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{getEmpiricalMean()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+get\+Empirical\+Mean (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+m}.
+
+\label{classmatrix_worker_1_1_class_matrix_aaa6fbec54e377eb4accd7754cf06c0fc} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!getMaxEigenValue@{getMaxEigenValue}}
+\index{getMaxEigenValue@{getMaxEigenValue}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{getMaxEigenValue()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+get\+Max\+Eigen\+Value (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function returns the largest eigenvalue of a matrix.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+eigen\+Values}, \textbf{ pca.\+Class\+PCA.\+eigen\+Values}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+set\+Eigen\+Values()}.
+
+\label{classmatrix_worker_1_1_class_matrix_af630fd91cf49b0523f5394575346255e} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!getMinEigenValue@{getMinEigenValue}}
+\index{getMinEigenValue@{getMinEigenValue}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{getMinEigenValue()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+get\+Min\+Eigen\+Value (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function returns the lowest eigenvalue of a matrix.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+eigen\+Values}, \textbf{ pca.\+Class\+PCA.\+eigen\+Values}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+set\+Eigen\+Values()}.
+
+\label{classmatrix_worker_1_1_class_matrix_a6a5714452342b48c8cca91a3ffe13a7f} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!getTrace@{getTrace}}
+\index{getTrace@{getTrace}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{getTrace()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+get\+Trace (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function calculates the trace of a matrix: summing up the diagonal.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+m}.
+
+\label{classmatrix_worker_1_1_class_matrix_a8cb773c87564d99fc89baaa9c0c43d40} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!isSingular@{isSingular}}
+\index{isSingular@{isSingular}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{isSingular()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+is\+Singular (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function returns true if the matrix is singular.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+m}.
+
+\label{classmatrix_worker_1_1_class_matrix_a65d3f28feba4950dbc82e4a65244ef14} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!plotWriter@{plotWriter}}
+\index{plotWriter@{plotWriter}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{plotWriter()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+plot\+Writer (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{output\+File,  }\item[{}]{color }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function creates a postscript file with a black and white or color matrix.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+black\+And\+White\+Color\+Calculator()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+blue\+Red\+Color\+Calculator()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+col\+Names}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+m}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+row\+Names}.
+
+\label{classmatrix_worker_1_1_class_matrix_a3edc4a8deea48730b7faae97ddcc2b0c} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!setColNames@{setColNames}}
+\index{setColNames@{setColNames}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{setColNames()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+set\+Col\+Names (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{names }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function sets the names of the columns of the matrix.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+col\+Names}.
+
+\label{classmatrix_worker_1_1_class_matrix_ae2b571abe1644bd2de4d4a23ea01492b} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!setEigenValues@{setEigenValues}}
+\index{setEigenValues@{setEigenValues}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{setEigenValues()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+set\+Eigen\+Values (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function calculates the eigenvalues of a matrix using SciPy.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+eigen\+Values}, \textbf{ pca.\+Class\+PCA.\+eigen\+Values}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+eigen\+Vectors}, \textbf{ pca.\+Class\+PCA.\+eigen\+Vectors}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+m}.
+
+
+
+Referenced by \textbf{ matrix\+Worker.\+Class\+Matrix.\+get\+Max\+Eigen\+Value()}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+get\+Min\+Eigen\+Value()}.
+
+\label{classmatrix_worker_1_1_class_matrix_a600625528d2bcf5517737bd2f2cf2ffc} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!setRowNames@{setRowNames}}
+\index{setRowNames@{setRowNames}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{setRowNames()}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+set\+Row\+Names (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{names }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This function sets the names of the rows of the matrix.\end{DoxyVerb}
+ 
+
+References \textbf{ matrix\+Worker.\+Class\+Matrix.\+row\+Names}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classmatrix_worker_1_1_class_matrix_ae9856acbca3fd8c97a2bf5759922c135} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!colNames@{colNames}}
+\index{colNames@{colNames}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{colNames}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+col\+Names}
+
+
+
+Referenced by \textbf{ matrix\+Worker.\+Class\+Matrix.\+file\+Writer()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+plot\+Writer()}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+set\+Col\+Names()}.
+
+\label{classmatrix_worker_1_1_class_matrix_a8c10fb3ece8ed4a541f83631772e5389} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!eigenValues@{eigenValues}}
+\index{eigenValues@{eigenValues}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{eigenValues}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+eigen\+Values}
+
+
+
+Referenced by \textbf{ matrix\+Worker.\+Class\+Matrix.\+get\+Max\+Eigen\+Value()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+get\+Min\+Eigen\+Value()}, \textbf{ pca.\+Class\+PCA.\+set\+Eigen()}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+set\+Eigen\+Values()}.
+
+\label{classmatrix_worker_1_1_class_matrix_a7c9bc5b5e5b71c246e2d6424a44ba322} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!eigenVectors@{eigenVectors}}
+\index{eigenVectors@{eigenVectors}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{eigenVectors}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+eigen\+Vectors}
+
+
+
+Referenced by \textbf{ pca.\+Class\+PCA.\+set\+Eigen()}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+set\+Eigen\+Values()}.
+
+\label{classmatrix_worker_1_1_class_matrix_a46c0ad57c70f9c1aefd81ba36816eea7} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!m@{m}}
+\index{m@{m}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{m}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+m}
+
+
+
+Referenced by \textbf{ matrix\+Worker.\+Class\+Matrix.\+file\+Writer()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+get\+Covariance\+Matrix()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+get\+Empirical\+Mean()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+get\+Trace()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+is\+Singular()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+plot\+Writer()}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+set\+Eigen\+Values()}.
+
+\label{classmatrix_worker_1_1_class_matrix_a730d6239a3a33e6cc8f2741464ad2e5a} 
+\index{matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}!rowNames@{rowNames}}
+\index{rowNames@{rowNames}!matrixWorker.ClassMatrix@{matrixWorker.ClassMatrix}}
+\doxysubsubsection{rowNames}
+{\footnotesize\ttfamily matrix\+Worker.\+Class\+Matrix.\+row\+Names}
+
+
+
+Referenced by \textbf{ matrix\+Worker.\+Class\+Matrix.\+file\+Writer()}, \textbf{ matrix\+Worker.\+Class\+Matrix.\+plot\+Writer()}, and \textbf{ matrix\+Worker.\+Class\+Matrix.\+set\+Row\+Names()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ matrix\+Worker.\+py}\end{DoxyCompactItemize}

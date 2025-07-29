@@ -1,0 +1,138 @@
+\doxysection{simulator\+Euler.\+Class\+Simulator\+Euler Class Reference}
+\label{classsimulator_euler_1_1_class_simulator_euler}\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+
+
+Inheritance diagram for simulator\+Euler.\+Class\+Simulator\+Euler\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ integrate} (self, f, x\+\_\+0, time, dt)
+\item 
+\textbf{ run} (self, metamodel, model, outputfiles)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+get\+Variables} (self, model)
+\item 
+\textbf{ \+\_\+\+\_\+load\+Integration\+Function} (self, outputfiles)
+\item 
+\textbf{ \+\_\+\+\_\+plot\+Simulation} (self, x, t, model, metamodel, outputfiles)
+\item 
+\textbf{ \+\_\+\+\_\+store\+Results} (self, x, t, model, metamodel, outputfiles)
+\item 
+\textbf{ \+\_\+\+\_\+write\+Topology\+Input} (self, model, outputfiles, initial\+Variables\+Values, variables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the Euler simulator.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsimulator_euler_1_1_class_simulator_euler_a2831e5140fbd35a7647f638f3f6f6a9d} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The constructor.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsimulator_euler_1_1_class_simulator_euler_a9c6cfb9cfd8581c56e722543a11cdecc} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!\_\_getVariables@{\_\_getVariables}}
+\index{\_\_getVariables@{\_\_getVariables}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{\_\_getVariables()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+get\+Variables (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This private method sets the initial conditions of the system.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_euler_1_1_class_simulator_euler_a3efd02339cfa49a3c9545df132b88fa0} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!\_\_loadIntegrationFunction@{\_\_loadIntegrationFunction}}
+\index{\_\_loadIntegrationFunction@{\_\_loadIntegrationFunction}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{\_\_loadIntegrationFunction()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+load\+Integration\+Function (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{outputfiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This private method loads the system of equations, that is the topology of the system.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_euler_1_1_class_simulator_euler_aab40b98a46e95f87e10589a504ebc584} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!\_\_plotSimulation@{\_\_plotSimulation}}
+\index{\_\_plotSimulation@{\_\_plotSimulation}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{\_\_plotSimulation()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+plot\+Simulation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{t,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This private method creates the graph of the trajectories.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_euler_1_1_class_simulator_euler_a587c73cfd07a460905b7433b059dbb53} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!\_\_storeResults@{\_\_storeResults}}
+\index{\_\_storeResults@{\_\_storeResults}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{\_\_storeResults()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+store\+Results (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{t,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method stores the results of the simulation in a file in the output directory.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_euler_1_1_class_simulator_euler_ae6aa9e5378d01b5ba3055748cd151c49} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!\_\_writeTopologyInput@{\_\_writeTopologyInput}}
+\index{\_\_writeTopologyInput@{\_\_writeTopologyInput}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{\_\_writeTopologyInput()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+write\+Topology\+Input (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{initial\+Variables\+Values,  }\item[{}]{variables }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This private method writes a file with the topology of the system.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}.
+
+\label{classsimulator_euler_1_1_class_simulator_euler_accddfd92aa1c66cc788d44946aa739f7} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!integrate@{integrate}}
+\index{integrate@{integrate}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{integrate()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+integrate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{f,  }\item[{}]{x\+\_\+0,  }\item[{}]{time,  }\item[{}]{dt }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method integrates the system of equations.\end{DoxyVerb}
+ 
+
+Reimplemented in \textbf{ simulator\+Runge\+Kutta.\+Class\+Simulator\+Runge\+Kutta} \doxyref{}{p.}{classsimulator_runge_kutta_1_1_class_simulator_runge_kutta_aec1de4f0ea3b6fd20df264501c49f7ad}.
+
+
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}.
+
+\label{classsimulator_euler_1_1_class_simulator_euler_a523d79156fa948072f16fd35579e3d83} 
+\index{simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}!run@{run}}
+\index{run@{run}!simulatorEuler.ClassSimulatorEuler@{simulatorEuler.ClassSimulatorEuler}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily simulator\+Euler.\+Class\+Simulator\+Euler.\+run (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method directs the simulation.
+        It creates the initial conditions, 
+        loads the system of equations, 
+        integrates the system and
+        plots the results.
+\end{DoxyVerb}
+ 
+
+References \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+get\+Variables()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+get\+Variables()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+load\+Integration\+Function()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+load\+Integration\+Function()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+plot\+Simulation()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+plot\+Simulation()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+store\+Results()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+store\+Results()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+write\+Topology\+Input()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+integrate()}, and \textbf{ simulator\+Runge\+Kutta.\+Class\+Simulator\+Runge\+Kutta.\+integrate()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ simulator\+Euler.\+py}\end{DoxyCompactItemize}

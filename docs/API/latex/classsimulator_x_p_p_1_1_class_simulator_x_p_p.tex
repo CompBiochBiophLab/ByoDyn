@@ -1,0 +1,82 @@
+\doxysection{simulator\+XPP.\+Class\+Simulator\+XPP Class Reference}
+\label{classsimulator_x_p_p_1_1_class_simulator_x_p_p}\index{simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ call\+Solver} (self, outputfiles)
+\item 
+\textbf{ create\+Input} (self, metamodel, model, outputfiles)
+\item 
+\textbf{ create\+Outputs} (self, model, outputfiles, metamodel)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+check\+Names} (self, model)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the XPP-AUT simulator.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsimulator_x_p_p_1_1_class_simulator_x_p_p_a14c228aba0cc3d9074b319a330f080b1} 
+\index{simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily simulator\+XPP.\+Class\+Simulator\+XPP.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The constructor.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsimulator_x_p_p_1_1_class_simulator_x_p_p_a3bfb9d2523bf1fa418840d38c66fee8b} 
+\index{simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}!\_\_checkNames@{\_\_checkNames}}
+\index{\_\_checkNames@{\_\_checkNames}!simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}}
+\doxysubsubsection{\_\_checkNames()}
+{\footnotesize\ttfamily simulator\+XPP.\+Class\+Simulator\+XPP.\+\_\+\+\_\+check\+Names (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        XPPAUT converts all the strings into capittal letters, so we need to check for repeated nodes.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+XPP.\+Class\+Simulator\+XPP.\+create\+Input()}.
+
+\label{classsimulator_x_p_p_1_1_class_simulator_x_p_p_a47bf83fa363afed05cf029a1d247e5a9} 
+\index{simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}!callSolver@{callSolver}}
+\index{callSolver@{callSolver}!simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}}
+\doxysubsubsection{callSolver()}
+{\footnotesize\ttfamily simulator\+XPP.\+Class\+Simulator\+XPP.\+call\+Solver (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method calls xppaut to simulate the model
+\end{DoxyVerb}
+ \label{classsimulator_x_p_p_1_1_class_simulator_x_p_p_a1990dea891d76dcd01450f7e3a45ad07} 
+\index{simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}!createInput@{createInput}}
+\index{createInput@{createInput}!simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}}
+\doxysubsubsection{createInput()}
+{\footnotesize\ttfamily simulator\+XPP.\+Class\+Simulator\+XPP.\+create\+Input (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method creates the input file for the XPPAUT simulator.
+\end{DoxyVerb}
+ 
+
+References \textbf{ simulator\+XPP.\+Class\+Simulator\+XPP.\+\_\+\+\_\+check\+Names()}, and \textbf{ formulas.\+write\+XPPFormula()}.
+
+\label{classsimulator_x_p_p_1_1_class_simulator_x_p_p_addfd05f5c5428f97f665770e280fb1b4} 
+\index{simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}!createOutputs@{createOutputs}}
+\index{createOutputs@{createOutputs}!simulatorXPP.ClassSimulatorXPP@{simulatorXPP.ClassSimulatorXPP}}
+\doxysubsubsection{createOutputs()}
+{\footnotesize\ttfamily simulator\+XPP.\+Class\+Simulator\+XPP.\+create\+Outputs (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method converts the format of the XPP output file into a more adequate for ByoDyn.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ simulator\+XPP.\+py}\end{DoxyCompactItemize}

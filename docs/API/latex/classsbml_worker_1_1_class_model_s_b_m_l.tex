@@ -1,0 +1,631 @@
+\doxysection{sbml\+Worker.\+Class\+Model\+SBML Class Reference}
+\label{classsbml_worker_1_1_class_model_s_b_m_l}\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ can\+Be\+Integrate} (self)
+\item 
+\textbf{ check\+Assignment\+Rule} (self, rule)
+\item 
+\textbf{ check\+Compatibilities} (self, metamodel)
+\item 
+\textbf{ get\+Default\+Value} (self, a)
+\item 
+\textbf{ is\+Non\+Constant} (self, nc)
+\item 
+\textbf{ parser} (self, metamodel)
+\item 
+\textbf{ summary} (self, outputfiles)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ algebraic\+Nodes}
+\item 
+\textbf{ compartments}
+\item 
+\textbf{ constant\+Nodes}
+\item 
+\textbf{ delay\+Functions}
+\item 
+\textbf{ delays}
+\item 
+\textbf{ events}
+\item 
+\textbf{ functions}
+\item 
+\textbf{ initial\+Conditions}
+\item 
+\textbf{ nodes}
+\item 
+\textbf{ non\+Constant\+Compartments}
+\item 
+\textbf{ non\+Constant\+Parameters}
+\item 
+\textbf{ parameters}
+\item 
+\textbf{ reactions}
+\item 
+\textbf{ rules}
+\item 
+\textbf{ stoichiometry\+Matrix}
+\item 
+\textbf{ system\+Name}
+\item 
+\textbf{ topology}
+\item 
+\textbf{ topology\+AST}
+\item 
+\textbf{ xlength}
+\item 
+\textbf{ ywidth}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+check\+Algebraic\+Nodes} (self)
+\item 
+\textbf{ \+\_\+\+\_\+check\+And\+Put\+Raterules} (self)
+\item 
+\textbf{ \+\_\+\+\_\+check\+Non\+Constant} (self)
+\item 
+\textbf{ \+\_\+\+\_\+put\+Raterule\+In\+Topology} (self, rule)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Compartments} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Constraints} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Events} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Function\+Definitions} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Initial\+Assignments} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Nodes} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Parameters} (self, sbml\+Model, metamodel)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Rules} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+read\+Topology} (self, sbml\+Model)
+\item 
+\textbf{ \+\_\+\+\_\+search\+Delay\+Function} (self, sbml\+Model)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This is the classs with the model description and methods necessary to work with the model.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsbml_worker_1_1_class_model_s_b_m_l_aa6ae627e7554d04b0e8d7faf2351b0fc} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        The constructor.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsbml_worker_1_1_class_model_s_b_m_l_af11703b61ef5cc2b6ab0547d3283cd70} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_checkAlgebraicNodes@{\_\_checkAlgebraicNodes}}
+\index{\_\_checkAlgebraicNodes@{\_\_checkAlgebraicNodes}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_checkAlgebraicNodes()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Algebraic\+Nodes (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This method searches if all the species defined with boundary condition true and constant false
+are used in rules or events. Otherwise, it converts this species like constant species.
+\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+algebraic\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+algebraic\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+constant\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+constant\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+events}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+events}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a90ff92cf29401a0cbccc9a1917c39660} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_checkAndPutRaterules@{\_\_checkAndPutRaterules}}
+\index{\_\_checkAndPutRaterules@{\_\_checkAndPutRaterules}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_checkAndPutRaterules()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+And\+Put\+Raterules (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method checks the rules and puts rate rules into the model topology.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a15c56f4499eda8e3b5976d642c7c9c5a} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_checkNonConstant@{\_\_checkNonConstant}}
+\index{\_\_checkNonConstant@{\_\_checkNonConstant}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_checkNonConstant()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This internal method checks all the nonConstant parameters and compartments.
+If it finds that one is not used in the equations of the system,
+this one is moved to constant.
+A warning is showed because in this point we are modifing the information of SBML file,
+and it can be an error of SBML file.          
+\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+is\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ae553c4414e683f4d00a6031687e97f1c} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_putRateruleInTopology@{\_\_putRateruleInTopology}}
+\index{\_\_putRateruleInTopology@{\_\_putRateruleInTopology}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_putRateruleInTopology()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rule }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method introduces rate rules in the model topology.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+nodes}, \textbf{ simulator.\+Class\+Epithelium.\+nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+topology}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+topology}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+And\+Put\+Raterules()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a50f724eecb9439b89f695a18618c1435} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readCompartments@{\_\_readCompartments}}
+\index{\_\_readCompartments@{\_\_readCompartments}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readCompartments()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Compartments (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method reads the compartments from a SBML model.
+        It discriminates between constant and non constant compartments.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Compartments}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ad4015f67d21d1b6bcc6c357d5d2cb5a8} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readConstraints@{\_\_readConstraints}}
+\index{\_\_readConstraints@{\_\_readConstraints}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readConstraints()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Constraints (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This method reads constraints from a SBML file
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a880a7d9ebea508ff64e3c57260baf50a} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readEvents@{\_\_readEvents}}
+\index{\_\_readEvents@{\_\_readEvents}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readEvents()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Events (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method reads the events from a SBML file.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+events}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+events}, and \textbf{ sbml\+Worker.\+get\+Boolean\+Expression()}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_adae58826120c429b5c92bb8cbe5047fc} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readFunctionDefinitions@{\_\_readFunctionDefinitions}}
+\index{\_\_readFunctionDefinitions@{\_\_readFunctionDefinitions}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readFunctionDefinitions()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Function\+Definitions (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This method reads the user function definitions from the SBML file.
+\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+functions}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+functions}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a91a8a5fcb7e42c32e42e95cbd4f30daf} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readInitialAssignments@{\_\_readInitialAssignments}}
+\index{\_\_readInitialAssignments@{\_\_readInitialAssignments}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readInitialAssignments()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Initial\+Assignments (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This method reads the initial Assignments from a SBML file.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_aeb6b295289fc5050efd473824c9efceb} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readNodes@{\_\_readNodes}}
+\index{\_\_readNodes@{\_\_readNodes}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readNodes()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method reads of species from a SBML file.
+        It sets the initial conditions of the model.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+algebraic\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+algebraic\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+constant\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+constant\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+initial\+Conditions}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+initial\+Conditions}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+nodes}, \textbf{ simulator.\+Class\+Epithelium.\+nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Compartments}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a6b4217ed3a2a6c5e2bd8d47410f88802} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readParameters@{\_\_readParameters}}
+\index{\_\_readParameters@{\_\_readParameters}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readParameters()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Parameters (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model,  }\item[{}]{metamodel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method reads the parameters from a SBML file.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a3d6a46d3722e1172286c6c7bab1a040e} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readRules@{\_\_readRules}}
+\index{\_\_readRules@{\_\_readRules}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readRules()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Rules (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method reads the rules from a SBML file.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_aafdbe37350af30918d1ad7087160fc3c} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_readTopology@{\_\_readTopology}}
+\index{\_\_readTopology@{\_\_readTopology}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_readTopology()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method builds the network topology from SBML file.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+constant\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+constant\+Nodes}, \textbf{ sbml\+Worker.\+div\+Compartment()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+nodes}, \textbf{ simulator.\+Class\+Epithelium.\+nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+reactions}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+stoichiometry\+Matrix}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+topology}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+topology}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+topology\+AST}, and \textbf{ sbml\+Worker.\+translate\+Local\+Parameters\+Names\+In\+Formula()}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a5f7be77c9d6957decac637b16b90e250} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!\_\_searchDelayFunction@{\_\_searchDelayFunction}}
+\index{\_\_searchDelayFunction@{\_\_searchDelayFunction}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{\_\_searchDelayFunction()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sbml\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This internal method searchs delay functions in kinetic laws.
+If delay is found, it will create a non constant parameter 
+and an assignment rule in order to handle this delay in integrator solvers.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+delay\+Functions}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+delay\+Functions}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+delays}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}, \textbf{ formulas.\+solve\+Formula()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+topology}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+topology}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a02dab1ca3d35ce331e8f758b85c98eca} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!canBeIntegrate@{canBeIntegrate}}
+\index{canBeIntegrate@{canBeIntegrate}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{canBeIntegrate()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+can\+Be\+Integrate (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method searches if the model contains kinetic information. It means kinetic laws, rules or events.
+It returns True or False.
+\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+events}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+events}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+topology}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+topology}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a6ee44257e8aa0c0102d0e21676f70cf5} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!checkAssignmentRule@{checkAssignmentRule}}
+\index{checkAssignmentRule@{checkAssignmentRule}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{checkAssignmentRule()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rule }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method checks for the assignment rules.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+algebraic\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+algebraic\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+constant\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+constant\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+initial\+Conditions}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+initial\+Conditions}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+nodes}, \textbf{ simulator.\+Class\+Epithelium.\+nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}, \textbf{ formulas.\+solve\+Formula()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+topology}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+topology}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+And\+Put\+Raterules()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a5405966fe09f9480580d145f54273cf4} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!checkCompatibilities@{checkCompatibilities}}
+\index{checkCompatibilities@{checkCompatibilities}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{checkCompatibilities()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+check\+Compatibilities (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method searches for possible problems between the model and the ByoDyn version.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+delay\+Functions}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+delay\+Functions}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+events}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+events}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+nodes}, \textbf{ simulator.\+Class\+Epithelium.\+nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a0030da68e07c957aa7e4bd29a5eaec48} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!getDefaultValue@{getDefaultValue}}
+\index{getDefaultValue@{getDefaultValue}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{getDefaultValue()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{a }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method gets the values of the non constant parameters, 
+        the non constant compartments and the algebraic nodes.
+        This method is required from the simulatorOpenModelica for proper writing of the equations.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+algebraic\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+algebraic\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+initial\+Conditions}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+initial\+Conditions}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+nodes}, \textbf{ simulator.\+Class\+Epithelium.\+nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ad1492d48df131f0927710b717a1219e4} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!isNonConstant@{isNonConstant}}
+\index{isNonConstant@{isNonConstant}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{isNonConstant()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+is\+Non\+Constant (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{nc }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method checks if some nonConstant element (parameter or compartment)
+        is modified by rules or events. It returns a boolean with the answer.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+events}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+events}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a54a9ff36f9721a63a6cc23e9f69c0a42} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!parser@{parser}}
+\index{parser@{parser}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{parser()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+parser (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method reads a SBML model and transfrom this into  the class ClassModelSBML.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Algebraic\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+And\+Put\+Raterules()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Compartments()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Constraints()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Events()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Function\+Definitions()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Initial\+Assignments()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Parameters()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Rules()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+can\+Be\+Integrate()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Compartments}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+system\+Name}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+system\+Name}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ae750d71a733c81b8b8cf13e6029d6023} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!summary@{summary}}
+\index{summary@{summary}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{summary()}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+summary (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method writes a short summary of the model description in an output file.\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+constant\+Nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+constant\+Nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+events}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+events}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+nodes}, \textbf{ simulator.\+Class\+Epithelium.\+nodes}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+nodes}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+non\+Constant\+Parameters}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+rules}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+rules}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+system\+Name}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+system\+Name}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ac6a5ac1fa87051e252b2abd487b11ae8} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!algebraicNodes@{algebraicNodes}}
+\index{algebraicNodes@{algebraicNodes}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{algebraicNodes}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+algebraic\+Nodes}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Algebraic\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a96144c2bb990e872bd5c4bf6b4d990e4} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!compartments@{compartments}}
+\index{compartments@{compartments}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{compartments}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+compartments}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Compartments()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Compatibilities()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_aa7fb6e4c1ad065828561e6bd978c824a} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!constantNodes@{constantNodes}}
+\index{constantNodes@{constantNodes}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{constantNodes}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+constant\+Nodes}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Algebraic\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a468b621ca0295f9f14de4efa1a859a72} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!delayFunctions@{delayFunctions}}
+\index{delayFunctions@{delayFunctions}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{delayFunctions}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+delay\+Functions}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Compatibilities()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ae54784cec082128c6c8b52153037f65e} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!delays@{delays}}
+\index{delays@{delays}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{delays}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+delays}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a756cc54459ea8bed0314c029b755dd42} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!events@{events}}
+\index{events@{events}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{events}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+events}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Algebraic\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Events()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+can\+Be\+Integrate()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Compatibilities()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+is\+Non\+Constant()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ae2ea29a1fd311261eb0133e9eb30b8a4} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!functions@{functions}}
+\index{functions@{functions}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{functions}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+functions}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Function\+Definitions()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ae99e220bd85ace251cebe59f1c9ece1f} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!initialConditions@{initialConditions}}
+\index{initialConditions@{initialConditions}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{initialConditions}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+initial\+Conditions}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value()}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a8b95df9219efeb6eef9ebdeeedfd02c4} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!nodes@{nodes}}
+\index{nodes@{nodes}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{nodes}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+nodes}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Compatibilities()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value()}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+summary()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a14de371d3083d96e81cdac720a565d22} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!nonConstantCompartments@{nonConstantCompartments}}
+\index{nonConstantCompartments@{nonConstantCompartments}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{nonConstantCompartments}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Compartments}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Compartments()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a2c465b1e32611fc58870891c21bf7a0f} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!nonConstantParameters@{nonConstantParameters}}
+\index{nonConstantParameters@{nonConstantParameters}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{nonConstantParameters}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+non\+Constant\+Parameters}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Parameters()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a4a519e6c28671ba72470d71ac9d330ac} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!parameters@{parameters}}
+\index{parameters@{parameters}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{parameters}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+parameters}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Parameters()}, \textbf{ sampler.\+Class\+Sample.\+calculate\+Fitness\+Function()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, \textbf{ sampler.\+Class\+Sample.\+create\+Random\+Set\+Of\+Parameters()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value()}, \textbf{ starter.\+Class\+Meta\+Model.\+metamodel\+Parser()}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+summary()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_abd7fb8e093138e652661ca0ebef495e3} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!reactions@{reactions}}
+\index{reactions@{reactions}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{reactions}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+reactions}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a40d40d9b29172b6e4853a67abe063671} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!rules@{rules}}
+\index{rules@{rules}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{rules}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+rules}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Algebraic\+Nodes()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+And\+Put\+Raterules()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Rules()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+can\+Be\+Integrate()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Compatibilities()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+is\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_ae3f040e174b0b93dd505dbc0db273c82} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!stoichiometryMatrix@{stoichiometryMatrix}}
+\index{stoichiometryMatrix@{stoichiometryMatrix}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{stoichiometryMatrix}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+stoichiometry\+Matrix}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a71c28262049e8b6400416176ef34492b} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!systemName@{systemName}}
+\index{systemName@{systemName}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{systemName}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+system\+Name}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parser()}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+summary()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a402005dd31324167277b5c9c7868e6a3} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!topology@{topology}}
+\index{topology@{topology}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{topology}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+topology}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+can\+Be\+Integrate()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a14ed55abd4a2e9d95d26c413c775a282} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!topologyAST@{topologyAST}}
+\index{topologyAST@{topologyAST}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{topologyAST}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+topology\+AST}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a4d1866de2bbc69868c07c55ce594e499} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!xlength@{xlength}}
+\index{xlength@{xlength}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{xlength}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+xlength}
+
+
+
+Referenced by \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}.
+
+\label{classsbml_worker_1_1_class_model_s_b_m_l_a157e97dda741e7ff06f96c045f4f5dfe} 
+\index{sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}!ywidth@{ywidth}}
+\index{ywidth@{ywidth}!sbmlWorker.ClassModelSBML@{sbmlWorker.ClassModelSBML}}
+\doxysubsubsection{ywidth}
+{\footnotesize\ttfamily sbml\+Worker.\+Class\+Model\+SBML.\+ywidth}
+
+
+
+Referenced by \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ sbml\+Worker.\+py}\end{DoxyCompactItemize}

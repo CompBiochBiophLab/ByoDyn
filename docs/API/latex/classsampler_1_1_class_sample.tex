@@ -1,0 +1,90 @@
+\doxysection{sampler.\+Class\+Sample Class Reference}
+\label{classsampler_1_1_class_sample}\index{sampler.ClassSample@{sampler.ClassSample}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ calculate\+Fitness\+Function} (self, metamodel, model, outputfiles)
+\item 
+\textbf{ create\+Random\+Set\+Of\+Parameters} (self, metamodel)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ fitness\+Function}
+\item 
+\textbf{ parameters}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the sample object.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsampler_1_1_class_sample_a55a2cd40db6727dd2bc0a1cca6253d70} 
+\index{sampler.ClassSample@{sampler.ClassSample}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!sampler.ClassSample@{sampler.ClassSample}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily sampler.\+Class\+Sample.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The constructor.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsampler_1_1_class_sample_ab84a93631d46e3a7895422fbe79b688a} 
+\index{sampler.ClassSample@{sampler.ClassSample}!calculateFitnessFunction@{calculateFitnessFunction}}
+\index{calculateFitnessFunction@{calculateFitnessFunction}!sampler.ClassSample@{sampler.ClassSample}}
+\doxysubsubsection{calculateFitnessFunction()}
+{\footnotesize\ttfamily sampler.\+Class\+Sample.\+calculate\+Fitness\+Function (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method calculate the fitness function for a set of parameters.
+\end{DoxyVerb}
+ 
+
+References \textbf{ sampler.\+Class\+Sample.\+fitness\+Function}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}, and \textbf{ optimiser.\+score\+Obtainer()}.
+
+\label{classsampler_1_1_class_sample_a572c23f52414bb00f87a956d953f37cc} 
+\index{sampler.ClassSample@{sampler.ClassSample}!createRandomSetOfParameters@{createRandomSetOfParameters}}
+\index{createRandomSetOfParameters@{createRandomSetOfParameters}!sampler.ClassSample@{sampler.ClassSample}}
+\doxysubsubsection{createRandomSetOfParameters()}
+{\footnotesize\ttfamily sampler.\+Class\+Sample.\+create\+Random\+Set\+Of\+Parameters (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method creates a random set of parameters.
+The parameters to explore and its range is indicated by the parametersToVary variable in the runner file.
+\end{DoxyVerb}
+ 
+
+References \textbf{ optimiser.\+linear\+Variation()}, \textbf{ optimiser.\+logarithmic\+Variation()}, \textbf{ sampler.\+Class\+Sample.\+parameters}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+parameters}, \textbf{ starter.\+Class\+Meta\+Model.\+parameters}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+parameters}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classsampler_1_1_class_sample_a4c8b7fe2526a1505f09f167e930f17b1} 
+\index{sampler.ClassSample@{sampler.ClassSample}!fitnessFunction@{fitnessFunction}}
+\index{fitnessFunction@{fitnessFunction}!sampler.ClassSample@{sampler.ClassSample}}
+\doxysubsubsection{fitnessFunction}
+{\footnotesize\ttfamily sampler.\+Class\+Sample.\+fitness\+Function}
+
+
+
+Referenced by \textbf{ sampler.\+Class\+Sample.\+calculate\+Fitness\+Function()}.
+
+\label{classsampler_1_1_class_sample_a71bc8ecd4c44afe56f60e1e000195c8a} 
+\index{sampler.ClassSample@{sampler.ClassSample}!parameters@{parameters}}
+\index{parameters@{parameters}!sampler.ClassSample@{sampler.ClassSample}}
+\doxysubsubsection{parameters}
+{\footnotesize\ttfamily sampler.\+Class\+Sample.\+parameters}
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+check\+Non\+Constant()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+put\+Raterule\+In\+Topology()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Parameters()}, \textbf{ sampler.\+Class\+Sample.\+calculate\+Fitness\+Function()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}, \textbf{ sampler.\+Class\+Sample.\+create\+Random\+Set\+Of\+Parameters()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+get\+Default\+Value()}, \textbf{ starter.\+Class\+Meta\+Model.\+metamodel\+Parser()}, \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+read\+Input()}, \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+summary()}, and \textbf{ tag\+Parser.\+Class\+Model\+Tags.\+summary()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ sampler.\+py}\end{DoxyCompactItemize}

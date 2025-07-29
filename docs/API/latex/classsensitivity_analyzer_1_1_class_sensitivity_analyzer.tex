@@ -1,0 +1,197 @@
+\doxysection{sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer Class Reference}
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer}\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, parameters)
+\item 
+\textbf{ calculate\+Overall\+Sens} (self)
+\item 
+\textbf{ calculate\+Sens} (self, model, metamodel, outputfiles)
+\item 
+\textbf{ plot\+OSTime\+Course} (self, metamodel, outputfiles)
+\item 
+\textbf{ write\+OSTable} (self, outputfiles)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ identifiability\+Coefficients}
+\item 
+\textbf{ OS}
+\item 
+\textbf{ OSCoefficients}
+\item 
+\textbf{ parameters\+To\+Study}
+\item 
+\textbf{ restricted\+Time\+Points}
+\item 
+\textbf{ RSCoefficients}
+\item 
+\textbf{ RSMatrix}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+obtain\+Sensitivity} (self, model, metamodel, original\+Simulation, parameter\+Simulation, h, parameter\+Value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the sensitivity analysis.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a87284b7ff5f9e8bee3a162f3cedd2b20} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parameters }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This is the constructor.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a5c8dfcf2b6a141f4fa7cb6e36c33c1ee} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!\_\_obtainSensitivity@{\_\_obtainSensitivity}}
+\index{\_\_obtainSensitivity@{\_\_obtainSensitivity}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{\_\_obtainSensitivity()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+\_\+\+\_\+obtain\+Sensitivity (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{original\+Simulation,  }\item[{}]{parameter\+Simulation,  }\item[{}]{h,  }\item[{}]{parameter\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method calculates the sensitivity given the dynamics of both the system and an infinitesimally changed parameter system.
+        It returns trajectories.\end{DoxyVerb}
+ 
+
+References \textbf{ sensitivity\+Analyzer.\+get\+Node\+Name()}, \textbf{ sensitivity\+Analyzer.\+get\+Position\+Node()}, and \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+restricted\+Time\+Points}.
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Sens()}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a28e358d1b484d0e5c7bf3166f18f6f2e} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!calculateOverallSens@{calculateOverallSens}}
+\index{calculateOverallSens@{calculateOverallSens}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{calculateOverallSens()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Overall\+Sens (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method calculates single value sensitivities from the trajectories.\end{DoxyVerb}
+ 
+
+References \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+OS}, \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+OSCoefficients}, and \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+RSCoefficients}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_affdbdb2e167aa9ec04775ebbb4c3978f} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!calculateSens@{calculateSens}}
+\index{calculateSens@{calculateSens}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{calculateSens()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Sens (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method runs the simulation for a given parameter values, 
+        change the parameters infinitesimally and re-runs the simulation.
+        With this data, the sensitivity is calculated.\end{DoxyVerb}
+ 
+
+References \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+\_\+\+\_\+obtain\+Sensitivity()}, \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+identifiability\+Coefficients}, \textbf{ simulator.\+obtain\+Simulation\+Values()}, \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+parameters\+To\+Study}, \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+RSCoefficients}, and \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+RSMatrix}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_ab254a79d0ae43e2491bc6276424b1d9f} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!plotOSTimeCourse@{plotOSTimeCourse}}
+\index{plotOSTimeCourse@{plotOSTimeCourse}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{plotOSTimeCourse()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+plot\+OSTime\+Course (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method creates the sensitivity time course plot
+\end{DoxyVerb}
+ 
+
+References \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+OSCoefficients}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_ad21c3acbc332933256976413cff31ecb} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!writeOSTable@{writeOSTable}}
+\index{writeOSTable@{writeOSTable}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{writeOSTable()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+write\+OSTable (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method writes the global sensitivity values in output file
+\end{DoxyVerb}
+ 
+
+References \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+OS}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a12d9c50bb82af1e43d567e662f2bb124} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!identifiabilityCoefficients@{identifiabilityCoefficients}}
+\index{identifiabilityCoefficients@{identifiabilityCoefficients}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{identifiabilityCoefficients}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+identifiability\+Coefficients}
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Sens()}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_ac02b76cd0ec57c559eed9d32bf4eac4f} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!OS@{OS}}
+\index{OS@{OS}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{OS}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+OS}
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Overall\+Sens()}, and \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+write\+OSTable()}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a92d3c9b5646d53cf84c7601ffe485d82} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!OSCoefficients@{OSCoefficients}}
+\index{OSCoefficients@{OSCoefficients}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{OSCoefficients}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+OSCoefficients}
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Overall\+Sens()}, and \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+plot\+OSTime\+Course()}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a6f822b5e3e1301e8e4ffdb62528af329} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!parametersToStudy@{parametersToStudy}}
+\index{parametersToStudy@{parametersToStudy}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{parametersToStudy}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+parameters\+To\+Study}
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Sens()}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a13db3606480407279230a502347d4319} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!restrictedTimePoints@{restrictedTimePoints}}
+\index{restrictedTimePoints@{restrictedTimePoints}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{restrictedTimePoints}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+restricted\+Time\+Points}
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+\_\+\+\_\+obtain\+Sensitivity()}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a35f447307468eb1832d3d700250f0842} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!RSCoefficients@{RSCoefficients}}
+\index{RSCoefficients@{RSCoefficients}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{RSCoefficients}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+RSCoefficients}
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Overall\+Sens()}, and \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Sens()}.
+
+\label{classsensitivity_analyzer_1_1_class_sensitivity_analyzer_a2eeb45d0162dfbba99ecab2604ca2976} 
+\index{sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}!RSMatrix@{RSMatrix}}
+\index{RSMatrix@{RSMatrix}!sensitivityAnalyzer.ClassSensitivityAnalyzer@{sensitivityAnalyzer.ClassSensitivityAnalyzer}}
+\doxysubsubsection{RSMatrix}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+RSMatrix}
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Sens()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ sensitivity\+Analyzer.\+py}\end{DoxyCompactItemize}

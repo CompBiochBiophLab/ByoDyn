@@ -1,0 +1,177 @@
+\doxysection{testers.\+Class\+Test Class Reference}
+\label{classtesters_1_1_class_test}\index{testers.ClassTest@{testers.ClassTest}}
+
+
+Inheritance diagram for testers.\+Class\+Test\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ data\+Files\+Checker} (self)
+\item 
+\textbf{ run} (self)
+\item 
+\textbf{ set\+Output\+Name} (self, name)
+\item 
+\textbf{ set\+Result\+Name} (self, name)
+\item 
+\textbf{ set\+Runner\+Name} (self, name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ expected\+Result}
+\item 
+\textbf{ id}
+\item 
+\textbf{ obtained\+Result}
+\item 
+\textbf{ runner}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+execute} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the tests.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classtesters_1_1_class_test_a6b3b986448d8dc7d41c340270400f21b} 
+\index{testers.ClassTest@{testers.ClassTest}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        The constructor.\end{DoxyVerb}
+ 
+
+Reimplemented in \textbf{ testers.\+Class\+Exporting\+Test} \doxyref{}{p.}{classtesters_1_1_class_exporting_test_a09507ec1372a2edfdf70aa0be911a069}, and \textbf{ testers.\+Class\+Sci\+Py\+Test} \doxyref{}{p.}{classtesters_1_1_class_sci_py_test_a093337ed00e4fcd24301c37bb4eb269e}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{classtesters_1_1_class_test_af47bde54eafb782dd97849269e58c2b2} 
+\index{testers.ClassTest@{testers.ClassTest}!\_\_execute@{\_\_execute}}
+\index{\_\_execute@{\_\_execute}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{\_\_execute()}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+\_\+\+\_\+execute (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method executes ByoDyn with the specific test.\end{DoxyVerb}
+ 
+
+References \textbf{ testers.\+Class\+Test.\+id}, \textbf{ testers.\+Class\+Exporting\+Test.\+id}, \textbf{ testers.\+Class\+Sci\+Py\+Test.\+id}, \textbf{ sbml\+Worker.\+Class\+Rules.\+id}, \textbf{ sbml\+Worker.\+Class\+Event.\+id}, \textbf{ sbml\+Worker.\+Class\+Reaction.\+id}, \textbf{ sbml\+Worker.\+Class\+Function.\+id}, \textbf{ central.\+main()}, \textbf{ testers.\+Class\+Test.\+runner}, \textbf{ testers.\+Class\+Exporting\+Test.\+runner}, and \textbf{ testers.\+Class\+Sci\+Py\+Test.\+runner}.
+
+
+
+Referenced by \textbf{ testers.\+Class\+Test.\+run()}.
+
+\label{classtesters_1_1_class_test_a957c186014fc1f329fb393b78d757c98} 
+\index{testers.ClassTest@{testers.ClassTest}!dataFilesChecker@{dataFilesChecker}}
+\index{dataFilesChecker@{dataFilesChecker}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{dataFilesChecker()}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+data\+Files\+Checker (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method compares if the numerical outputs of ByoDyn differ on 1 per cent.\end{DoxyVerb}
+ 
+
+References \textbf{ testers.\+Class\+Test.\+expected\+Result}, \textbf{ testers.\+Class\+OEDTest.\+expected\+Result}, \textbf{ testers.\+Class\+Sci\+Py\+Test.\+expected\+Result}, \textbf{ testers.\+Class\+Trajectories\+Reconstruction\+Test.\+expected\+Result}, \textbf{ testers.\+Class\+Test.\+obtained\+Result}, \textbf{ testers.\+Class\+Fitness\+Function\+Surface\+Test.\+obtained\+Result}, \textbf{ testers.\+Class\+OEDTest.\+obtained\+Result}, \textbf{ testers.\+Class\+Sci\+Py\+Test.\+obtained\+Result}, \textbf{ testers.\+Class\+Sensitivity\+Test.\+obtained\+Result}, \textbf{ testers.\+Class\+Tag\+Format\+Test.\+obtained\+Result}, \textbf{ testers.\+Class\+Trajectories\+Reconstruction\+Test.\+obtained\+Result}, and \textbf{ testers.\+Class\+Without\+Graphics\+Test.\+obtained\+Result}.
+
+
+
+Referenced by \textbf{ testers.\+Class\+Sci\+Py\+Test.\+analyse\+Results()}, and \textbf{ testers.\+Class\+Simulation\+Methods\+Test.\+analyse\+Results()}.
+
+\label{classtesters_1_1_class_test_a34581e8ea0364ff887b528516097197a} 
+\index{testers.ClassTest@{testers.ClassTest}!run@{run}}
+\index{run@{run}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method evaluates if the test ran correctly'\end{DoxyVerb}
+ 
+
+References \textbf{ testers.\+Class\+Test.\+\_\+\+\_\+execute()}, \textbf{ testers.\+Class\+Cluster2\+DTest.\+analyse\+Results()}, \textbf{ testers.\+Class\+Cluster3\+DTest.\+analyse\+Results()}, \textbf{ testers.\+Class\+Exporting\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Figure\+Format\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Fitness\+Function\+Calculation\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Fitness\+Function\+Surface\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Genetic\+Algorithm\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Hybrid\+One\+Phase\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Hybrid\+Two\+Phases\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Identifiability\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Local\+Search\+Optimisation\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Number\+Of\+Simulations\+Stopper\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+OEDTest.\+analyse\+Results()}, \textbf{ testers.\+Class\+Optional\+Output\+Format\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Plot\+Keys\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Random\+Search\+Optimisation\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Sci\+Py\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Score\+Stopper\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Sensitivity\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Separated\+Graphs\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Simulation\+Methods\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+General\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+Last\+State\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+Separated\+Graphs\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+Single\+Figure\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Tag\+Format\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Trajectories\+Reconstruction\+Test.\+analyse\+Results()}, and \textbf{ testers.\+Class\+Without\+Graphics\+Test.\+analyse\+Results()}.
+
+\label{classtesters_1_1_class_test_a287d6b54bbc7321d4f4f290cde8d68ee} 
+\index{testers.ClassTest@{testers.ClassTest}!setOutputName@{setOutputName}}
+\index{setOutputName@{setOutputName}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{setOutputName()}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+set\+Output\+Name (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method sets the path to the obtained output that is going to be checked.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ testers.\+Class\+Sci\+Py\+Test.\+analyse\+Results()}.
+
+\label{classtesters_1_1_class_test_aa41109d96c757e551c2de3d2d0895f78} 
+\index{testers.ClassTest@{testers.ClassTest}!setResultName@{setResultName}}
+\index{setResultName@{setResultName}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{setResultName()}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+set\+Result\+Name (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method sets the output directory of the results of the tests.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ testers.\+Class\+Sci\+Py\+Test.\+analyse\+Results()}.
+
+\label{classtesters_1_1_class_test_a80e727a918f0cdd787e868dce59d561c} 
+\index{testers.ClassTest@{testers.ClassTest}!setRunnerName@{setRunnerName}}
+\index{setRunnerName@{setRunnerName}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{setRunnerName()}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+set\+Runner\+Name (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method sets the option file for the test.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\label{classtesters_1_1_class_test_a368827665cf438081b2c0e5a5455047e} 
+\index{testers.ClassTest@{testers.ClassTest}!expectedResult@{expectedResult}}
+\index{expectedResult@{expectedResult}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{expectedResult}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+expected\+Result}
+
+
+
+Referenced by \textbf{ testers.\+Class\+Identifiability\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+OEDTest.\+analyse\+Results()}, \textbf{ testers.\+Class\+Sci\+Py\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Sensitivity\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Trajectories\+Reconstruction\+Test.\+analyse\+Results()}, and \textbf{ testers.\+Class\+Test.\+data\+Files\+Checker()}.
+
+\label{classtesters_1_1_class_test_a6c6217d09d480cf5d3d66330c8b1bda9} 
+\index{testers.ClassTest@{testers.ClassTest}!id@{id}}
+\index{id@{id}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{id}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+id}
+
+
+
+Referenced by \textbf{ testers.\+Class\+Test.\+\_\+\+\_\+execute()}.
+
+\label{classtesters_1_1_class_test_ad30aca9fad641e69ef3122560ae0d169} 
+\index{testers.ClassTest@{testers.ClassTest}!obtainedResult@{obtainedResult}}
+\index{obtainedResult@{obtainedResult}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{obtainedResult}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+obtained\+Result}
+
+
+
+Referenced by \textbf{ testers.\+Class\+Cluster2\+DTest.\+analyse\+Results()}, \textbf{ testers.\+Class\+Cluster3\+DTest.\+analyse\+Results()}, \textbf{ testers.\+Class\+Figure\+Format\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Fitness\+Function\+Calculation\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Fitness\+Function\+Surface\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Genetic\+Algorithm\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Hybrid\+One\+Phase\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Hybrid\+Two\+Phases\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Identifiability\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Local\+Search\+Optimisation\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Number\+Of\+Simulations\+Stopper\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+OEDTest.\+analyse\+Results()}, \textbf{ testers.\+Class\+Optional\+Output\+Format\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Plot\+Keys\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Random\+Search\+Optimisation\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Sci\+Py\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Score\+Stopper\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Sensitivity\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+General\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+Last\+State\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+Separated\+Graphs\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Stochastic\+Single\+Figure\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Tag\+Format\+Test.\+analyse\+Results()}, \textbf{ testers.\+Class\+Trajectories\+Reconstruction\+Test.\+analyse\+Results()}, and \textbf{ testers.\+Class\+Test.\+data\+Files\+Checker()}.
+
+\label{classtesters_1_1_class_test_a155b01f361e1f90401f9e1bedb3b01d0} 
+\index{testers.ClassTest@{testers.ClassTest}!runner@{runner}}
+\index{runner@{runner}!testers.ClassTest@{testers.ClassTest}}
+\doxysubsubsection{runner}
+{\footnotesize\ttfamily testers.\+Class\+Test.\+runner}
+
+
+
+Referenced by \textbf{ testers.\+Class\+Test.\+\_\+\+\_\+execute()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ testers.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,235 @@
+\doxysection{affectors Namespace Reference}
+\label{namespaceaffectors}\index{affectors@{affectors}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ complex\+Extra\+Back} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ complex\+Extra\+Fwd} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ constant} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ constitutive} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ degradation} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ dissociation\+Extra\+Back} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ dissociation\+Extra\+Fwd} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ inhibition} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ Non\+Dim\+Binding\+Degradation} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ Non\+Dim\+Constitutive\+Degradation} (model, file, option, cell\+Index, definition, fields\+Definition)
+\begin{DoxyCompactList}\small\item\em From here below, non dimension affectors. \end{DoxyCompactList}\item 
+\textbf{ Non\+Dim\+Inhibition\+Degradation} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ Non\+Dim\+Transcription\+Degradation} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ Non\+Dim\+Translation\+Degradation} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ Non\+Dim\+Translation\+Degradation\+Binding} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ SBML} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ transcription} (model, file, option, cell\+Index, definition, fields\+Definition)
+\item 
+\textbf{ translation} (model, file, option, cell\+Index, definition, fields\+Definition)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespaceaffectors_a21f17a9410a22ea657d2745d5fe18476} 
+\index{affectors@{affectors}!complexExtraBack@{complexExtraBack}}
+\index{complexExtraBack@{complexExtraBack}!affectors@{affectors}}
+\doxysubsubsection{complexExtraBack()}
+{\footnotesize\ttfamily affectors.\+complex\+Extra\+Back (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes one of the mathematical terms (the other is done by complexExtraFwd) of a biological extracellular complex formation.
+This term affects the nodes defined as receptor and ligand.
+d[RECEPTOR]i / dt = - 1 / 64 k_binding_RECEPTOR.LIGAND [RECEPTOR]i <Sum>(j = 1;j = k) [LIGAND]j
+d[LIGAND]i / dt = - 1 / 64  k_binding_RECEPTOR.LIGAND [LIGAND]i <Sum>(j = 1;j = k) [RECEPTOR]j
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+neighbours\+Finder()}.
+
+\label{namespaceaffectors_a98caf164b3c79f1bbb9bbc59b49adc48} 
+\index{affectors@{affectors}!complexExtraFwd@{complexExtraFwd}}
+\index{complexExtraFwd@{complexExtraFwd}!affectors@{affectors}}
+\doxysubsubsection{complexExtraFwd()}
+{\footnotesize\ttfamily affectors.\+complex\+Extra\+Fwd (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes one of the mathematical terms (the other is done by complexExtraBack) of biological extracellular complex formation.
+This term affects the node defined as the complex
+d[COMPLEX]i / dt = +  1 / 64 * k_binding_RECEPTOR.LIGAND [RECEPTOR]i  <Sum>(j = 1;j = k) [LIGAND]j
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+neighbours\+Finder()}.
+
+\label{namespaceaffectors_aa0195d29f43653658d525c2b4f467cd3} 
+\index{affectors@{affectors}!constant@{constant}}
+\index{constant@{constant}!affectors@{affectors}}
+\doxysubsubsection{constant()}
+{\footnotesize\ttfamily affectors.\+constant (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the mathematical term of a non changing biological node.
+d [node] / dt =  0
+\end{DoxyVerb}
+ \label{namespaceaffectors_a26dd811b11df400fd3a5c8954ff6062f} 
+\index{affectors@{affectors}!constitutive@{constitutive}}
+\index{constitutive@{constitutive}!affectors@{affectors}}
+\doxysubsubsection{constitutive()}
+{\footnotesize\ttfamily affectors.\+constitutive (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the mathematical term of a biological constitutive expression.
+d [node] / dt = constant > 0
+\end{DoxyVerb}
+ \label{namespaceaffectors_a94ac314b791e722eae6645a1d1db538a} 
+\index{affectors@{affectors}!degradation@{degradation}}
+\index{degradation@{degradation}!affectors@{affectors}}
+\doxysubsubsection{degradation()}
+{\footnotesize\ttfamily affectors.\+degradation (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the mathematical term of a biological degradation.
+d [node] / dt = -k * [node]
+\end{DoxyVerb}
+ \label{namespaceaffectors_ac19bef508677ec42013b53fedc5bff83} 
+\index{affectors@{affectors}!dissociationExtraBack@{dissociationExtraBack}}
+\index{dissociationExtraBack@{dissociationExtraBack}!affectors@{affectors}}
+\doxysubsubsection{dissociationExtraBack()}
+{\footnotesize\ttfamily affectors.\+dissociation\+Extra\+Back (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes one of the mathematical terms (the other is done by dissociationExtraFwd) of a biological extracellular complex dissociation.
+This term affects the node defined as the complex.
+d[COMPLEX]i / dt = -  1 / 8 k_dissociation_COMPLEX <Sum>(j = 1;j = k) [COMPLEX]i
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+neighbours\+Finder()}.
+
+\label{namespaceaffectors_ab6ba9d8db917f0460b7a6ced95c9efd5} 
+\index{affectors@{affectors}!dissociationExtraFwd@{dissociationExtraFwd}}
+\index{dissociationExtraFwd@{dissociationExtraFwd}!affectors@{affectors}}
+\doxysubsubsection{dissociationExtraFwd()}
+{\footnotesize\ttfamily affectors.\+dissociation\+Extra\+Fwd (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes one of the mathemathical terms (the other is done by dissociationExtraFwd) of a biological extracellular complex dissociation.
+This term affects the nodes defined as receptor and ligand.
+The formula is different depending on being the receptor or the ligand
+d[RECEPTOR]i / dt = + 1 / 8 k_dissociation_COMPLEX <Sum>(j = 1;j = k) [COMPLEX]i
+d[LIGAND]i / dt = + 1/8 k_dissociation_COMPLEX <Sum>(j = 1;j = k) [COMPLEX]j
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+neighbours\+Finder()}.
+
+\label{namespaceaffectors_a1f1feeb651d06c74c5f043e03065eea5} 
+\index{affectors@{affectors}!inhibition@{inhibition}}
+\index{inhibition@{inhibition}!affectors@{affectors}}
+\doxysubsubsection{inhibition()}
+{\footnotesize\ttfamily affectors.\+inhibition (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the mathematical term of a biological inhibition.
+d [PROTEIN] / dt = + k_basal / 1 + ([INHIBITOR]/k_inhibition)^s
+\end{DoxyVerb}
+ \label{namespaceaffectors_a1899cfbd9363add87e85b8e881be6948} 
+\index{affectors@{affectors}!NonDimBindingDegradation@{NonDimBindingDegradation}}
+\index{NonDimBindingDegradation@{NonDimBindingDegradation}!affectors@{affectors}}
+\doxysubsubsection{NonDimBindingDegradation()}
+{\footnotesize\ttfamily affectors.\+Non\+Dim\+Binding\+Degradation (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This affector compiles an complex binding and a degradation.
+dcomplex/dtau = (k/n^2) * k_bind [LIGAND]_0 RECEPTOR_i \sum LIGAND_j - k_deg COMPLEX_i
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+neighbours\+Finder()}.
+
+\label{namespaceaffectors_a20c03fcfb70e90a925e18679e849d685} 
+\index{affectors@{affectors}!NonDimConstitutiveDegradation@{NonDimConstitutiveDegradation}}
+\index{NonDimConstitutiveDegradation@{NonDimConstitutiveDegradation}!affectors@{affectors}}
+\doxysubsubsection{NonDimConstitutiveDegradation()}
+{\footnotesize\ttfamily affectors.\+Non\+Dim\+Constitutive\+Degradation (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+
+
+From here below, non dimension affectors. 
+
+\begin{DoxyVerb}This affector compiles the constitutive gene expression and degradation.
+dnode/dtau = k_deg*(rate - node)
+\end{DoxyVerb}
+ \label{namespaceaffectors_a9c838e56578445cb6c465abd26356fbe} 
+\index{affectors@{affectors}!NonDimInhibitionDegradation@{NonDimInhibitionDegradation}}
+\index{NonDimInhibitionDegradation@{NonDimInhibitionDegradation}!affectors@{affectors}}
+\doxysubsubsection{NonDimInhibitionDegradation()}
+{\footnotesize\ttfamily affectors.\+Non\+Dim\+Inhibition\+Degradation (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This affector compiles an inhibition and a degradation.
+dnode/dtau = k_deg * (1 - (INHIBITOR^m/kappa^m+INHIBITION^m) - node)
+\end{DoxyVerb}
+ \label{namespaceaffectors_a805012106bf37da47332dd1e118c711a} 
+\index{affectors@{affectors}!NonDimTranscriptionDegradation@{NonDimTranscriptionDegradation}}
+\index{NonDimTranscriptionDegradation@{NonDimTranscriptionDegradation}!affectors@{affectors}}
+\doxysubsubsection{NonDimTranscriptionDegradation()}
+{\footnotesize\ttfamily affectors.\+Non\+Dim\+Transcription\+Degradation (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This affector compiles transcription and degradation.
+dnode/dtau = k_deg(ACTIVATOR^m/(kappa^m+ACTIVATOR^m) - node)
+\end{DoxyVerb}
+ \label{namespaceaffectors_a9396d4181c27b2c565374bf25af3bda8} 
+\index{affectors@{affectors}!NonDimTranslationDegradation@{NonDimTranslationDegradation}}
+\index{NonDimTranslationDegradation@{NonDimTranslationDegradation}!affectors@{affectors}}
+\doxysubsubsection{NonDimTranslationDegradation()}
+{\footnotesize\ttfamily affectors.\+Non\+Dim\+Translation\+Degradation (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This affector compiles translation and degradation.
+dnode/dtau = k_deg(gene -PROTEIN)
+\end{DoxyVerb}
+ \label{namespaceaffectors_a2074e96e2071b02395db9618115315c5} 
+\index{affectors@{affectors}!NonDimTranslationDegradationBinding@{NonDimTranslationDegradationBinding}}
+\index{NonDimTranslationDegradationBinding@{NonDimTranslationDegradationBinding}!affectors@{affectors}}
+\doxysubsubsection{NonDimTranslationDegradationBinding()}
+{\footnotesize\ttfamily affectors.\+Non\+Dim\+Translation\+Degradation\+Binding (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This affector compiles the translation, degradation and ligand binding.
+dNODE/dtau = k_deg(node - NODE) - (k/n^2) * k_bind [LIGAND]_0 RECEPTOR_i \sum LIGAND_j
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+neighbours\+Finder()}.
+
+\label{namespaceaffectors_a7ba8824d8a945912afc068dbd0de3354} 
+\index{affectors@{affectors}!SBML@{SBML}}
+\index{SBML@{SBML}!affectors@{affectors}}
+\doxysubsubsection{SBML()}
+{\footnotesize\ttfamily affectors.\+SBML (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function converts the SBML formula format into the integrators' format.
+It calls different functions from the formulas module.
+\end{DoxyVerb}
+ 
+
+References \textbf{ formulas.\+formula\+Latex()}, \textbf{ formulas.\+read\+Write\+Formula()}, \textbf{ formulas.\+write\+Open\+Modelica\+Formula()}, and \textbf{ formulas.\+write\+XPPFormula()}.
+
+\label{namespaceaffectors_a96c2be61e7835acbe8872f3cb32638d8} 
+\index{affectors@{affectors}!transcription@{transcription}}
+\index{transcription@{transcription}!affectors@{affectors}}
+\doxysubsubsection{transcription()}
+{\footnotesize\ttfamily affectors.\+transcription (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the mathematical term of a biological transcription.
+d[mRNA] / dt = v * [ACTIVATOR]^m / k^m + [ACTIVATOR]^m
+\end{DoxyVerb}
+ \label{namespaceaffectors_a629f00ad791d8c22ad13571bbeda36a9} 
+\index{affectors@{affectors}!translation@{translation}}
+\index{translation@{translation}!affectors@{affectors}}
+\doxysubsubsection{translation()}
+{\footnotesize\ttfamily affectors.\+translation (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{option,  }\item[{}]{cell\+Index,  }\item[{}]{definition,  }\item[{}]{fields\+Definition }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the mathematical term of a biological translation.
+d[PROTEIN] / dt = + k_translation_gene * [gene]
+\end{DoxyVerb}
+ 

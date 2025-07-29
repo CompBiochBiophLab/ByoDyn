@@ -1,0 +1,98 @@
+\doxysection{simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica Class Reference}
+\label{classsimulator_open_modelica_1_1_class_simulator_open_modelica}\index{simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ call\+Solver} (self, outputfiles)
+\item 
+\textbf{ create\+Input} (self, metamodel, model, outputfiles)
+\item 
+\textbf{ create\+Outputs} (self, model, outputfiles, metamodel)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+write\+Model} (self, model, metamodel, outputfiles)
+\item 
+\textbf{ \+\_\+\+\_\+write\+Runner} (self, metamodel, model, outputfiles)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the OpenModelica simulator.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsimulator_open_modelica_1_1_class_simulator_open_modelica_a40e595701432803519e052c0a6a79066} 
+\index{simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The constructor.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsimulator_open_modelica_1_1_class_simulator_open_modelica_a10592c57e4272085af0507a9b805bd09} 
+\index{simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}!\_\_writeModel@{\_\_writeModel}}
+\index{\_\_writeModel@{\_\_writeModel}!simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}}
+\doxysubsubsection{\_\_writeModel()}
+{\footnotesize\ttfamily simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+\_\+\+\_\+write\+Model (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This method writes the openModelica model file.
+\end{DoxyVerb}
+ 
+
+References \textbf{ formulas.\+write\+Open\+Modelica\+Formula()}.
+
+
+
+Referenced by \textbf{ simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+create\+Input()}.
+
+\label{classsimulator_open_modelica_1_1_class_simulator_open_modelica_a10a802f11a57c4df9c3d079c70308f58} 
+\index{simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}!\_\_writeRunner@{\_\_writeRunner}}
+\index{\_\_writeRunner@{\_\_writeRunner}!simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}}
+\doxysubsubsection{\_\_writeRunner()}
+{\footnotesize\ttfamily simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+\_\+\+\_\+write\+Runner (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method writes the openModelica options file.\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+create\+Input()}.
+
+\label{classsimulator_open_modelica_1_1_class_simulator_open_modelica_a43f987a6130efab7f4baa996150d2e6b} 
+\index{simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}!callSolver@{callSolver}}
+\index{callSolver@{callSolver}!simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}}
+\doxysubsubsection{callSolver()}
+{\footnotesize\ttfamily simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+call\+Solver (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method calls openModelica to simulate the model
+\end{DoxyVerb}
+ \label{classsimulator_open_modelica_1_1_class_simulator_open_modelica_afbf57f4c1f33d2655c47bfc9970b9ea0} 
+\index{simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}!createInput@{createInput}}
+\index{createInput@{createInput}!simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}}
+\doxysubsubsection{createInput()}
+{\footnotesize\ttfamily simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+create\+Input (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method creates the input files for the openModelica simulator.\end{DoxyVerb}
+ 
+
+References \textbf{ simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+\_\+\+\_\+write\+Model()}, and \textbf{ simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+\_\+\+\_\+write\+Runner()}.
+
+\label{classsimulator_open_modelica_1_1_class_simulator_open_modelica_a62fd06833659213d303b14da7b03a9c2} 
+\index{simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}!createOutputs@{createOutputs}}
+\index{createOutputs@{createOutputs}!simulatorOpenModelica.ClassSimulatorOpenModelica@{simulatorOpenModelica.ClassSimulatorOpenModelica}}
+\doxysubsubsection{createOutputs()}
+{\footnotesize\ttfamily simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+create\+Outputs (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method converts the format of the openModelica output file into a more adequate for ByoDyn.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ simulator\+Open\+Modelica.\+py}\end{DoxyCompactItemize}

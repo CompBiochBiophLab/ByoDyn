@@ -1,0 +1,26 @@
+\doxysection{gssa Namespace Reference}
+\label{namespacegssa}\index{gssa@{gssa}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ simulate} (eval\+Propensities, stoichiometry, x\+\_\+0, time, hurdle, seed=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacegssa_a72ea83c683a35f47659371138c283b4a} 
+\index{gssa@{gssa}!simulate@{simulate}}
+\index{simulate@{simulate}!gssa@{gssa}}
+\doxysubsubsection{simulate()}
+{\footnotesize\ttfamily gssa.\+simulate (\begin{DoxyParamCaption}\item[{}]{eval\+Propensities,  }\item[{}]{stoichiometry,  }\item[{}]{x\+\_\+0,  }\item[{}]{time,  }\item[{}]{hurdle,  }\item[{}]{seed = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Gillespie's Stochastic Simulation Algorithm (SSA) 
+    evalPropensities  list of propensity functions
+    stoichiometry     stoichiometrty matrix, each column corresponds to a reaction
+    x_0               initial conditions
+    time              simulation time
+    hurdle            the time step for which the system state is written (if set 
+                      to None all reactions are written in the output)
+    seed              for the pseudo-random number generator
+\end{DoxyVerb}
+ 

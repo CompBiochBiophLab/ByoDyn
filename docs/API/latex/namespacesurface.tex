@@ -1,0 +1,89 @@
+\doxysection{surface Namespace Reference}
+\label{namespacesurface}\index{surface@{surface}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (metamodel, model, outputfiles)
+\item 
+\textbf{ check\+Surface\+Parameters} (metamodel, model)
+\item 
+\textbf{ rainbow\+Color\+Calculation} (value, min\+Value, max\+Value)
+\item 
+\textbf{ surface\+Plotter} (metamodel, outputfiles, plot, surface, x\+Grid, y\+Grid)
+\item 
+\textbf{ surface\+Text\+Saver} (outputfiles, metamodel, plot, surface)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacesurface_aced2f69ae24ffc68d86c9c70a8508b13} 
+\index{surface@{surface}!central@{central}}
+\index{central@{central}!surface@{surface}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily surface.\+central (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function directs the creation of the surface of fitness function values.
+It checks that the selected parameters are in model.
+It variates the parameters and calls the scoreObtainer function from the 
+Optimiser module to calculate the fitness function value.
+\end{DoxyVerb}
+ 
+
+References \textbf{ check\+Surface\+Parameters()}, \textbf{ optimiser.\+score\+Obtainer()}, \textbf{ surface\+Plotter()}, and \textbf{ surface\+Text\+Saver()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespacesurface_ae7adbf8adc8cf342840b9ef79389c146} 
+\index{surface@{surface}!checkSurfaceParameters@{checkSurfaceParameters}}
+\index{checkSurfaceParameters@{checkSurfaceParameters}!surface@{surface}}
+\doxysubsubsection{checkSurfaceParameters()}
+{\footnotesize\ttfamily surface.\+check\+Surface\+Parameters (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks that the selected parameters for the surface plot do exist in the model.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespacesurface_abd5c6a913ec151d02be366db914896d9} 
+\index{surface@{surface}!rainbowColorCalculation@{rainbowColorCalculation}}
+\index{rainbowColorCalculation@{rainbowColorCalculation}!surface@{surface}}
+\doxysubsubsection{rainbowColorCalculation()}
+{\footnotesize\ttfamily surface.\+rainbow\+Color\+Calculation (\begin{DoxyParamCaption}\item[{}]{value,  }\item[{}]{min\+Value,  }\item[{}]{max\+Value }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the color based on a rainbow scale
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ surface\+Plotter()}.
+
+\label{namespacesurface_af53240b6889285343c5f081acae1d24e} 
+\index{surface@{surface}!surfacePlotter@{surfacePlotter}}
+\index{surfacePlotter@{surfacePlotter}!surface@{surface}}
+\doxysubsubsection{surfacePlotter()}
+{\footnotesize\ttfamily surface.\+surface\+Plotter (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{plot,  }\item[{}]{surface,  }\item[{}]{x\+Grid,  }\item[{}]{y\+Grid }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the postscript surface plot.
+\end{DoxyVerb}
+ 
+
+References \textbf{ rainbow\+Color\+Calculation()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespacesurface_ad43010e47c3128060b3d2ee196adfdb5} 
+\index{surface@{surface}!surfaceTextSaver@{surfaceTextSaver}}
+\index{surfaceTextSaver@{surfaceTextSaver}!surface@{surface}}
+\doxysubsubsection{surfaceTextSaver()}
+{\footnotesize\ttfamily surface.\+surface\+Text\+Saver (\begin{DoxyParamCaption}\item[{}]{outputfiles,  }\item[{}]{metamodel,  }\item[{}]{plot,  }\item[{}]{surface }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes in a text file the results of the fitness function evaluation along the grid.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+

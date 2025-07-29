@@ -1,0 +1,196 @@
+\doxysection{central\+Functions Namespace Reference}
+\label{namespacecentral_functions}\index{centralFunctions@{centralFunctions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ calling\+Octave} (outputfiles)
+\item 
+\textbf{ calling\+Python} (outputfiles)
+\item 
+\textbf{ create\+Input\+Octave} (metamodel, model, outputfiles)
+\item 
+\textbf{ create\+Input\+Python} (metamodel, model, outputfiles)
+\item 
+\textbf{ create\+Octave\+Outputs} (model, metamodel, outputfiles)
+\item 
+\textbf{ matlab\+Integrator} (metamodel, model, outputfiles)
+\item 
+\textbf{ neighbours\+Finder} (model, cell\+Index)
+\item 
+\textbf{ octave\+Integration} (metamodel, model, outputfiles)
+\item 
+\textbf{ python\+Integration} (metamodel, model, outputfiles)
+\item 
+\textbf{ write\+Formula\+Octave} (model, node, octave, option, cell\+Index)
+\item 
+\textbf{ write\+Initial\+Conditions\+Octave} (model, metamodel, octave, \textbf{ function})
+\item 
+\textbf{ write\+Parameters\+Octave} (model, octave)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacecentral_functions_abbc478a7fec77b63ba2c1285c04b10e5} 
+\index{centralFunctions@{centralFunctions}!callingOctave@{callingOctave}}
+\index{callingOctave@{callingOctave}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{callingOctave()}
+{\footnotesize\ttfamily central\+Functions.\+calling\+Octave (\begin{DoxyParamCaption}\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calls Octave to integrate the system of equations of the model. 
+The system has been written in a file with the Octave format. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ octave\+Integration()}.
+
+\label{namespacecentral_functions_a82772957a019b5d2bbbcc73435f80853} 
+\index{centralFunctions@{centralFunctions}!callingPython@{callingPython}}
+\index{callingPython@{callingPython}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{callingPython()}
+{\footnotesize\ttfamily central\+Functions.\+calling\+Python (\begin{DoxyParamCaption}\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calls Python to integrate the system of equations of the model.
+The system has been written in a file with Python format. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ python\+Integration()}.
+
+\label{namespacecentral_functions_ad0ec6690fdd251d3c7235a5046d0c736} 
+\index{centralFunctions@{centralFunctions}!createInputOctave@{createInputOctave}}
+\index{createInputOctave@{createInputOctave}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{createInputOctave()}
+{\footnotesize\ttfamily central\+Functions.\+create\+Input\+Octave (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the input file for the Octave integration. 
+\end{DoxyVerb}
+ 
+
+References \textbf{ formulas.\+read\+Write\+Formula()}, \textbf{ write\+Formula\+Octave()}, \textbf{ write\+Initial\+Conditions\+Octave()}, and \textbf{ write\+Parameters\+Octave()}.
+
+
+
+Referenced by \textbf{ octave\+Integration()}.
+
+\label{namespacecentral_functions_ac828a7be6a5299fdba0588e7e1c07c57} 
+\index{centralFunctions@{centralFunctions}!createInputPython@{createInputPython}}
+\index{createInputPython@{createInputPython}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{createInputPython()}
+{\footnotesize\ttfamily central\+Functions.\+create\+Input\+Python (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the input file for the Python integration. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ python\+Integration()}.
+
+\label{namespacecentral_functions_a6485e0ebd767b239168164ebdd648727} 
+\index{centralFunctions@{centralFunctions}!createOctaveOutputs@{createOctaveOutputs}}
+\index{createOctaveOutputs@{createOctaveOutputs}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{createOctaveOutputs()}
+{\footnotesize\ttfamily central\+Functions.\+create\+Octave\+Outputs (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function merges the Octave outputs and sets the header of the file consisting on the model nodes and the model rules.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ octave\+Integration()}.
+
+\label{namespacecentral_functions_a089858732fd4471fcd5c5b300dc994a6} 
+\index{centralFunctions@{centralFunctions}!matlabIntegrator@{matlabIntegrator}}
+\index{matlabIntegrator@{matlabIntegrator}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{matlabIntegrator()}
+{\footnotesize\ttfamily central\+Functions.\+matlab\+Integrator (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function is under construction.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator.\+central()}.
+
+\label{namespacecentral_functions_a6e0c417fec44d4659b44df94f4bbd9c6} 
+\index{centralFunctions@{centralFunctions}!neighboursFinder@{neighboursFinder}}
+\index{neighboursFinder@{neighboursFinder}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{neighboursFinder()}
+{\footnotesize\ttfamily central\+Functions.\+neighbours\+Finder (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{cell\+Index }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function determines the cell neighbour nodes of a given node. 
+The system needs to be multicellular.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ affectors.\+complex\+Extra\+Back()}, \textbf{ affectors.\+complex\+Extra\+Fwd()}, \textbf{ affectors.\+dissociation\+Extra\+Back()}, \textbf{ affectors.\+dissociation\+Extra\+Fwd()}, \textbf{ affectors.\+Non\+Dim\+Binding\+Degradation()}, and \textbf{ affectors.\+Non\+Dim\+Translation\+Degradation\+Binding()}.
+
+\label{namespacecentral_functions_a2f64ba604f2a8e46939109bbd373dd56} 
+\index{centralFunctions@{centralFunctions}!octaveIntegration@{octaveIntegration}}
+\index{octaveIntegration@{octaveIntegration}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{octaveIntegration()}
+{\footnotesize\ttfamily central\+Functions.\+octave\+Integration (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function directs the main steps to simulate the system using Octave as the integrator. 
+\end{DoxyVerb}
+ 
+
+References \textbf{ calling\+Octave()}, \textbf{ create\+Input\+Octave()}, and \textbf{ create\+Octave\+Outputs()}.
+
+
+
+Referenced by \textbf{ simulator.\+central()}, \textbf{ simulator.\+obtain\+Simulation\+Values()}, \textbf{ dynamics\+Reconstructer.\+run()}, and \textbf{ optimiser.\+score\+Obtainer()}.
+
+\label{namespacecentral_functions_a3cdd221ed19443b28f0149ba16b82343} 
+\index{centralFunctions@{centralFunctions}!pythonIntegration@{pythonIntegration}}
+\index{pythonIntegration@{pythonIntegration}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{pythonIntegration()}
+{\footnotesize\ttfamily central\+Functions.\+python\+Integration (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function directs the main steps to simulate the system using SciPy as the integrator.
+\end{DoxyVerb}
+ 
+
+References \textbf{ calling\+Python()}, and \textbf{ create\+Input\+Python()}.
+
+
+
+Referenced by \textbf{ simulator.\+central()}, \textbf{ simulator.\+events\+Dealer()}, \textbf{ simulator.\+obtain\+Simulation\+Values()}, \textbf{ dynamics\+Reconstructer.\+run()}, and \textbf{ optimiser.\+score\+Obtainer()}.
+
+\label{namespacecentral_functions_a62ce996c34d9505a968962511c5d11cd} 
+\index{centralFunctions@{centralFunctions}!writeFormulaOctave@{writeFormulaOctave}}
+\index{writeFormulaOctave@{writeFormulaOctave}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{writeFormulaOctave()}
+{\footnotesize\ttfamily central\+Functions.\+write\+Formula\+Octave (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{node,  }\item[{}]{octave,  }\item[{}]{option,  }\item[{}]{cell\+Index }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calls to the different functions of the module affectors from the lib directory.
+Each affector writes the specific formula.
+There is a general function for the SBML files.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ create\+Input\+Octave()}.
+
+\label{namespacecentral_functions_a3c6af05b8432fa21cf3eb664f26d5215} 
+\index{centralFunctions@{centralFunctions}!writeInitialConditionsOctave@{writeInitialConditionsOctave}}
+\index{writeInitialConditionsOctave@{writeInitialConditionsOctave}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{writeInitialConditionsOctave()}
+{\footnotesize\ttfamily central\+Functions.\+write\+Initial\+Conditions\+Octave (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{octave,  }\item[{}]{function }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the initial conditions for the octave option.
+It takes into account the model rules for the non constant parameters and the non constant compartments.
+It also writes down the integration time and time step.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ create\+Input\+Octave()}.
+
+\label{namespacecentral_functions_aa14bd48cb378b14bb64f77239d1050c7} 
+\index{centralFunctions@{centralFunctions}!writeParametersOctave@{writeParametersOctave}}
+\index{writeParametersOctave@{writeParametersOctave}!centralFunctions@{centralFunctions}}
+\doxysubsubsection{writeParametersOctave()}
+{\footnotesize\ttfamily central\+Functions.\+write\+Parameters\+Octave (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{octave }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function sets the parameters values for the octave input file.
+It also takes into account the compartment values as plausible parameters of the model as they are commonly used as a parameter of the system of equations.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ create\+Input\+Octave()}.
+

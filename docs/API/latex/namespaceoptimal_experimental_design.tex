@@ -1,0 +1,109 @@
+\doxysection{optimal\+Experimental\+Design Namespace Reference}
+\label{namespaceoptimal_experimental_design}\index{optimalExperimentalDesign@{optimalExperimentalDesign}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ add\+New\+Point} (identifiability, sensitivity, metamodel, model, outputfiles, parameters\+To\+Study)
+\item 
+\textbf{ central} (model, metamodel, outputfiles)
+\item 
+\textbf{ choose\+Value} (criteria, values)
+\item 
+\textbf{ get\+Criteria} (criteria, identifiability)
+\item 
+\textbf{ rank\+Targets} (identifiability, sensitivity, metamodel, model, outputfiles, parameters\+To\+Study)
+\item 
+\textbf{ time\+Points\+Determiner} (metamodel)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespaceoptimal_experimental_design_a0d989a21ccc7478a1a3402d40866a445} 
+\index{optimalExperimentalDesign@{optimalExperimentalDesign}!addNewPoint@{addNewPoint}}
+\index{addNewPoint@{addNewPoint}!optimalExperimentalDesign@{optimalExperimentalDesign}}
+\doxysubsubsection{addNewPoint()}
+{\footnotesize\ttfamily optimal\+Experimental\+Design.\+add\+New\+Point (\begin{DoxyParamCaption}\item[{}]{identifiability,  }\item[{}]{sensitivity,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{parameters\+To\+Study }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function runs the addNewPoint optimal experimental design protocol.
+In this task we evaluate the criteria value at different timePoints after adding a putative target of the given species at that specific time point. 
+We can also run the protocol for a list of species.  
+\end{DoxyVerb}
+ 
+
+References \textbf{ choose\+Value()}, \textbf{ get\+Criteria()}, and \textbf{ time\+Points\+Determiner()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimal_experimental_design_a0e23b617cd157dc99ef18a5b561e5ccc} 
+\index{optimalExperimentalDesign@{optimalExperimentalDesign}!central@{central}}
+\index{central@{central}!optimalExperimentalDesign@{optimalExperimentalDesign}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily optimal\+Experimental\+Design.\+central (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This is the central function of the module.
+It directs the flow of the program for the optimal experimental design.
+\end{DoxyVerb}
+ 
+
+References \textbf{ add\+New\+Point()}, \textbf{ sensitivity\+Analyzer.\+components\+Checker()}, and \textbf{ rank\+Targets()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespaceoptimal_experimental_design_ae6ce1af58b8cb48709546c453c609245} 
+\index{optimalExperimentalDesign@{optimalExperimentalDesign}!chooseValue@{chooseValue}}
+\index{chooseValue@{chooseValue}!optimalExperimentalDesign@{optimalExperimentalDesign}}
+\doxysubsubsection{chooseValue()}
+{\footnotesize\ttfamily optimal\+Experimental\+Design.\+choose\+Value (\begin{DoxyParamCaption}\item[{}]{criteria,  }\item[{}]{values }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function returns the maximmum or minimmun value of values lists depending on the criteria type. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ add\+New\+Point()}.
+
+\label{namespaceoptimal_experimental_design_ace4fd2ec0be2e108d9eef69012507df6} 
+\index{optimalExperimentalDesign@{optimalExperimentalDesign}!getCriteria@{getCriteria}}
+\index{getCriteria@{getCriteria}!optimalExperimentalDesign@{optimalExperimentalDesign}}
+\doxysubsubsection{getCriteria()}
+{\footnotesize\ttfamily optimal\+Experimental\+Design.\+get\+Criteria (\begin{DoxyParamCaption}\item[{}]{criteria,  }\item[{}]{identifiability }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function returns the criteria value specified by the user in runner. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ add\+New\+Point()}, and \textbf{ rank\+Targets()}.
+
+\label{namespaceoptimal_experimental_design_a03f60e77551c2007243bd1840713665a} 
+\index{optimalExperimentalDesign@{optimalExperimentalDesign}!rankTargets@{rankTargets}}
+\index{rankTargets@{rankTargets}!optimalExperimentalDesign@{optimalExperimentalDesign}}
+\doxysubsubsection{rankTargets()}
+{\footnotesize\ttfamily optimal\+Experimental\+Design.\+rank\+Targets (\begin{DoxyParamCaption}\item[{}]{identifiability,  }\item[{}]{sensitivity,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{parameters\+To\+Study }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function is still in development status. It sorts of targets indicating the more and the less important. 
+Less important means with low effect to improve the identifiability criteria.
+\end{DoxyVerb}
+ 
+
+References \textbf{ get\+Criteria()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimal_experimental_design_ad0b2a2ba482dd90c959431d8854be33d} 
+\index{optimalExperimentalDesign@{optimalExperimentalDesign}!timePointsDeterminer@{timePointsDeterminer}}
+\index{timePointsDeterminer@{timePointsDeterminer}!optimalExperimentalDesign@{optimalExperimentalDesign}}
+\doxysubsubsection{timePointsDeterminer()}
+{\footnotesize\ttfamily optimal\+Experimental\+Design.\+time\+Points\+Determiner (\begin{DoxyParamCaption}\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function returns the time points of study of the optimal experimental design.
+It is based on the metamodel arguments of time&timestep and OEDResolution.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ add\+New\+Point()}.
+

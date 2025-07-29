@@ -1,0 +1,127 @@
+\doxysection{sampler Namespace Reference}
+\label{namespacesampler}\index{sampler@{sampler}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Class\+Sample}
+\item 
+class \textbf{ Class\+Sampler\+Monte\+Carlo}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (model, metamodel, outputfiles)
+\item 
+\textbf{ plot1D} (metamodel, outputfiles, sample)
+\item 
+\textbf{ plot2D} (metamodel, outputfiles, sample)
+\item 
+\textbf{ plot3D} (metamodel, outputfiles, sample)
+\item 
+\textbf{ plot\+Results} (metamodel, outputfiles, sample)
+\item 
+\textbf{ rainbow\+Colour\+Calculator} (value)
+\item 
+\textbf{ store\+Results} (list\+Of\+Sample, file, metamodel)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacesampler_ac54025b9621c567aa49de79ee38a1b27} 
+\index{sampler@{sampler}!central@{central}}
+\index{central@{central}!sampler@{sampler}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily sampler.\+central (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This is the central function of the module.
+It directs the flow of the Monte Carlo sampling depending on the options.
+\end{DoxyVerb}
+ 
+
+References \textbf{ optimiser.\+check\+Data\+Points()}, \textbf{ optimiser.\+check\+Parameters\+To\+Vary()}, \textbf{ optimiser.\+check\+Target\+Nodes()}, \textbf{ simulator.\+compatibility\+Checker()}, \textbf{ plot\+Results()}, and \textbf{ store\+Results()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespacesampler_abb170b21a27931b5fdb1b06a4eff7683} 
+\index{sampler@{sampler}!plot1D@{plot1D}}
+\index{plot1D@{plot1D}!sampler@{sampler}}
+\doxysubsubsection{plot1D()}
+{\footnotesize\ttfamily sampler.\+plot1D (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{sample }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates a histogram of the distribution of the accepted sampled points.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ plot\+Results()}.
+
+\label{namespacesampler_ae87a31ad2c9f4062ff9f41943abeabff} 
+\index{sampler@{sampler}!plot2D@{plot2D}}
+\index{plot2D@{plot2D}!sampler@{sampler}}
+\doxysubsubsection{plot2D()}
+{\footnotesize\ttfamily sampler.\+plot2D (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{sample }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function plots a 2D graphs with the accepted sampled points.
+\end{DoxyVerb}
+ 
+
+References \textbf{ rainbow\+Colour\+Calculator()}.
+
+
+
+Referenced by \textbf{ plot\+Results()}.
+
+\label{namespacesampler_a8fbf68979da00d3a962ab5fb4c2becac} 
+\index{sampler@{sampler}!plot3D@{plot3D}}
+\index{plot3D@{plot3D}!sampler@{sampler}}
+\doxysubsubsection{plot3D()}
+{\footnotesize\ttfamily sampler.\+plot3D (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{sample }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates a gnuplot script to plot in 3D the Monte Carlo results.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ plot\+Results()}.
+
+\label{namespacesampler_a024e486ec2510b7130fdf3ec0ed56349} 
+\index{sampler@{sampler}!plotResults@{plotResults}}
+\index{plotResults@{plotResults}!sampler@{sampler}}
+\doxysubsubsection{plotResults()}
+{\footnotesize\ttfamily sampler.\+plot\+Results (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{sample }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates a 1D, 2D or 3D graphs if the parameter space is 1, 2 or 3 dimensional.
+Otherwise it gives a message expressing the impossibility of the graph.
+\end{DoxyVerb}
+ 
+
+References \textbf{ plot1\+D()}, \textbf{ plot2\+D()}, and \textbf{ plot3\+D()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespacesampler_aa8894ff57c46cefa07c231ea30d35a54} 
+\index{sampler@{sampler}!rainbowColourCalculator@{rainbowColourCalculator}}
+\index{rainbowColourCalculator@{rainbowColourCalculator}!sampler@{sampler}}
+\doxysubsubsection{rainbowColourCalculator()}
+{\footnotesize\ttfamily sampler.\+rainbow\+Colour\+Calculator (\begin{DoxyParamCaption}\item[{}]{value }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Given a normalised value on the 0-4 range, this function returns the corresponding RGB colour code based on the rainbow scale. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ plot2\+D()}.
+
+\label{namespacesampler_a591e3ccde59aca896a0e63d5e91459c2} 
+\index{sampler@{sampler}!storeResults@{storeResults}}
+\index{storeResults@{storeResults}!sampler@{sampler}}
+\doxysubsubsection{storeResults()}
+{\footnotesize\ttfamily sampler.\+store\+Results (\begin{DoxyParamCaption}\item[{}]{list\+Of\+Sample,  }\item[{}]{file,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method stores the sampling solution on its specific file.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+

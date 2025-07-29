@@ -1,0 +1,68 @@
+\doxysection{error\+Messages.\+Class\+Byo\+Dyn\+Exception Class Reference}
+\label{classerror_messages_1_1_class_byo_dyn_exception}\index{errorMessages.ClassByoDynException@{errorMessages.ClassByoDynException}}
+
+
+Inheritance diagram for error\+Messages.\+Class\+Byo\+Dyn\+Exception\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, \textbf{ error\+String})
+\item 
+\textbf{ print\+Exception\+Info} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ error\+String}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}        The mother class of the exceptions of the program.\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classerror_messages_1_1_class_byo_dyn_exception_adb7dc203a6957dde7d6a7570f7443cee} 
+\index{errorMessages.ClassByoDynException@{errorMessages.ClassByoDynException}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!errorMessages.ClassByoDynException@{errorMessages.ClassByoDynException}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily error\+Messages.\+Class\+Byo\+Dyn\+Exception.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{error\+String }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}                Constructor of the class.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classerror_messages_1_1_class_byo_dyn_exception_aedaa16e3f8f59ff33d0f1b4a58ae87cb} 
+\index{errorMessages.ClassByoDynException@{errorMessages.ClassByoDynException}!printExceptionInfo@{printExceptionInfo}}
+\index{printExceptionInfo@{printExceptionInfo}!errorMessages.ClassByoDynException@{errorMessages.ClassByoDynException}}
+\doxysubsubsection{printExceptionInfo()}
+{\footnotesize\ttfamily error\+Messages.\+Class\+Byo\+Dyn\+Exception.\+print\+Exception\+Info (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}                This method prints the specific error string.\end{DoxyVerb}
+ 
+
+Reimplemented in \textbf{ error\+Messages.\+Class\+Central\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_central_exception_a158c4e0dc5381ce0394f8190125b0f1c}, \textbf{ error\+Messages.\+Class\+Checker\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_checker_exception_a33e7639d7a5761f198abe550fc5524b3}, \textbf{ error\+Messages.\+Class\+Cluster\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_cluster_exception_a8d554eba07db78b46457ed4eb75b026c}, \textbf{ error\+Messages.\+Class\+Dynamics\+Reconstructer\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_dynamics_reconstructer_exception_a156d794c50026f7f27ebb12274ae0fd1}, \textbf{ error\+Messages.\+Class\+Formulas\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_formulas_exception_ad7425a8924bc2f4a1260d07094366b96}, \textbf{ error\+Messages.\+Class\+Identifiability\+Analyzer\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_identifiability_analyzer_exception_ae653b7e12e837420a2a4738bd7bd90d3}, \textbf{ error\+Messages.\+Class\+Initiator\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_initiator_exception_a7a2c4b20c7f8a13f18ee4d273862282b}, \textbf{ error\+Messages.\+Class\+Matrix\+Worker\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_matrix_worker_exception_aea1b8c8973e135ad6c14c8223fe62f27}, \textbf{ error\+Messages.\+Class\+Optimal\+Experimental\+Design\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_optimal_experimental_design_exception_a7333024a56440c71bff1c26ee413360d}, \textbf{ error\+Messages.\+Class\+Optimiser\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_optimiser_exception_ab944b70142e3c03da93b8971d4ad1256}, \textbf{ error\+Messages.\+Class\+Sampler\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_sampler_exception_a247717623a343d9721fb2d4f9c246b8d}, \textbf{ error\+Messages.\+Class\+SBMLWorker\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_s_b_m_l_worker_exception_a87185fbad3291eb176059a8cf46d3db3}, \textbf{ error\+Messages.\+Class\+Simulator\+Euler\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_simulator_euler_exception_a036b1b669873e693dd25f171f8580151}, \textbf{ error\+Messages.\+Class\+Simulator\+Stochastic\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_simulator_stochastic_exception_a19f18cb5477116f55bf79799316dffac}, \textbf{ error\+Messages.\+Class\+Sensitivity\+Analyzer\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_sensitivity_analyzer_exception_ac3068e7e06eec561bcd957763106159f}, \textbf{ error\+Messages.\+Class\+Simulator\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_simulator_exception_ab49e608fce1402ecd9e242e6e4b68731}, \textbf{ error\+Messages.\+Class\+Simulator\+XPPException} \doxyref{}{p.}{classerror_messages_1_1_class_simulator_x_p_p_exception_aaaffe268b69dfa142b952b02cf1d45e7}, \textbf{ error\+Messages.\+Class\+Starter\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_starter_exception_af380f0c1597a972282571b652f9ebb60}, and \textbf{ error\+Messages.\+Class\+Surface\+Exception} \doxyref{}{p.}{classerror_messages_1_1_class_surface_exception_a02e28441ee661413ee41ce57223793d5}.
+
+
+
+References \textbf{ error\+Messages.\+Class\+Byo\+Dyn\+Exception.\+error\+String}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classerror_messages_1_1_class_byo_dyn_exception_ae1edf82366b41705ecf0270c8715c1f8} 
+\index{errorMessages.ClassByoDynException@{errorMessages.ClassByoDynException}!errorString@{errorString}}
+\index{errorString@{errorString}!errorMessages.ClassByoDynException@{errorMessages.ClassByoDynException}}
+\doxysubsubsection{errorString}
+{\footnotesize\ttfamily error\+Messages.\+Class\+Byo\+Dyn\+Exception.\+error\+String}
+
+
+
+Referenced by \textbf{ error\+Messages.\+Class\+Byo\+Dyn\+Exception.\+print\+Exception\+Info()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ error\+Messages.\+py}\end{DoxyCompactItemize}

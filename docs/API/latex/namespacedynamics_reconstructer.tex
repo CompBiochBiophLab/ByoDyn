@@ -1,0 +1,134 @@
+\doxysection{dynamics\+Reconstructer Namespace Reference}
+\label{namespacedynamics_reconstructer}\index{dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (metamodel, model, outputfiles)
+\item 
+\textbf{ initial\+Conditions\+Detector} (metamodel, model)
+\item 
+\textbf{ model\+Determination} (model, simulation, solutions, initial\+Conditions)
+\item 
+\textbf{ parameters\+Detector} (metamodel, model)
+\item 
+\textbf{ plotter} (solutions, model, outputfiles, metamodel)
+\item 
+\textbf{ run} (model, metamodel, outputfiles)
+\item 
+\textbf{ runner} (metamodel, model, outputfiles, solutions, initial\+Conditions)
+\item 
+\textbf{ store\+Info} (outputfiles, simulation, model)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacedynamics_reconstructer_a354e8df33e95dca7b50780856199cdb6} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!central@{central}}
+\index{central@{central}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+central (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This is the central function of the module.
+It checks that the parameters introduced are correct, reads the solutions and runs the model.
+\end{DoxyVerb}
+ 
+
+References \textbf{ initial\+Conditions\+Detector()}, \textbf{ parameters\+Detector()}, \textbf{ plotter()}, and \textbf{ runner()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespacedynamics_reconstructer_a6c712c3057ae889dfbf659201b912aa8} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!initialConditionsDetector@{initialConditionsDetector}}
+\index{initialConditionsDetector@{initialConditionsDetector}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{initialConditionsDetector()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+initial\+Conditions\+Detector (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks for the solutions of the initial conditions in case of
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespacedynamics_reconstructer_a694eec103067e984c5434592e4b362ec} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!modelDetermination@{modelDetermination}}
+\index{modelDetermination@{modelDetermination}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{modelDetermination()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+model\+Determination (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{simulation,  }\item[{}]{solutions,  }\item[{}]{initial\+Conditions }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function sets the model parameter values.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ runner()}.
+
+\label{namespacedynamics_reconstructer_a753712e6cc6ee2de89ef26010d44e579} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!parametersDetector@{parametersDetector}}
+\index{parametersDetector@{parametersDetector}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{parametersDetector()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+parameters\+Detector (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks that the parameters' solutions' files located at the solutionsDirectory are part of the model.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespacedynamics_reconstructer_ae751486785e60fcd555fd29f6d138c15} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!plotter@{plotter}}
+\index{plotter@{plotter}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{plotter()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+plotter (\begin{DoxyParamCaption}\item[{}]{solutions,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function plots the reconstructed trajectories.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespacedynamics_reconstructer_af7d4980128735d6e9544959bec292578} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!run@{run}}
+\index{run@{run}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+run (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calls the model integrators to render the dynamics.
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+octave\+Integration()}, \textbf{ central\+Functions.\+python\+Integration()}, and \textbf{ simulator.\+set\+Integration\+Option()}.
+
+
+
+Referenced by \textbf{ runner()}.
+
+\label{namespacedynamics_reconstructer_a57670188f8bd0efac98c775346eeaa13} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!runner@{runner}}
+\index{runner@{runner}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{runner()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+runner (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{solutions,  }\item[{}]{initial\+Conditions }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function, for each solution,  creates and simulates the corresponding model and stores the dynamics.
+\end{DoxyVerb}
+ 
+
+References \textbf{ model\+Determination()}, \textbf{ run()}, and \textbf{ store\+Info()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespacedynamics_reconstructer_a5334fbf2822e2ed6bb86fa6fb9253a37} 
+\index{dynamicsReconstructer@{dynamicsReconstructer}!storeInfo@{storeInfo}}
+\index{storeInfo@{storeInfo}!dynamicsReconstructer@{dynamicsReconstructer}}
+\doxysubsubsection{storeInfo()}
+{\footnotesize\ttfamily dynamics\+Reconstructer.\+store\+Info (\begin{DoxyParamCaption}\item[{}]{outputfiles,  }\item[{}]{simulation,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function stores the dynamics of the solutions.
+It creates a file for each node of the system.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ runner()}.
+

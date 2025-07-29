@@ -1,0 +1,114 @@
+\doxysection{local\+Optimiser Namespace Reference}
+\label{namespacelocal_optimiser}\index{localOptimiser@{localOptimiser}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (model, metamodel, outputfiles)
+\item 
+\textbf{ global\+Definer} (model, metamodel, outputfiles)
+\item 
+\textbf{ locating\+Module\+Dir} (metamodel)
+\item 
+\textbf{ optimisation} (threshold)
+\item 
+\textbf{ pcalcr} (x, p)
+\item 
+\textbf{ saving\+Results} (value, model, metamodel, outputfiles)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacelocal_optimiser_a9bce89ab19617b99608c6d00ab9f606b} 
+\index{localOptimiser@{localOptimiser}!central@{central}}
+\index{central@{central}!localOptimiser@{localOptimiser}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily local\+Optimiser.\+central (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This is the main function of the module.
+First it appends the compiling directory to the system path.
+Then it makes global the three main objects of the program (model, metamodel and outputfiles) and the module localSearch.
+It calls the optimisation routine, obtains the new value of the parameters and the fitness function value.
+It updates the model and sends the very last fitness function.
+\end{DoxyVerb}
+ 
+
+References \textbf{ global\+Definer()}, \textbf{ optimisation()}, and \textbf{ saving\+Results()}.
+
+
+
+Referenced by \textbf{ optimiser.\+central()}, \textbf{ optimiser.\+evaluate\+Solution()}, and \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer\+Local()}.
+
+\label{namespacelocal_optimiser_ab53f74e04d1d13966c097b48ac9309dd} 
+\index{localOptimiser@{localOptimiser}!globalDefiner@{globalDefiner}}
+\index{globalDefiner@{globalDefiner}!localOptimiser@{localOptimiser}}
+\doxysubsubsection{globalDefiner()}
+{\footnotesize\ttfamily local\+Optimiser.\+global\+Definer (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function adds the compilation directory to the system path.
+Then it makes global the model, metamodel and outputfiles objects and the localSearch fortran function.
+It finally defines the metamodel.hybridScore variable as True for the correct calculation of the score: the Fortran function returns a list and Python functions work with a float.
+\end{DoxyVerb}
+ 
+
+References \textbf{ locating\+Module\+Dir()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespacelocal_optimiser_ad27c48ef8799ed622e14974f2254fa33} 
+\index{localOptimiser@{localOptimiser}!locatingModuleDir@{locatingModuleDir}}
+\index{locatingModuleDir@{locatingModuleDir}!localOptimiser@{localOptimiser}}
+\doxysubsubsection{locatingModuleDir()}
+{\footnotesize\ttfamily local\+Optimiser.\+locating\+Module\+Dir (\begin{DoxyParamCaption}\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function appends the compiling directory to the system path.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ global\+Definer()}.
+
+\label{namespacelocal_optimiser_a862cdb876388fb2292accbb0a5e9a4fb} 
+\index{localOptimiser@{localOptimiser}!optimisation@{optimisation}}
+\index{optimisation@{optimisation}!localOptimiser@{localOptimiser}}
+\doxysubsubsection{optimisation()}
+{\footnotesize\ttfamily local\+Optimiser.\+optimisation (\begin{DoxyParamCaption}\item[{}]{threshold }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function interacts with the Fortran code directly.
+It calls the main routine of the Fortran program.
+It sends the variables: x for the parameter values and b for the parameter ranges. And optionally it can send the value for the stopper threshold (v31).
+Finally it collects the optimised parameter vector and the fitness function value.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespacelocal_optimiser_a5c6ed129a9de08444688a52a21d9200c} 
+\index{localOptimiser@{localOptimiser}!pcalcr@{pcalcr}}
+\index{pcalcr@{pcalcr}!localOptimiser@{localOptimiser}}
+\doxysubsubsection{pcalcr()}
+{\footnotesize\ttfamily local\+Optimiser.\+pcalcr (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{p }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function is called by the Fortran program localSearch.
+This function obtains the fitness function value for the new parameter position given by the Fortran program.
+\end{DoxyVerb}
+ 
+
+References \textbf{ optimiser.\+score\+Obtainer()}.
+
+\label{namespacelocal_optimiser_a3c388272a78c5747b5ca19a8a1125791} 
+\index{localOptimiser@{localOptimiser}!savingResults@{savingResults}}
+\index{savingResults@{savingResults}!localOptimiser@{localOptimiser}}
+\doxysubsubsection{savingResults()}
+{\footnotesize\ttfamily local\+Optimiser.\+saving\+Results (\begin{DoxyParamCaption}\item[{}]{value,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function saves the results of the local optimisation.
+\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+sbml\+Writer()}.
+
+
+
+Referenced by \textbf{ central()}.
+

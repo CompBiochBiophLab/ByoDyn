@@ -1,0 +1,136 @@
+\doxysection{central Namespace Reference}
+\label{namespacecentral}\index{central@{central}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Class\+File}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ main} (runner\+File)
+\begin{DoxyCompactList}\small\item\em Main Program \#. \end{DoxyCompactList}\item 
+\textbf{ model\+Reader} (metamodel)
+\begin{DoxyCompactList}\small\item\em Main Functions \# ~\newline
+ \end{DoxyCompactList}\item 
+\textbf{ option\+Reader} (runner\+File)
+\item 
+\textbf{ profile} ()
+\item 
+\textbf{ runner} (metamodel, model)
+\item 
+\textbf{ sbml\+Reader} (metamodel)
+\item 
+\textbf{ tags\+Reader} (metamodel)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacecentral_a095cc821ec735c3ef20ec948f09e7b9f} 
+\index{central@{central}!main@{main}}
+\index{main@{main}!central@{central}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily central.\+main (\begin{DoxyParamCaption}\item[{}]{runner\+File }\end{DoxyParamCaption})}
+
+
+
+Main Program \#. 
+
+\begin{DoxyVerb}This is the main function of the entire program.
+It builds an object called "metamodel" with the options to run ByoDyn, another object called "model" with the structure of the system and finally the function calls the function "runner" to execute the instructions. 
+\end{DoxyVerb}
+ 
+
+References \textbf{ main()}, \textbf{ parallel.\+main\+Processor()}, \textbf{ model\+Reader()}, \textbf{ option\+Reader()}, \textbf{ parallel.\+receive\+Any()}, \textbf{ runner()}, and \textbf{ parallel.\+send\+All()}.
+
+
+
+Referenced by \textbf{ testers.\+Class\+Test.\+\_\+\+\_\+execute()}, \textbf{ initiator.\+initial()}, and \textbf{ main()}.
+
+\label{namespacecentral_aa09263324fc0300c741f602aa9311aa6} 
+\index{central@{central}!modelReader@{modelReader}}
+\index{modelReader@{modelReader}!central@{central}}
+\doxysubsubsection{modelReader()}
+{\footnotesize\ttfamily central.\+model\+Reader (\begin{DoxyParamCaption}\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+
+
+Main Functions \# ~\newline
+ 
+
+\begin{DoxyVerb}This function reads the model file (the name of the file is inside the metamodel object) and creates a model object with the model information and details. 
+It works for either formats, "tags" or "SBML". 
+\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Reader()}, and \textbf{ tags\+Reader()}.
+
+
+
+Referenced by \textbf{ main()}.
+
+\label{namespacecentral_af8312f804c48b64e1d0bdb1590a9d687} 
+\index{central@{central}!optionReader@{optionReader}}
+\index{optionReader@{optionReader}!central@{central}}
+\doxysubsubsection{optionReader()}
+{\footnotesize\ttfamily central.\+option\+Reader (\begin{DoxyParamCaption}\item[{}]{runner\+File }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function reads the runner file of ByoDyn and creates the metamodel object that contains its information. 
+\end{DoxyVerb}
+ 
+
+References \textbf{ starter.\+central()}.
+
+
+
+Referenced by \textbf{ main()}.
+
+\label{namespacecentral_a84862e405b69b7ce368bedae86e84294} 
+\index{central@{central}!profile@{profile}}
+\index{profile@{profile}!central@{central}}
+\doxysubsubsection{profile()}
+{\footnotesize\ttfamily central.\+profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function determines the number of times ByoDyn is run for profiling. 
+\end{DoxyVerb}
+ \label{namespacecentral_a817d97ab3806ae1067f4e49ee4f2fbc3} 
+\index{central@{central}!runner@{runner}}
+\index{runner@{runner}!central@{central}}
+\doxysubsubsection{runner()}
+{\footnotesize\ttfamily central.\+runner (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function discriminates the different main running options of ByoDyn and calls its appropiate functions. 
+The different possibilities are simulation, parameter estimation, sensitivity analysis, model format exporting, simulation trajectories reconstruction from a given parameter value set, creation of score surfaces of the fitness with respect of the vector of parameters and fitness function evaluation. 
+\end{DoxyVerb}
+ 
+
+References \textbf{ dynamics\+Reconstructer.\+central()}, \textbf{ exporter.\+central()}, \textbf{ simulator.\+central()}, \textbf{ surface.\+central()}, \textbf{ optimiser.\+central()}, \textbf{ fitness\+Function\+Evaluator.\+central()}, \textbf{ identifiability\+Analyzer.\+central()}, \textbf{ optimal\+Experimental\+Design.\+central()}, \textbf{ sampler.\+central()}, \textbf{ sensitivity\+Analyzer.\+central()}, \textbf{ parallel.\+current\+Processor()}, \textbf{ cluster.\+main()}, \textbf{ parallel.\+main\+Processor()}, \textbf{ parallel.\+receive\+Any()}, and \textbf{ parallel.\+send\+All()}.
+
+
+
+Referenced by \textbf{ main()}.
+
+\label{namespacecentral_a920f082cae8eeda3760b726313ac745d} 
+\index{central@{central}!sbmlReader@{sbmlReader}}
+\index{sbmlReader@{sbmlReader}!central@{central}}
+\doxysubsubsection{sbmlReader()}
+{\footnotesize\ttfamily central.\+sbml\+Reader (\begin{DoxyParamCaption}\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function reads a model in SBML format and create the model object. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ model\+Reader()}.
+
+\label{namespacecentral_a78bdf115e0eb42280f35ab533bd335d6} 
+\index{central@{central}!tagsReader@{tagsReader}}
+\index{tagsReader@{tagsReader}!central@{central}}
+\doxysubsubsection{tagsReader()}
+{\footnotesize\ttfamily central.\+tags\+Reader (\begin{DoxyParamCaption}\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function reads the model in "tags" format and creates the model object. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ model\+Reader()}.
+

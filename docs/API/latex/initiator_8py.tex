@@ -1,0 +1,40 @@
+\doxysection{initiator.\+py File Reference}
+\label{initiator_8py}\index{initiator.py@{initiator.py}}
+
+
+Byo\+Dyn is an open source computational package aimed at studying the dynamical behaviour of small to massive biochemical networks.  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \textbf{ initiator}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ initiator.\+create\+Examples} ()
+\item 
+\textbf{ initiator.\+initial} (runner\+File=None)
+\item 
+\textbf{ initiator.\+printing\+Help} ()
+\item 
+\textbf{ initiator.\+printing\+Version} (version)
+\item 
+\textbf{ initiator.\+version\+Definitor} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \textbf{ initiator.\+benchmarkdir} = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/benchmark\textquotesingle{}
+\item 
+str \textbf{ initiator.\+libdir} = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/lib\textquotesingle{}
+\item 
+str \textbf{ initiator.\+srcdir} = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/src\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Byo\+Dyn is an open source computational package aimed at studying the dynamical behaviour of small to massive biochemical networks. 
+
+Models are input in the standard format of systems biology markup language (SBML). The model can be simulated, the sensitivity and the identifiability of the system with respect to the parameters can be analysed and finally kinetic parameters can be estimated using experimental time course data. Several state of the art optimisation algorithms have been implemented for this purpose. Byo\+Dyn can run in parallel for the some of them using MPI. 

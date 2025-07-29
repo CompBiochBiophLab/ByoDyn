@@ -1,0 +1,115 @@
+\doxysection{sampler.\+Class\+Sampler\+Monte\+Carlo Class Reference}
+\label{classsampler_1_1_class_sampler_monte_carlo}\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self, metamodel)
+\item 
+\textbf{ sampling} (self, metamodel, model, outputfiles)
+\item 
+\textbf{ setT} (self, metamodel, model, outputfiles)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ accepted\+Sample}
+\item 
+\textbf{ non\+Accepted\+Sample}
+\item 
+\textbf{ sample\+Size}
+\item 
+\textbf{ T}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+last\+FF} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the Monte Carlo sampler. The method implemented is based in Metropolis-Hastings algorithm.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsampler_1_1_class_sampler_monte_carlo_a5cb7279c1fe5aff6fb93b6a4eb41b8e9} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The constructor.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsampler_1_1_class_sampler_monte_carlo_a3c0e8225d74c5c93a8a7b8fcc12d3df9} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!\_\_lastFF@{\_\_lastFF}}
+\index{\_\_lastFF@{\_\_lastFF}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{\_\_lastFF()}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+\_\+\+\_\+last\+FF (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This private method returns the fitness function of the last sampled element.
+\end{DoxyVerb}
+ 
+
+References \textbf{ sampler.\+Class\+Sampler\+Monte\+Carlo.\+accepted\+Sample}.
+
+\label{classsampler_1_1_class_sampler_monte_carlo_a7061541dc67fa1f858b5844b1a010233} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!sampling@{sampling}}
+\index{sampling@{sampling}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{sampling()}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+sampling (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method sampling the fitness function surface using a Monte Carlo Metropolis-Hastings algorithm.
+It creates a list of accepted sampled elements and not accepted sampled elements.
+\end{DoxyVerb}
+ \label{classsampler_1_1_class_sampler_monte_carlo_aff80c9b8f5c77d750c6e264ef88b423f} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!setT@{setT}}
+\index{setT@{setT}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{setT()}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+setT (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method sets the class variable T from a random exploration of Fitness Function surface.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\label{classsampler_1_1_class_sampler_monte_carlo_afcb20645368e7bee795b684079ba55d1} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!acceptedSample@{acceptedSample}}
+\index{acceptedSample@{acceptedSample}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{acceptedSample}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+accepted\+Sample}
+
+
+
+Referenced by \textbf{ sampler.\+Class\+Sampler\+Monte\+Carlo.\+\_\+\+\_\+last\+FF()}.
+
+\label{classsampler_1_1_class_sampler_monte_carlo_a1c4366e4eb5d217b5ec29b5d464f7959} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!nonAcceptedSample@{nonAcceptedSample}}
+\index{nonAcceptedSample@{nonAcceptedSample}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{nonAcceptedSample}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+non\+Accepted\+Sample}
+
+\label{classsampler_1_1_class_sampler_monte_carlo_addfe162b3dd8aef83c84f7e16c95025a} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!sampleSize@{sampleSize}}
+\index{sampleSize@{sampleSize}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{sampleSize}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+sample\+Size}
+
+
+
+Referenced by \textbf{ starter.\+Class\+Meta\+Model.\+metamodel\+Parser()}.
+
+\label{classsampler_1_1_class_sampler_monte_carlo_a937be32fcf633c789b14d1753608bb51} 
+\index{sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}!T@{T}}
+\index{T@{T}!sampler.ClassSamplerMonteCarlo@{sampler.ClassSamplerMonteCarlo}}
+\doxysubsubsection{T}
+{\footnotesize\ttfamily sampler.\+Class\+Sampler\+Monte\+Carlo.\+T}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ sampler.\+py}\end{DoxyCompactItemize}

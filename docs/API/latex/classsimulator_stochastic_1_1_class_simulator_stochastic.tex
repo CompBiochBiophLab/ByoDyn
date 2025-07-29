@@ -1,0 +1,200 @@
+\doxysection{simulator\+Stochastic.\+Class\+Simulator\+Stochastic Class Reference}
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic}\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ run} (self, metamodel, model, outputfiles)
+\item 
+\textbf{ simulate} (self, \textbf{ propensities}, stoichiometry\+Matrix, x\+\_\+0, time, dt, \textbf{ option}, method=None)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ cell\+Index} = 0
+\item 
+int \textbf{ equation\+Number} = 0
+\item 
+\textbf{ file} = open(outputfiles.\+integration\+Input, \textquotesingle{}w\textquotesingle{})
+\item 
+str \textbf{ option} = \textquotesingle{}python\textquotesingle{}
+\item 
+\textbf{ output}
+\item 
+list \textbf{ propensities} = [reaction.\+propensity for reaction in model.\+reactions]
+\item 
+\textbf{ square\+Root\+Definitions} = re.\+findall(\textquotesingle{}root\textbackslash{}(2, [\textbackslash{}w\textbackslash{}[\textbackslash{}]()/\textbackslash{}+\textbackslash{}-\/\textbackslash{}$\ast$\textbackslash{}s\textbackslash{}d\textbackslash{}.\textbackslash{}$^\wedge$\textbackslash{},]$\ast$\textbackslash{})\textquotesingle{}, function.\+output)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+get\+Variables} (self, model)
+\item 
+\textbf{ \+\_\+\+\_\+load\+Integration\+Function} (self, outputfiles)
+\item 
+\textbf{ \+\_\+\+\_\+plot\+Simulation} (self, model, metamodel, outputfiles, \textbf{ run})
+\item 
+\textbf{ \+\_\+\+\_\+store\+Results} (self, x, t, model, metamodel, outputfiles, \textbf{ run})
+\item 
+\textbf{ \+\_\+\+\_\+write\+Propensities\+Input} (self, model, outputfiles, initial\+Variables\+Values, variables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the Stochastic simulators.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a018603bbdb6842a73e2182768fca274b} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The constructor.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_ae517dbc43666903f7dad7299937f33f3} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!\_\_getVariables@{\_\_getVariables}}
+\index{\_\_getVariables@{\_\_getVariables}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{\_\_getVariables()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+get\+Variables (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This private method sets the initial conditions of the system.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a5c2423a26fd6c3f25e750729d3367835} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!\_\_loadIntegrationFunction@{\_\_loadIntegrationFunction}}
+\index{\_\_loadIntegrationFunction@{\_\_loadIntegrationFunction}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{\_\_loadIntegrationFunction()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+load\+Integration\+Function (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{outputfiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This private method loads the system of equations, that is the topology of the system.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a544bb9bab3af871f5627557527a68100} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!\_\_plotSimulation@{\_\_plotSimulation}}
+\index{\_\_plotSimulation@{\_\_plotSimulation}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{\_\_plotSimulation()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+plot\+Simulation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{run }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This private method creates the graph of the trajectories.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a14ed05238ba958c50587877447283ad8} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!\_\_storeResults@{\_\_storeResults}}
+\index{\_\_storeResults@{\_\_storeResults}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{\_\_storeResults()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+store\+Results (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{t,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{run }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This method stores the results of the simulation in a file in the output directory.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+run()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a54433fa4c226851a74a9fb81014717cf} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!\_\_writePropensitiesInput@{\_\_writePropensitiesInput}}
+\index{\_\_writePropensitiesInput@{\_\_writePropensitiesInput}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{\_\_writePropensitiesInput()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+write\+Propensities\+Input (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{initial\+Variables\+Values,  }\item[{}]{variables }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This private method writes a file with the topology of the system.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a3781ba53dae326f2e6669942710d1064} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!run@{run}}
+\index{run@{run}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method directs the simulation.
+It creates the initial conditions, 
+loads the system of equations, 
+simulates the system and
+plots the results.
+\end{DoxyVerb}
+ 
+
+References \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+get\+Variables()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+get\+Variables()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+load\+Integration\+Function()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+load\+Integration\+Function()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+plot\+Simulation()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+plot\+Simulation()}, \textbf{ simulator\+Euler.\+Class\+Simulator\+Euler.\+\_\+\+\_\+store\+Results()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+store\+Results()}, \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+\_\+\+\_\+write\+Propensities\+Input()}, and \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+simulate()}.
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a5114da9c36f25c856f1aa1750776ea92} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!simulate@{simulate}}
+\index{simulate@{simulate}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{simulate()}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+simulate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{propensities,  }\item[{}]{stoichiometry\+Matrix,  }\item[{}]{x\+\_\+0,  }\item[{}]{time,  }\item[{}]{dt,  }\item[{}]{option,  }\item[{}]{method = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method simulate the system of equations.
+method     describes which method to use
+pyfile     python source file where the butcher tableau is found
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+run()}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a6b5307ca7d461729d380ba5c8b6dd8b6} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!cellIndex@{cellIndex}}
+\index{cellIndex@{cellIndex}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{cellIndex}
+{\footnotesize\ttfamily int simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+cell\+Index = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_ae583548f77faf1389e9e7a7ccb9c175c} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!equationNumber@{equationNumber}}
+\index{equationNumber@{equationNumber}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{equationNumber}
+{\footnotesize\ttfamily int simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+equation\+Number = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_ad6be06d27e0543303870440b98209f68} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!file@{file}}
+\index{file@{file}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{file}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+file = open(outputfiles.\+integration\+Input, \textquotesingle{}w\textquotesingle{})\hspace{0.3cm}{\ttfamily [static]}}
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a879f0d73bbab554f2a0dc66072d23f9b} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!option@{option}}
+\index{option@{option}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{option}
+{\footnotesize\ttfamily str simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+option = \textquotesingle{}python\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a6549229972ca9042d2a638c5b668f693} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!output@{output}}
+\index{output@{output}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{output}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+output\hspace{0.3cm}{\ttfamily [static]}}
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a663f30b48482896e0ae3dcec3303ae06} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!propensities@{propensities}}
+\index{propensities@{propensities}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{propensities}
+{\footnotesize\ttfamily list simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+propensities = [reaction.\+propensity for reaction in model.\+reactions]\hspace{0.3cm}{\ttfamily [static]}}
+
+\label{classsimulator_stochastic_1_1_class_simulator_stochastic_a53ed2643e83fdfb916611451bc693afb} 
+\index{simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}!squareRootDefinitions@{squareRootDefinitions}}
+\index{squareRootDefinitions@{squareRootDefinitions}!simulatorStochastic.ClassSimulatorStochastic@{simulatorStochastic.ClassSimulatorStochastic}}
+\doxysubsubsection{squareRootDefinitions}
+{\footnotesize\ttfamily simulator\+Stochastic.\+Class\+Simulator\+Stochastic.\+square\+Root\+Definitions = re.\+findall(\textquotesingle{}root\textbackslash{}(2, [\textbackslash{}w\textbackslash{}[\textbackslash{}]()/\textbackslash{}+\textbackslash{}-\/\textbackslash{}$\ast$\textbackslash{}s\textbackslash{}d\textbackslash{}.\textbackslash{}$^\wedge$\textbackslash{},]$\ast$\textbackslash{})\textquotesingle{}, function.\+output)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ simulator\+Stochastic.\+py}\end{DoxyCompactItemize}

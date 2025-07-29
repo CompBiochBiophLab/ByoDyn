@@ -1,0 +1,108 @@
+\doxysection{initiator Namespace Reference}
+\label{namespaceinitiator}\index{initiator@{initiator}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ create\+Examples} ()
+\item 
+\textbf{ initial} (runner\+File=None)
+\item 
+\textbf{ printing\+Help} ()
+\item 
+\textbf{ printing\+Version} (version)
+\item 
+\textbf{ version\+Definitor} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \textbf{ benchmarkdir} = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/benchmark\textquotesingle{}
+\item 
+str \textbf{ libdir} = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/lib\textquotesingle{}
+\item 
+str \textbf{ srcdir} = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/src\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespaceinitiator_af92cae8b9235893b5e913d2f96938137} 
+\index{initiator@{initiator}!createExamples@{createExamples}}
+\index{createExamples@{createExamples}!initiator@{initiator}}
+\doxysubsubsection{createExamples()}
+{\footnotesize\ttfamily initiator.\+create\+Examples (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The function creates the examples of ByoDyn at the examples directory. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ initial()}.
+
+\label{namespaceinitiator_ac3afbae12661610bb71f1a915739e9c3} 
+\index{initiator@{initiator}!initial@{initial}}
+\index{initial@{initial}!initiator@{initiator}}
+\doxysubsubsection{initial()}
+{\footnotesize\ttfamily initiator.\+initial (\begin{DoxyParamCaption}\item[{}]{runner\+File = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function reads the command line options, it configures the ByoDyn options and checks its consistency and calls the modules of the source directory of ByoDyn. 
+\end{DoxyVerb}
+ 
+
+References \textbf{ create\+Examples()}, \textbf{ checker.\+main()}, \textbf{ central.\+main()}, \textbf{ parallel.\+main\+Processor()}, \textbf{ printing\+Help()}, \textbf{ printing\+Version()}, \textbf{ parallel.\+receive\+Any()}, \textbf{ parallel.\+send\+All()}, and \textbf{ version\+Definitor()}.
+
+\label{namespaceinitiator_a69d05dbdcbab3cd8b66019c5e28251e0} 
+\index{initiator@{initiator}!printingHelp@{printingHelp}}
+\index{printingHelp@{printingHelp}!initiator@{initiator}}
+\doxysubsubsection{printingHelp()}
+{\footnotesize\ttfamily initiator.\+printing\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function prints the command line help. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ initial()}.
+
+\label{namespaceinitiator_ac3c02095303dcfd1193c771989bb9831} 
+\index{initiator@{initiator}!printingVersion@{printingVersion}}
+\index{printingVersion@{printingVersion}!initiator@{initiator}}
+\doxysubsubsection{printingVersion()}
+{\footnotesize\ttfamily initiator.\+printing\+Version (\begin{DoxyParamCaption}\item[{}]{version }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function prints the current ByoDyn version. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ initial()}.
+
+\label{namespaceinitiator_a782bb2636e8ba9accb1f560bac91ccda} 
+\index{initiator@{initiator}!versionDefinitor@{versionDefinitor}}
+\index{versionDefinitor@{versionDefinitor}!initiator@{initiator}}
+\doxysubsubsection{versionDefinitor()}
+{\footnotesize\ttfamily initiator.\+version\+Definitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This funciton defines the ByoDyn version globally.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ initial()}.
+
+
+
+\doxysubsection{Variable Documentation}
+\label{namespaceinitiator_af149bbdcd593c0528562bf41c76176da} 
+\index{initiator@{initiator}!benchmarkdir@{benchmarkdir}}
+\index{benchmarkdir@{benchmarkdir}!initiator@{initiator}}
+\doxysubsubsection{benchmarkdir}
+{\footnotesize\ttfamily str initiator.\+benchmarkdir = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/benchmark\textquotesingle{}}
+
+\label{namespaceinitiator_a1056c9d96ebce4204de88612353b59a0} 
+\index{initiator@{initiator}!libdir@{libdir}}
+\index{libdir@{libdir}!initiator@{initiator}}
+\doxysubsubsection{libdir}
+{\footnotesize\ttfamily str initiator.\+libdir = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/lib\textquotesingle{}}
+
+\label{namespaceinitiator_a4921f6dfab693d186b2d47b88e9b66d0} 
+\index{initiator@{initiator}!srcdir@{srcdir}}
+\index{srcdir@{srcdir}!initiator@{initiator}}
+\doxysubsubsection{srcdir}
+{\footnotesize\ttfamily str initiator.\+srcdir = os.\+environ.\+get(\textquotesingle{}BYODYN\+\_\+\+PATH\textquotesingle{}) + \textquotesingle{}/src\textquotesingle{}}
+

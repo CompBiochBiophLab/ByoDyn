@@ -1,0 +1,100 @@
+\doxysection{sbml\+Worker Namespace Reference}
+\label{namespacesbml_worker}\index{sbmlWorker@{sbmlWorker}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Class\+Event}
+\item 
+class \textbf{ Class\+Function}
+\item 
+class \textbf{ Class\+Model\+SBML}
+\item 
+class \textbf{ Class\+Reaction}
+\item 
+class \textbf{ Class\+Rules}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ div\+Compartment} (sbml\+Model, formula, node)
+\item 
+\textbf{ get\+Boolean\+Expression} (ASTNode)
+\item 
+\textbf{ sbml\+Writer} (w, model, metamodel, file)
+\item 
+\textbf{ translate\+Local\+Parameters\+Names\+In\+Formula} (formula, reaction)
+\item 
+\textbf{ translate\+Math\+Factor} (math\+Factor)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacesbml_worker_a8b1e23ad018fdcbaa6fb48ece7f9eb10} 
+\index{sbmlWorker@{sbmlWorker}!divCompartment@{divCompartment}}
+\index{divCompartment@{divCompartment}!sbmlWorker@{sbmlWorker}}
+\doxysubsubsection{divCompartment()}
+{\footnotesize\ttfamily sbml\+Worker.\+div\+Compartment (\begin{DoxyParamCaption}\item[{}]{sbml\+Model,  }\item[{}]{formula,  }\item[{}]{node }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function divides the formula by compartment volume if it is needed.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}.
+
+\label{namespacesbml_worker_acbf2a55aed04a1aadac49312e66bf9fe} 
+\index{sbmlWorker@{sbmlWorker}!getBooleanExpression@{getBooleanExpression}}
+\index{getBooleanExpression@{getBooleanExpression}!sbmlWorker@{sbmlWorker}}
+\doxysubsubsection{getBooleanExpression()}
+{\footnotesize\ttfamily sbml\+Worker.\+get\+Boolean\+Expression (\begin{DoxyParamCaption}\item[{}]{ASTNode }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function reads an ASTNode (equation in Abstract Syntax Tree class)
+and builds the equation as a math string using recursive calls.
+It returns the math string and the operator.
+\end{DoxyVerb}
+ 
+
+References \textbf{ get\+Boolean\+Expression()}, and \textbf{ translate\+Math\+Factor()}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Events()}, and \textbf{ get\+Boolean\+Expression()}.
+
+\label{namespacesbml_worker_af0eb9885f1a0a06685306ef1f42469dd} 
+\index{sbmlWorker@{sbmlWorker}!sbmlWriter@{sbmlWriter}}
+\index{sbmlWriter@{sbmlWriter}!sbmlWorker@{sbmlWorker}}
+\doxysubsubsection{sbmlWriter()}
+{\footnotesize\ttfamily sbml\+Worker.\+sbml\+Writer (\begin{DoxyParamCaption}\item[{}]{w,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{file }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes a SBML model given the object model.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ exporter.\+central()}, \textbf{ optimiser.\+evaluate\+Solution()}, \textbf{ local\+Optimiser.\+saving\+Results()}, and \textbf{ optimiser.\+store\+Solution()}.
+
+\label{namespacesbml_worker_afa057ee68dffb5a1e18b382d2c2cf321} 
+\index{sbmlWorker@{sbmlWorker}!translateLocalParametersNamesInFormula@{translateLocalParametersNamesInFormula}}
+\index{translateLocalParametersNamesInFormula@{translateLocalParametersNamesInFormula}!sbmlWorker@{sbmlWorker}}
+\doxysubsubsection{translateLocalParametersNamesInFormula()}
+{\footnotesize\ttfamily sbml\+Worker.\+translate\+Local\+Parameters\+Names\+In\+Formula (\begin{DoxyParamCaption}\item[{}]{formula,  }\item[{}]{reaction }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function replaces in a formula all the names of parameters,
+because we need convert the local paramters to a new format ('parameterId''ReactionId')
+in order to work correctly with SBML definition of parameters
+where the local and global parameters can have the same ids.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+read\+Topology()}.
+
+\label{namespacesbml_worker_a5eb5432252d4220ed282edb248827cd1} 
+\index{sbmlWorker@{sbmlWorker}!translateMathFactor@{translateMathFactor}}
+\index{translateMathFactor@{translateMathFactor}!sbmlWorker@{sbmlWorker}}
+\doxysubsubsection{translateMathFactor()}
+{\footnotesize\ttfamily sbml\+Worker.\+translate\+Math\+Factor (\begin{DoxyParamCaption}\item[{}]{math\+Factor }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function converts some string logical affectors to Open Modelica format.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ get\+Boolean\+Expression()}.
+

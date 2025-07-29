@@ -1,0 +1,61 @@
+\doxysection{starter Namespace Reference}
+\label{namespacestarter}\index{starter@{starter}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Class\+Meta\+Model}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (runner\+File)
+\item 
+\textbf{ fortran\+Modules\+Creator} (metamodel)
+\item 
+\textbf{ incompatibility\+Checker} (metamodel)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacestarter_a582669bfebd07c7ac60d3028347d8bd1} 
+\index{starter@{starter}!central@{central}}
+\index{central@{central}!starter@{starter}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily starter.\+central (\begin{DoxyParamCaption}\item[{}]{runner\+File }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function directs the reading of the running options of ByoDyn.
+Then it checks for incompatibilities.
+\end{DoxyVerb}
+ 
+
+References \textbf{ fortran\+Modules\+Creator()}, and \textbf{ incompatibility\+Checker()}.
+
+
+
+Referenced by \textbf{ central.\+option\+Reader()}.
+
+\label{namespacestarter_a6817b9a21c27f7fd6f31f73ce4b25ff0} 
+\index{starter@{starter}!fortranModulesCreator@{fortranModulesCreator}}
+\index{fortranModulesCreator@{fortranModulesCreator}!starter@{starter}}
+\doxysubsubsection{fortranModulesCreator()}
+{\footnotesize\ttfamily starter.\+fortran\+Modules\+Creator (\begin{DoxyParamCaption}\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function builds a module that can be called from Python from Fortran.
+It must be compiled now because there are some functions that are static and some arguments have to be declared before compilation.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespacestarter_abdfe3481e61baccb3c5c5a9c0d54c2c6} 
+\index{starter@{starter}!incompatibilityChecker@{incompatibilityChecker}}
+\index{incompatibilityChecker@{incompatibilityChecker}!starter@{starter}}
+\doxysubsubsection{incompatibilityChecker()}
+{\footnotesize\ttfamily starter.\+incompatibility\+Checker (\begin{DoxyParamCaption}\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks that the options of the metamodel do not contain incompatibilities.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+

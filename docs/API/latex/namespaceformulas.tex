@@ -1,0 +1,205 @@
+\doxysection{formulas Namespace Reference}
+\label{namespaceformulas}\index{formulas@{formulas}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ check\+Brackets} (formula)
+\item 
+\textbf{ format\+Powers} (formula, option)
+\item 
+\textbf{ formula\+Latex} (xml\+Formula, file, model)
+\item 
+\textbf{ get\+Math\+Expression} (ASTNode)
+\item 
+\textbf{ include\+Functions} (model, formula)
+\item 
+\textbf{ piecewise} (a, b, c)
+\item 
+\textbf{ read\+Write\+Formula} (model, file, cell\+Index, option, formula)
+\item 
+\textbf{ replace\+Constants} (model, constant)
+\item 
+\textbf{ solve\+Formula} (model, formula)
+\item 
+\textbf{ translate\+Math\+Factor} (math\+Factor)
+\item 
+\textbf{ write\+Open\+Modelica\+Formula} (formula, file)
+\item 
+\textbf{ write\+XPPFormula} (formula, file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespaceformulas_a150adea3dd05bbcb876e28a7d2be0928} 
+\index{formulas@{formulas}!checkBrackets@{checkBrackets}}
+\index{checkBrackets@{checkBrackets}!formulas@{formulas}}
+\doxysubsubsection{checkBrackets()}
+{\footnotesize\ttfamily formulas.\+check\+Brackets (\begin{DoxyParamCaption}\item[{}]{formula }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks if the use of brackets is correct in a math expression.
+It returns the formula modified if the number of brackets is not correct and prints a warning in the standard output.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ read\+Write\+Formula()}, \textbf{ solve\+Formula()}, and \textbf{ write\+Open\+Modelica\+Formula()}.
+
+\label{namespaceformulas_a267c087b098824112d35be43fd58b277} 
+\index{formulas@{formulas}!formatPowers@{formatPowers}}
+\index{formatPowers@{formatPowers}!formulas@{formulas}}
+\doxysubsubsection{formatPowers()}
+{\footnotesize\ttfamily formulas.\+format\+Powers (\begin{DoxyParamCaption}\item[{}]{formula,  }\item[{}]{option }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks for the powers and it substitute 'pow(k, n)' to 'k**n'.
+\end{DoxyVerb}
+ 
+
+References \textbf{ format\+Powers()}.
+
+
+
+Referenced by \textbf{ format\+Powers()}.
+
+\label{namespaceformulas_aded4c7146d2713ead773a447a9ddf54e} 
+\index{formulas@{formulas}!formulaLatex@{formulaLatex}}
+\index{formulaLatex@{formulaLatex}!formulas@{formulas}}
+\doxysubsubsection{formulaLatex()}
+{\footnotesize\ttfamily formulas.\+formula\+Latex (\begin{DoxyParamCaption}\item[{}]{xml\+Formula,  }\item[{}]{file,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function converts the MathML of SBML into latex format.
+\end{DoxyVerb}
+ 
+
+References \textbf{ get\+Math\+Expression()}.
+
+
+
+Referenced by \textbf{ simulator.\+create\+PDFFormulae()}, and \textbf{ affectors.\+SBML()}.
+
+\label{namespaceformulas_aa095ec8b1ac461d61d25ca394afe7367} 
+\index{formulas@{formulas}!getMathExpression@{getMathExpression}}
+\index{getMathExpression@{getMathExpression}!formulas@{formulas}}
+\doxysubsubsection{getMathExpression()}
+{\footnotesize\ttfamily formulas.\+get\+Math\+Expression (\begin{DoxyParamCaption}\item[{}]{ASTNode }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function return a string with the math expression in latex syntax and the operator of a ASTNode.
+ASTNode is a object codifying a formula using a abstract syntax tree object.
+It does recursive calls to itself in order to build the math expression.
+\end{DoxyVerb}
+ 
+
+References \textbf{ get\+Math\+Expression()}, and \textbf{ translate\+Math\+Factor()}.
+
+
+
+Referenced by \textbf{ simulator.\+create\+PDFFormulae()}, \textbf{ formula\+Latex()}, and \textbf{ get\+Math\+Expression()}.
+
+\label{namespaceformulas_a8e5615d2ce30000b2103945d6e18460d} 
+\index{formulas@{formulas}!includeFunctions@{includeFunctions}}
+\index{includeFunctions@{includeFunctions}!formulas@{formulas}}
+\doxysubsubsection{includeFunctions()}
+{\footnotesize\ttfamily formulas.\+include\+Functions (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{formula }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function get a formula and return a new formula without external functions used.
+A external function is a non-python function like the user-defined functions in SBML. 
+It replaces the function definitions with the function output in order to create a string without external functions.
+\end{DoxyVerb}
+ 
+
+References \textbf{ include\+Functions()}.
+
+
+
+Referenced by \textbf{ include\+Functions()}, and \textbf{ solve\+Formula()}.
+
+\label{namespaceformulas_af2494b292b4fdb5c63e520e101e078a3} 
+\index{formulas@{formulas}!piecewise@{piecewise}}
+\index{piecewise@{piecewise}!formulas@{formulas}}
+\doxysubsubsection{piecewise()}
+{\footnotesize\ttfamily formulas.\+piecewise (\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function converts the format of piecewise function in MathML to the piecewise function in Scipy. 
+\end{DoxyVerb}
+ \label{namespaceformulas_a07ae21ca382dde2ba51ab6d45c55696d} 
+\index{formulas@{formulas}!readWriteFormula@{readWriteFormula}}
+\index{readWriteFormula@{readWriteFormula}!formulas@{formulas}}
+\doxysubsubsection{readWriteFormula()}
+{\footnotesize\ttfamily formulas.\+read\+Write\+Formula (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{file,  }\item[{}]{cell\+Index,  }\item[{}]{option,  }\item[{}]{formula }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This funtion inputs the SBML string of the formula and writes out on Python or Octave formats.
+\end{DoxyVerb}
+ 
+
+References \textbf{ check\+Brackets()}.
+
+
+
+Referenced by \textbf{ central\+Functions.\+create\+Input\+Octave()}, and \textbf{ affectors.\+SBML()}.
+
+\label{namespaceformulas_a0fdfeaa651b893766c81e128da1b659b} 
+\index{formulas@{formulas}!replaceConstants@{replaceConstants}}
+\index{replaceConstants@{replaceConstants}!formulas@{formulas}}
+\doxysubsubsection{replaceConstants()}
+{\footnotesize\ttfamily formulas.\+replace\+Constants (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{constant }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This functions replaces a parameter for its value or a variable for its initial condition value.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ solve\+Formula()}.
+
+\label{namespaceformulas_a9a2d36b76d253e4c64040880943ac60c} 
+\index{formulas@{formulas}!solveFormula@{solveFormula}}
+\index{solveFormula@{solveFormula}!formulas@{formulas}}
+\doxysubsubsection{solveFormula()}
+{\footnotesize\ttfamily formulas.\+solve\+Formula (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{formula }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function evaluates a algebraic string, replacing all the parameters and variables for its values in time 0 and returns the value.
+\end{DoxyVerb}
+ 
+
+References \textbf{ check\+Brackets()}, \textbf{ include\+Functions()}, and \textbf{ replace\+Constants()}.
+
+
+
+Referenced by \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+\_\+\+\_\+search\+Delay\+Function()}, and \textbf{ sbml\+Worker.\+Class\+Model\+SBML.\+check\+Assignment\+Rule()}.
+
+\label{namespaceformulas_a358c75fb1ed0ba34985a5b0a19082a52} 
+\index{formulas@{formulas}!translateMathFactor@{translateMathFactor}}
+\index{translateMathFactor@{translateMathFactor}!formulas@{formulas}}
+\doxysubsubsection{translateMathFactor()}
+{\footnotesize\ttfamily formulas.\+translate\+Math\+Factor (\begin{DoxyParamCaption}\item[{}]{math\+Factor }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function converts operators to python format.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ get\+Math\+Expression()}.
+
+\label{namespaceformulas_a566a7fdc0b5566ad63df85047ebc03df} 
+\index{formulas@{formulas}!writeOpenModelicaFormula@{writeOpenModelicaFormula}}
+\index{writeOpenModelicaFormula@{writeOpenModelicaFormula}!formulas@{formulas}}
+\doxysubsubsection{writeOpenModelicaFormula()}
+{\footnotesize\ttfamily formulas.\+write\+Open\+Modelica\+Formula (\begin{DoxyParamCaption}\item[{}]{formula,  }\item[{}]{file }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function inputs the SBML string of the formula and writes out on OpenModelica format.
+\end{DoxyVerb}
+ 
+
+References \textbf{ check\+Brackets()}.
+
+
+
+Referenced by \textbf{ simulator\+Open\+Modelica.\+Class\+Simulator\+Open\+Modelica.\+\_\+\+\_\+write\+Model()}, and \textbf{ affectors.\+SBML()}.
+
+\label{namespaceformulas_a55a50d0d45b25b51e26420e52093d452} 
+\index{formulas@{formulas}!writeXPPFormula@{writeXPPFormula}}
+\index{writeXPPFormula@{writeXPPFormula}!formulas@{formulas}}
+\doxysubsubsection{writeXPPFormula()}
+{\footnotesize\ttfamily formulas.\+write\+XPPFormula (\begin{DoxyParamCaption}\item[{}]{formula,  }\item[{}]{file }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function inputs the SBML string of the formula and writes out on XPP format.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ simulator\+XPP.\+Class\+Simulator\+XPP.\+create\+Input()}, and \textbf{ affectors.\+SBML()}.
+

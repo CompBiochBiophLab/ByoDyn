@@ -1,0 +1,42 @@
+\doxysection{fitness\+Function\+Evaluator Namespace Reference}
+\label{namespacefitness_function_evaluator}\index{fitnessFunctionEvaluator@{fitnessFunctionEvaluator}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (model, metamodel, outputfiles)
+\item 
+\textbf{ score\+Writer} (score, outputfiles)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacefitness_function_evaluator_a537863ef1f52186ff450a03baff8261c} 
+\index{fitnessFunctionEvaluator@{fitnessFunctionEvaluator}!central@{central}}
+\index{central@{central}!fitnessFunctionEvaluator@{fitnessFunctionEvaluator}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily fitness\+Function\+Evaluator.\+central (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The function checks for the compatibility of the simulation options and inserts a specified parameter value if it is the case, 
+it checks that the data points correspond to the simulation time, 
+it checks the target nodes and finally evaluates the fitness function.
+\end{DoxyVerb}
+ 
+
+References \textbf{ optimiser.\+check\+Data\+Points()}, \textbf{ optimiser.\+check\+Target\+Nodes()}, \textbf{ simulator.\+compatibility\+Checker()}, \textbf{ optimiser.\+score\+Obtainer()}, and \textbf{ score\+Writer()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespacefitness_function_evaluator_a886ae482a8ff8f0cb51a9d6c02075214} 
+\index{fitnessFunctionEvaluator@{fitnessFunctionEvaluator}!scoreWriter@{scoreWriter}}
+\index{scoreWriter@{scoreWriter}!fitnessFunctionEvaluator@{fitnessFunctionEvaluator}}
+\doxysubsubsection{scoreWriter()}
+{\footnotesize\ttfamily fitness\+Function\+Evaluator.\+score\+Writer (\begin{DoxyParamCaption}\item[{}]{score,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes in the log file the score obtained for the fitness function evaluation.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+

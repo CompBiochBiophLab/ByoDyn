@@ -1,0 +1,332 @@
+\doxysection{Mean\+Shift\+Cluster.\+m File Reference}
+\label{_mean_shift_cluster_8m}\index{MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \textbf{ plot\+Flag} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+add any point within band\+Width to the cluster \textbf{ been\+Visited\+Flag} (\textbf{ my\+Members})
+\item 
+increment clusters \textbf{ clust\+Cent} (\+:, num\+Clust)
+\item 
+record which points inside \textbf{ cluster\+Votes} (merge\+With,\+:)
+\item 
+store my members \textbf{ cluster\+Votes} (num\+Clust,\+:)
+\item 
+mark that these points have been visited $\ast$$\ast$$\ast$plot stuff $\ast$$\ast$$\ast$$\ast$if \textbf{ plot\+Flag} \textbf{ figure} (12345)
+\item 
+distance from posible new clust max to old clust max if dist\+To\+Other$<$ band\+Width/2 \%if its within bandwidth/2 merge new and old merge\+With=\textbf{ cN};\textbf{ break};end end if merge\+With $>$ something to merge clust\+Cent(\+:, merge\+With)=0.\+5 $\ast$(\textbf{ my\+Mean}+clust\+Cent(record the max as the mean of the two \textbf{ merged} (I know biased twoards new ones) \%\textbf{ clust\+Membs\+Cell}
+\item 
+points within band\+Width \textbf{ this\+Cluster\+Votes} (\textbf{ in\+Inds})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ band\+Sq} = band\+Width$^\wedge$2
+\item 
+center of clust \textbf{ been\+Visited\+Flag} = zeros(1,num\+Pts,\textquotesingle{}uint8\textquotesingle{})
+\item 
+smallest size in each dimension \textbf{ bound\+Box} = \textbf{ max\+Pos}-\/\textbf{ min\+Pos}
+\item 
+end \textbf{ break}
+\item 
+mark that these points have been visited $\ast$$\ast$$\ast$plot stuff $\ast$$\ast$$\ast$$\ast$if \textbf{ plot\+Flag} \textbf{ clf}
+\item 
+when mean has converged \textbf{ clust\+Cent} = [$\,$]
+\item 
+a point belongs to the cluster with the most votes $\ast$$\ast$$\ast$If they want the cluster2data cell find it for them if nargout \textbf{ cluster2data\+Cell} = cell(num\+Clust,1)
+\item 
+number of points to posibaly use as initilization points \textbf{ cluster\+Votes} = zeros(1,num\+Pts,\textquotesingle{}uint16\textquotesingle{})
+\item 
+record the mean \textbf{ clust\+Membs\+Cell} \{num\+Clust\} = \textbf{ my\+Members}
+\item 
+for \textbf{ cN}
+\item 
+number of active points in set \textbf{ end} [val, data2cluster] = max(\textbf{ cluster\+Votes},[$\,$],1)
+\item 
+\textbf{ function} [clust\+Cent, data2cluster, cluster2data\+Cell] = Mean\+Shift\+Cluster(data\+Pts,band\+Width,\textbf{ plot\+Flag})
+\item 
+dist squared from mean to all points still active \textbf{ in\+Inds} = find(\textbf{ sq\+Dist\+To\+All} $<$ \textbf{ band\+Sq})
+\item 
+\textbf{ init\+Pt\+Inds} = 1\+:num\+Pts
+\item 
+\textbf{ max\+Pos} = max(data\+Pts,[$\,$],2)
+\item 
+biggest size in each dimension \textbf{ min\+Pos} = min(data\+Pts,[$\,$],2)
+\item 
+use this point as start of mean \textbf{ my\+Mean} = data\+Pts(\+:,\textbf{ st\+Ind})
+\item 
+intilize mean to this points location \textbf{ my\+Members} = [$\,$]
+\item 
+add a vote for all the in points belonging to this cluster \textbf{ my\+Old\+Mean} = \textbf{ my\+Mean}
+\item 
+end $\ast$$\ast$$\ast$$\ast$Initialize stuff $\ast$$\ast$$\ast$ \textbf{ num\+Clust} = 0
+\item 
+mark that these points have been visited $\ast$$\ast$$\ast$plot stuff $\ast$$\ast$$\ast$$\ast$if \textbf{ plot\+Flag} hold on if \textbf{ num\+Dim}
+\item 
+track if a points been seen already \textbf{ num\+Init\+Pts} = num\+Pts
+\item 
+bounding box size \textbf{ size\+Space} = norm(\textbf{ bound\+Box})
+\item 
+used to resolve conflicts on cluster membership while loop untill convergence \textbf{ sq\+Dist\+To\+All} = sum((repmat(\textbf{ my\+Mean},1,num\+Pts) -\/ data\+Pts).$^\wedge$2)
+\item 
+pick a random seed point \textbf{ st\+Ind} = \textbf{ init\+Pt\+Inds}(\textbf{ temp\+Ind})
+\item 
+indicator of size of data space \textbf{ stop\+Thresh} = 1e-\/3$\ast$band\+Width
+\item 
+used to resolve conflicts on cluster membership while \textbf{ num\+Init\+Pts} \textbf{ temp\+Ind} = ceil( (\textbf{ num\+Init\+Pts}-\/1e-\/6)$\ast$rand)
+\item 
+points that will get added to this cluster \textbf{ this\+Cluster\+Votes} = zeros(1,num\+Pts,\textquotesingle{}uint16\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\label{_mean_shift_cluster_8m_a893e87b43fb9e0ad1de60d41fb3e338b} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!plotFlag@{plotFlag}}
+\index{plotFlag@{plotFlag}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{plotFlag}
+{\footnotesize\ttfamily \textbf{ plot\+Flag} = false}
+
+
+
+\doxysubsection{Function Documentation}
+\label{_mean_shift_cluster_8m_a7694cadb9c023a717f3db7ad4ef9bd02} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!beenVisitedFlag@{beenVisitedFlag}}
+\index{beenVisitedFlag@{beenVisitedFlag}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{beenVisitedFlag()}
+{\footnotesize\ttfamily add any point within band\+Width to the cluster been\+Visited\+Flag (\begin{DoxyParamCaption}\item[{\textbf{ my\+Members}}]{ }\end{DoxyParamCaption})}
+
+\label{_mean_shift_cluster_8m_ac56348c21d71c9624373255f06f3bbf3} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!clustCent@{clustCent}}
+\index{clustCent@{clustCent}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{clustCent()}
+{\footnotesize\ttfamily increment clusters clust\+Cent (\begin{DoxyParamCaption}\item[{\+:}]{,  }\item[{num\+Clust}]{ }\end{DoxyParamCaption})}
+
+\label{_mean_shift_cluster_8m_a3570ea890021250ca8966637345c2e8f} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!clusterVotes@{clusterVotes}}
+\index{clusterVotes@{clusterVotes}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{clusterVotes()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily record which points inside cluster\+Votes (\begin{DoxyParamCaption}\item[{merge\+With}]{,  }\item[{\+:}]{ }\end{DoxyParamCaption})}
+
+\label{_mean_shift_cluster_8m_a47a31610dc01b625cf9cb030e9d5fc2e} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!clusterVotes@{clusterVotes}}
+\index{clusterVotes@{clusterVotes}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{clusterVotes()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily store my members cluster\+Votes (\begin{DoxyParamCaption}\item[{num\+Clust}]{,  }\item[{\+:}]{ }\end{DoxyParamCaption})}
+
+\label{_mean_shift_cluster_8m_a627cc528dfd8bbb13b8e28caf60845b4} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!figure@{figure}}
+\index{figure@{figure}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{figure()}
+{\footnotesize\ttfamily mark that these points have been visited $\ast$$\ast$$\ast$plot stuff $\ast$$\ast$$\ast$$\ast$if \textbf{ plot\+Flag} figure (\begin{DoxyParamCaption}\item[{12345}]{ }\end{DoxyParamCaption})}
+
+\label{_mean_shift_cluster_8m_a6a01d5051bac8e9941b878db1dd6630c} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!merged@{merged}}
+\index{merged@{merged}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{merged()}
+{\footnotesize\ttfamily distance from posible new clust max to old clust max if dist\+To\+Other$<$ band\+Width/2 \%if its within bandwidth/2 merge new and old merge\+With=\textbf{ cN}; \textbf{ break}; end end if merge\+With $>$ something to merge clust\+Cent(\+:, merge\+With)=0.\+5 $\ast$(\textbf{ my\+Mean}+clust\+Cent(record the max as the mean of the two merged (\begin{DoxyParamCaption}\item[{I know biased twoards new}]{ones }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\label{_mean_shift_cluster_8m_a68c72df9943cf3a1725d51fcfb257964} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!thisClusterVotes@{thisClusterVotes}}
+\index{thisClusterVotes@{thisClusterVotes}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{thisClusterVotes()}
+{\footnotesize\ttfamily points within band\+Width this\+Cluster\+Votes (\begin{DoxyParamCaption}\item[{\textbf{ in\+Inds}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\label{_mean_shift_cluster_8m_a35c2af4a18cd9bb545a682a66944ba61} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!bandSq@{bandSq}}
+\index{bandSq@{bandSq}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{bandSq}
+{\footnotesize\ttfamily band\+Sq = band\+Width$^\wedge$2}
+
+\label{_mean_shift_cluster_8m_a43018051f68cd9c2e62f9da6e9d1f291} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!beenVisitedFlag@{beenVisitedFlag}}
+\index{beenVisitedFlag@{beenVisitedFlag}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{beenVisitedFlag}
+{\footnotesize\ttfamily center of clust been\+Visited\+Flag = zeros(1,num\+Pts,\textquotesingle{}uint8\textquotesingle{})}
+
+\label{_mean_shift_cluster_8m_ae41f6256e11a4943a5a5b5576ca21c1f} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!boundBox@{boundBox}}
+\index{boundBox@{boundBox}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{boundBox}
+{\footnotesize\ttfamily smallest size in each dimension bound\+Box = \textbf{ max\+Pos}-\/\textbf{ min\+Pos}}
+
+\label{_mean_shift_cluster_8m_a82bef39607c148dec4939388f1255f3a} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!break@{break}}
+\index{break@{break}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{break}
+{\footnotesize\ttfamily end break}
+
+\label{_mean_shift_cluster_8m_acb309b1549cd53f63708f18fecb9484e} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!clf@{clf}}
+\index{clf@{clf}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{clf}
+{\footnotesize\ttfamily mark that these points have been visited $\ast$$\ast$$\ast$plot stuff $\ast$$\ast$$\ast$$\ast$if \textbf{ plot\+Flag} clf}
+
+\label{_mean_shift_cluster_8m_ad79a62094418980e6244a18609fb895a} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!clustCent@{clustCent}}
+\index{clustCent@{clustCent}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{clustCent}
+{\footnotesize\ttfamily when mean has converged clust\+Cent = [$\,$]}
+
+\label{_mean_shift_cluster_8m_ab806fb7b695a6161b8a7a775b1112fd8} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!cluster2dataCell@{cluster2dataCell}}
+\index{cluster2dataCell@{cluster2dataCell}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{cluster2dataCell}
+{\footnotesize\ttfamily cluster2data\+Cell = cell(num\+Clust,1)}
+
+\label{_mean_shift_cluster_8m_ae1baebbb952f8c897a292de040437563} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!clusterVotes@{clusterVotes}}
+\index{clusterVotes@{clusterVotes}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{clusterVotes}
+{\footnotesize\ttfamily number of points to posibaly use as initilization points cluster\+Votes = zeros(1,num\+Pts,\textquotesingle{}uint16\textquotesingle{})}
+
+\label{_mean_shift_cluster_8m_ac4cd96255df654dec90c72ebaba9b4b1} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!clustMembsCell@{clustMembsCell}}
+\index{clustMembsCell@{clustMembsCell}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{clustMembsCell}
+{\footnotesize\ttfamily record the mean clust\+Membs\+Cell \{num\+Clust\} = \textbf{ my\+Members}}
+
+\label{_mean_shift_cluster_8m_abbda36dc12a1df6252ddf92e4b9d2672} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!cN@{cN}}
+\index{cN@{cN}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{cN}
+{\footnotesize\ttfamily for cN}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ 1:numClust}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ distToOther\ =\ norm(myMean-\/clustCent(:,cN))}
+
+\end{DoxyCode}
+\label{_mean_shift_cluster_8m_ae966631aa9416b7a8ef04da53662bd70} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!end@{end}}
+\index{end@{end}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{end}
+{\footnotesize\ttfamily number of active points in set end[val, data2cluster] = max(\textbf{ cluster\+Votes},[$\,$],1)}
+
+\label{_mean_shift_cluster_8m_a80771475706d524e45d957f7604c1c63} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!function@{function}}
+\index{function@{function}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{function}
+{\footnotesize\ttfamily function[clust\+Cent, data2cluster, cluster2data\+Cell] = Mean\+Shift\+Cluster(data\+Pts,band\+Width,\textbf{ plot\+Flag})}
+
+\label{_mean_shift_cluster_8m_a358e568474aad88acbfbb670c2f1b7d4} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!inInds@{inInds}}
+\index{inInds@{inInds}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{inInds}
+{\footnotesize\ttfamily dist squared from mean to all points still active in\+Inds = find(\textbf{ sq\+Dist\+To\+All} $<$ \textbf{ band\+Sq})}
+
+\label{_mean_shift_cluster_8m_a787a2daedc99f46829ae9328fbd5ded2} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!initPtInds@{initPtInds}}
+\index{initPtInds@{initPtInds}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{initPtInds}
+{\footnotesize\ttfamily end end init\+Pt\+Inds = 1\+:num\+Pts}
+
+\label{_mean_shift_cluster_8m_afdd00a872d99e821201885074cf81fb2} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!maxPos@{maxPos}}
+\index{maxPos@{maxPos}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{maxPos}
+{\footnotesize\ttfamily max\+Pos = max(data\+Pts,[$\,$],2)}
+
+\label{_mean_shift_cluster_8m_a67126d421b8e37dd4e761c044e034e5f} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!minPos@{minPos}}
+\index{minPos@{minPos}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{minPos}
+{\footnotesize\ttfamily biggest size in each dimension min\+Pos = min(data\+Pts,[$\,$],2)}
+
+\label{_mean_shift_cluster_8m_ab0240ce13e3146d15d47f1189048ca64} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!myMean@{myMean}}
+\index{myMean@{myMean}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{myMean}
+{\footnotesize\ttfamily save the old mean my\+Mean = data\+Pts(\+:,\textbf{ st\+Ind})}
+
+\label{_mean_shift_cluster_8m_a1fb0654d86168a67ffe6940896b9172f} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!myMembers@{myMembers}}
+\index{myMembers@{myMembers}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{myMembers}
+{\footnotesize\ttfamily compute the new mean my\+Members = [$\,$]}
+
+\label{_mean_shift_cluster_8m_a2fdaa77baa82abc71c525ef3407bdd05} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!myOldMean@{myOldMean}}
+\index{myOldMean@{myOldMean}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{myOldMean}
+{\footnotesize\ttfamily add a vote for all the in points belonging to this cluster my\+Old\+Mean = \textbf{ my\+Mean}}
+
+\label{_mean_shift_cluster_8m_a7a70e1c8e90d9786415d9fc16c011cd1} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!numClust@{numClust}}
+\index{numClust@{numClust}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{numClust}
+{\footnotesize\ttfamily add these votes to the \textbf{ merged} cluster else its a new cluster num\+Clust = 0}
+
+\label{_mean_shift_cluster_8m_ad2001461e1cdac37d95c942ac47b80e2} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!numDim@{numDim}}
+\index{numDim@{numDim}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{numDim}
+{\footnotesize\ttfamily mark that these points have been visited $\ast$$\ast$$\ast$plot stuff $\ast$$\ast$$\ast$$\ast$if \textbf{ plot\+Flag} hold on if num\+Dim}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{==\ 2}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plot(dataPts(1,:),dataPts(2,:),\textcolor{stringliteral}{'.'})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plot(dataPts(1,myMembers),dataPts(2,myMembers),\textcolor{stringliteral}{'ys'})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plot(myMean(1),myMean(2),\textcolor{stringliteral}{'go'})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plot(myOldMean(1),myOldMean(2),\textcolor{stringliteral}{'rd'})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pause}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ end}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \%****\ if\ mean\ doesn\textcolor{stringliteral}{'t\ move\ much\ stop\ this\ cluster\ ***}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ if\ norm(myMean-\/myOldMean)\ <\ stopThresh}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \%check\ for\ merge\ posibilities}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ mergeWith\ =\ 0}}
+
+\end{DoxyCode}
+\label{_mean_shift_cluster_8m_a8f364f5990078ee7afbc83736b2976eb} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!numInitPts@{numInitPts}}
+\index{numInitPts@{numInitPts}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{numInitPts}
+{\footnotesize\ttfamily we can initialize with any of the points not yet visited num\+Init\+Pts = num\+Pts}
+
+\label{_mean_shift_cluster_8m_afdf185bcdde51d36ae09dd89dc86d7ff} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!sizeSpace@{sizeSpace}}
+\index{sizeSpace@{sizeSpace}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{sizeSpace}
+{\footnotesize\ttfamily bounding box size size\+Space = norm(\textbf{ bound\+Box})}
+
+\label{_mean_shift_cluster_8m_a67e6c0c05f7af167ee6ca707c3750ad4} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!sqDistToAll@{sqDistToAll}}
+\index{sqDistToAll@{sqDistToAll}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{sqDistToAll}
+{\footnotesize\ttfamily used to resolve conflicts on cluster membership while loop untill convergence sq\+Dist\+To\+All = sum((repmat(\textbf{ my\+Mean},1,num\+Pts) -\/ data\+Pts).$^\wedge$2)}
+
+\label{_mean_shift_cluster_8m_a938b2aeabba38cbd89393106b0991fa8} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!stInd@{stInd}}
+\index{stInd@{stInd}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{stInd}
+{\footnotesize\ttfamily pick a random seed point st\+Ind = \textbf{ init\+Pt\+Inds}(\textbf{ temp\+Ind})}
+
+\label{_mean_shift_cluster_8m_a1cea90d06fcb2de57f59554abdcd37db} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!stopThresh@{stopThresh}}
+\index{stopThresh@{stopThresh}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{stopThresh}
+{\footnotesize\ttfamily indicator of size of data space stop\+Thresh = 1e-\/3$\ast$band\+Width}
+
+\label{_mean_shift_cluster_8m_ae1b89f1a725ef3f295565047a99000a5} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!tempInd@{tempInd}}
+\index{tempInd@{tempInd}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{tempInd}
+{\footnotesize\ttfamily used to resolve conflicts on cluster membership while \textbf{ num\+Init\+Pts} temp\+Ind = ceil( (\textbf{ num\+Init\+Pts}-\/1e-\/6)$\ast$rand)}
+
+\label{_mean_shift_cluster_8m_afa351a74793a316eb85a66a445ddf11b} 
+\index{MeanShiftCluster.m@{MeanShiftCluster.m}!thisClusterVotes@{thisClusterVotes}}
+\index{thisClusterVotes@{thisClusterVotes}!MeanShiftCluster.m@{MeanShiftCluster.m}}
+\doxysubsubsection{thisClusterVotes}
+{\footnotesize\ttfamily points that will get added to this cluster this\+Cluster\+Votes = zeros(1,num\+Pts,\textquotesingle{}uint16\textquotesingle{})}
+

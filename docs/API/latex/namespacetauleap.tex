@@ -1,0 +1,26 @@
+\doxysection{tauleap Namespace Reference}
+\label{namespacetauleap}\index{tauleap@{tauleap}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ simulate} (eval\+Propensities, stoichiometry, x\+\_\+0, time, tau, seed=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacetauleap_af5f8c8b5e8ce009b790a9c9083285ac8} 
+\index{tauleap@{tauleap}!simulate@{simulate}}
+\index{simulate@{simulate}!tauleap@{tauleap}}
+\doxysubsubsection{simulate()}
+{\footnotesize\ttfamily tauleap.\+simulate (\begin{DoxyParamCaption}\item[{}]{eval\+Propensities,  }\item[{}]{stoichiometry,  }\item[{}]{x\+\_\+0,  }\item[{}]{time,  }\item[{}]{tau,  }\item[{}]{seed = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Gillespie's Poisson tau-leap stochastic simulation algorithm
+    evalPropensities  list of propensity functions
+    stoichiometry     stoichiometrty matrix, each column corresponds to a reaction
+    x_0               initial conditions
+    time              simulation time
+    tau               the time step for which the system state is written (if set 
+                      to None all reactions are written in the output)
+    seed              for the pseudo-random number generator
+\end{DoxyVerb}
+ 

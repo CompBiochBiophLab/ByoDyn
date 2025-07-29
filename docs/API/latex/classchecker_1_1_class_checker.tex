@@ -1,0 +1,196 @@
+\doxysection{checker.\+Class\+Checker Class Reference}
+\label{classchecker_1_1_class_checker}\index{checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ chooser} (self)
+\item 
+\textbf{ detector} (self)
+\item 
+\textbf{ run} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ list\+Of\+Tests}
+\item 
+\textbf{ log}
+\item 
+\textbf{ log\+File}
+\item 
+\textbf{ Octave\+Found}
+\item 
+\textbf{ Open\+Modelica\+Found}
+\item 
+\textbf{ Scipy\+Found}
+\item 
+\textbf{ XPPFound}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+print\+Log} (self, summary\+Message)
+\item 
+\textbf{ \+\_\+\+\_\+write\+Log\+File} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the checking of the program.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classchecker_1_1_class_checker_ac78d4d9fd16335fb71ab40cf6e1e9c49} 
+\index{checker.ClassChecker@{checker.ClassChecker}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        The constructor.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classchecker_1_1_class_checker_ad0dc79fa04acd49498bebabe93d41457} 
+\index{checker.ClassChecker@{checker.ClassChecker}!\_\_printLog@{\_\_printLog}}
+\index{\_\_printLog@{\_\_printLog}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{\_\_printLog()}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+\_\+\+\_\+print\+Log (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{summary\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method prints the results of the tests.\end{DoxyVerb}
+ 
+
+References \textbf{ checker.\+Class\+Checker.\+log\+File}.
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+run()}.
+
+\label{classchecker_1_1_class_checker_a1192ba13da8a1d8dbf612f4957c24a62} 
+\index{checker.ClassChecker@{checker.ClassChecker}!\_\_writeLogFile@{\_\_writeLogFile}}
+\index{\_\_writeLogFile@{\_\_writeLogFile}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{\_\_writeLogFile()}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+\_\+\+\_\+write\+Log\+File (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}        This method saves the results from the tests to a file.\end{DoxyVerb}
+ 
+
+References \textbf{ checker.\+Class\+Checker.\+list\+Of\+Tests}, \textbf{ checker.\+Class\+Checker.\+log}, and \textbf{ checker.\+Class\+Checker.\+log\+File}.
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+run()}.
+
+\label{classchecker_1_1_class_checker_ac03ec29c16c9f7a375d23124eec6ebc7} 
+\index{checker.ClassChecker@{checker.ClassChecker}!chooser@{chooser}}
+\index{chooser@{chooser}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{chooser()}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+chooser (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method selects the appropriate tests to run depending on the machine software'\end{DoxyVerb}
+ 
+
+References \textbf{ checker.\+Class\+Checker.\+list\+Of\+Tests}, \textbf{ checker.\+Class\+Checker.\+Octave\+Found}, \textbf{ checker.\+Class\+Checker.\+Open\+Modelica\+Found}, \textbf{ checker.\+Class\+Checker.\+Scipy\+Found}, and \textbf{ checker.\+Class\+Checker.\+XPPFound}.
+
+\label{classchecker_1_1_class_checker_a0c8979da450a5989bb6fd9db9a705d2a} 
+\index{checker.ClassChecker@{checker.ClassChecker}!detector@{detector}}
+\index{detector@{detector}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{detector()}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+detector (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method detects if scipy, octave, xpp and openModelical are available on the current machine.\end{DoxyVerb}
+ 
+
+References \textbf{ checker.\+Class\+Checker.\+Octave\+Found}, \textbf{ checker.\+Class\+Checker.\+Open\+Modelica\+Found}, \textbf{ checker.\+Class\+Checker.\+Scipy\+Found}, and \textbf{ checker.\+Class\+Checker.\+XPPFound}.
+
+\label{classchecker_1_1_class_checker_afc699dc59132ff49c308493a7442ea5c} 
+\index{checker.ClassChecker@{checker.ClassChecker}!run@{run}}
+\index{run@{run}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}        This method runs the available tests.\end{DoxyVerb}
+ 
+
+References \textbf{ checker.\+Class\+Checker.\+\_\+\+\_\+print\+Log()}, \textbf{ checker.\+Class\+Checker.\+\_\+\+\_\+write\+Log\+File()}, \textbf{ checker.\+Class\+Checker.\+list\+Of\+Tests}, and \textbf{ checker.\+Class\+Checker.\+log}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classchecker_1_1_class_checker_a0f5e587288235b4658b5163736281cb0} 
+\index{checker.ClassChecker@{checker.ClassChecker}!listOfTests@{listOfTests}}
+\index{listOfTests@{listOfTests}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{listOfTests}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+list\+Of\+Tests}
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+\_\+\+\_\+write\+Log\+File()}, \textbf{ checker.\+Class\+Checker.\+chooser()}, and \textbf{ checker.\+Class\+Checker.\+run()}.
+
+\label{classchecker_1_1_class_checker_ad3675f639adf2a5688f8ed1d37b2948d} 
+\index{checker.ClassChecker@{checker.ClassChecker}!log@{log}}
+\index{log@{log}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{log}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+log}
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+\_\+\+\_\+write\+Log\+File()}, and \textbf{ checker.\+Class\+Checker.\+run()}.
+
+\label{classchecker_1_1_class_checker_a9b7ee139afd16ba9a4768e6554d2620c} 
+\index{checker.ClassChecker@{checker.ClassChecker}!logFile@{logFile}}
+\index{logFile@{logFile}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{logFile}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+log\+File}
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+\_\+\+\_\+print\+Log()}, and \textbf{ checker.\+Class\+Checker.\+\_\+\+\_\+write\+Log\+File()}.
+
+\label{classchecker_1_1_class_checker_ae58f6d70393e338890a58d9f655a5207} 
+\index{checker.ClassChecker@{checker.ClassChecker}!OctaveFound@{OctaveFound}}
+\index{OctaveFound@{OctaveFound}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{OctaveFound}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+Octave\+Found}
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+chooser()}, and \textbf{ checker.\+Class\+Checker.\+detector()}.
+
+\label{classchecker_1_1_class_checker_a9cffb8cde6792067a6a222f4bd40a679} 
+\index{checker.ClassChecker@{checker.ClassChecker}!OpenModelicaFound@{OpenModelicaFound}}
+\index{OpenModelicaFound@{OpenModelicaFound}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{OpenModelicaFound}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+Open\+Modelica\+Found}
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+chooser()}, and \textbf{ checker.\+Class\+Checker.\+detector()}.
+
+\label{classchecker_1_1_class_checker_a06ac7489205737475100a8f9c7f891ec} 
+\index{checker.ClassChecker@{checker.ClassChecker}!ScipyFound@{ScipyFound}}
+\index{ScipyFound@{ScipyFound}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{ScipyFound}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+Scipy\+Found}
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+chooser()}, and \textbf{ checker.\+Class\+Checker.\+detector()}.
+
+\label{classchecker_1_1_class_checker_a27a8a6bf422756a5a947932c2b18e97e} 
+\index{checker.ClassChecker@{checker.ClassChecker}!XPPFound@{XPPFound}}
+\index{XPPFound@{XPPFound}!checker.ClassChecker@{checker.ClassChecker}}
+\doxysubsubsection{XPPFound}
+{\footnotesize\ttfamily checker.\+Class\+Checker.\+XPPFound}
+
+
+
+Referenced by \textbf{ checker.\+Class\+Checker.\+chooser()}, and \textbf{ checker.\+Class\+Checker.\+detector()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ checker.\+py}\end{DoxyCompactItemize}

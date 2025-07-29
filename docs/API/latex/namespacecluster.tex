@@ -1,0 +1,152 @@
+\doxysection{cluster Namespace Reference}
+\label{namespacecluster}\index{cluster@{cluster}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ data\+Transformer} (metamodel, outputfiles)
+\item 
+\textbf{ default\+Runner} (clustering\+Range, metamodel, outputfiles)
+\item 
+\textbf{ main} (metamodel, outputfiles)
+\item 
+\textbf{ octave\+Code\+Writer} (metamodel, outputfiles)
+\item 
+\textbf{ octave\+Executer} (outputfiles)
+\item 
+\textbf{ plotter} (outputfiles, dimension, labels)
+\item 
+\textbf{ resolution\+Checker} (metamodel, outputfiles)
+\item 
+\textbf{ surface\+Plotter} (outputfiles, labels)
+\item 
+\textbf{ volume\+Plotter} (outputfiles, labels)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacecluster_ac1e3e0a9e1e1dfc46cfa604ccfb39c0b} 
+\index{cluster@{cluster}!dataTransformer@{dataTransformer}}
+\index{dataTransformer@{dataTransformer}!cluster@{cluster}}
+\doxysubsubsection{dataTransformer()}
+{\footnotesize\ttfamily cluster.\+data\+Transformer (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function converts the data points to the adequate scale.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ main()}, and \textbf{ resolution\+Checker()}.
+
+\label{namespacecluster_abc34d515bbc7b65f435dadedf8ee94eb} 
+\index{cluster@{cluster}!defaultRunner@{defaultRunner}}
+\index{defaultRunner@{defaultRunner}!cluster@{cluster}}
+\doxysubsubsection{defaultRunner()}
+{\footnotesize\ttfamily cluster.\+default\+Runner (\begin{DoxyParamCaption}\item[{}]{clustering\+Range,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function runs the clustering for the defined range of resolution values.
+\end{DoxyVerb}
+ 
+
+References \textbf{ octave\+Code\+Writer()}, and \textbf{ octave\+Executer()}.
+
+
+
+Referenced by \textbf{ main()}.
+
+\label{namespacecluster_acd4c52bf01d703541a85a80eef1a8178} 
+\index{cluster@{cluster}!main@{main}}
+\index{main@{main}!cluster@{cluster}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily cluster.\+main (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This is the main function for the cluster algorithm.
+This function directs the flow of algorithm.
+\end{DoxyVerb}
+ 
+
+References \textbf{ data\+Transformer()}, \textbf{ default\+Runner()}, \textbf{ octave\+Code\+Writer()}, \textbf{ octave\+Executer()}, \textbf{ plotter()}, and \textbf{ resolution\+Checker()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespacecluster_ad1478503875544d4676130f398841ea9} 
+\index{cluster@{cluster}!octaveCodeWriter@{octaveCodeWriter}}
+\index{octaveCodeWriter@{octaveCodeWriter}!cluster@{cluster}}
+\doxysubsubsection{octaveCodeWriter()}
+{\footnotesize\ttfamily cluster.\+octave\+Code\+Writer (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes the a simple code of octave to call the clustering algorithm.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ default\+Runner()}, and \textbf{ main()}.
+
+\label{namespacecluster_aa3622f9418615a4e4f9dad7a1c2d6060} 
+\index{cluster@{cluster}!octaveExecuter@{octaveExecuter}}
+\index{octaveExecuter@{octaveExecuter}!cluster@{cluster}}
+\doxysubsubsection{octaveExecuter()}
+{\footnotesize\ttfamily cluster.\+octave\+Executer (\begin{DoxyParamCaption}\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function executes the octave code for clustering.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ default\+Runner()}, and \textbf{ main()}.
+
+\label{namespacecluster_a8f0097aeddab58092318bd71c83b2877} 
+\index{cluster@{cluster}!plotter@{plotter}}
+\index{plotter@{plotter}!cluster@{cluster}}
+\doxysubsubsection{plotter()}
+{\footnotesize\ttfamily cluster.\+plotter (\begin{DoxyParamCaption}\item[{}]{outputfiles,  }\item[{}]{dimension,  }\item[{}]{labels }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function plots the results of the clustering.
+\end{DoxyVerb}
+ 
+
+References \textbf{ surface\+Plotter()}, and \textbf{ volume\+Plotter()}.
+
+
+
+Referenced by \textbf{ main()}.
+
+\label{namespacecluster_a8375df8dd7b98420fe38d646125dae64} 
+\index{cluster@{cluster}!resolutionChecker@{resolutionChecker}}
+\index{resolutionChecker@{resolutionChecker}!cluster@{cluster}}
+\doxysubsubsection{resolutionChecker()}
+{\footnotesize\ttfamily cluster.\+resolution\+Checker (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function defines different resolution bandwidths and run the clustering for each value.
+The results are analysed
+\end{DoxyVerb}
+ 
+
+References \textbf{ data\+Transformer()}.
+
+
+
+Referenced by \textbf{ main()}.
+
+\label{namespacecluster_ac28753401135d61a0948d3b35935afc6} 
+\index{cluster@{cluster}!surfacePlotter@{surfacePlotter}}
+\index{surfacePlotter@{surfacePlotter}!cluster@{cluster}}
+\doxysubsubsection{surfacePlotter()}
+{\footnotesize\ttfamily cluster.\+surface\+Plotter (\begin{DoxyParamCaption}\item[{}]{outputfiles,  }\item[{}]{labels }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates a plot of the clusters in 2D. Based on sampler.plot2D
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ plotter()}.
+
+\label{namespacecluster_a6e36a08e56aa8e8c2a00351929b99820} 
+\index{cluster@{cluster}!volumePlotter@{volumePlotter}}
+\index{volumePlotter@{volumePlotter}!cluster@{cluster}}
+\doxysubsubsection{volumePlotter()}
+{\footnotesize\ttfamily cluster.\+volume\+Plotter (\begin{DoxyParamCaption}\item[{}]{outputfiles,  }\item[{}]{labels }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates a plot of the clusters in 3D. Based on sampler.plot3D
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ plotter()}.
+

@@ -1,0 +1,167 @@
+\doxysection{parallel Namespace Reference}
+\label{namespaceparallel}\index{parallel@{parallel}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ current\+Processor} ()
+\item 
+\textbf{ main\+Processor} ()
+\item 
+\textbf{ receive} (Source, Tag)
+\item 
+\textbf{ receive\+Any} (Tag)
+\item 
+\textbf{ runs\+On\+Parallel\+Machine} ()
+\item 
+\textbf{ send} (Object, Destination, Tag)
+\item 
+\textbf{ send\+All} (Object, Tag)
+\item 
+\textbf{ total\+Processors} ()
+\item 
+\textbf{ wait\+Processors} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ communicator} = None
+\item 
+dict \textbf{ internal\+Buffer} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespaceparallel_a0cbf3731444e37142406632a11afb429} 
+\index{parallel@{parallel}!currentProcessor@{currentProcessor}}
+\index{currentProcessor@{currentProcessor}!parallel@{parallel}}
+\doxysubsubsection{currentProcessor()}
+{\footnotesize\ttfamily parallel.\+current\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function provides which is the current processor.
+It returns an integer.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer()}, \textbf{ simulator.\+obtain\+Simulation\+Values()}, and \textbf{ central.\+runner()}.
+
+\label{namespaceparallel_a29828e5c45b2d7b86d9a3f9b9007c44f} 
+\index{parallel@{parallel}!mainProcessor@{mainProcessor}}
+\index{mainProcessor@{mainProcessor}!parallel@{parallel}}
+\doxysubsubsection{mainProcessor()}
+{\footnotesize\ttfamily parallel.\+main\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function discriminates if the current processor is the main processor, that is, processor 0
+It returns a boolean variable.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ optimiser.\+central()}, \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer()}, \textbf{ initiator.\+initial()}, \textbf{ central.\+main()}, and \textbf{ central.\+runner()}.
+
+\label{namespaceparallel_a803247056f672237faed82a683454aae} 
+\index{parallel@{parallel}!receive@{receive}}
+\index{receive@{receive}!parallel@{parallel}}
+\doxysubsubsection{receive()}
+{\footnotesize\ttfamily parallel.\+receive (\begin{DoxyParamCaption}\item[{}]{Source,  }\item[{}]{Tag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function receives an object from a determined processor.
+It takes as arguments:
+Source, the source processor, and
+Tag, an aditional identifier of the object.
+It returns the object.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer()}.
+
+\label{namespaceparallel_a5d4e76dee7c1391f6c342e613e26895d} 
+\index{parallel@{parallel}!receiveAny@{receiveAny}}
+\index{receiveAny@{receiveAny}!parallel@{parallel}}
+\doxysubsubsection{receiveAny()}
+{\footnotesize\ttfamily parallel.\+receive\+Any (\begin{DoxyParamCaption}\item[{}]{Tag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function receives an object from any processor.
+It takes as argument, Tag, an aditional identifier of the object.
+It returns the object.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ optimiser.\+central()}, \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer()}, \textbf{ initiator.\+initial()}, \textbf{ central.\+main()}, and \textbf{ central.\+runner()}.
+
+\label{namespaceparallel_a61d887195d02ec2215c3475384c67e71} 
+\index{parallel@{parallel}!runsOnParallelMachine@{runsOnParallelMachine}}
+\index{runsOnParallelMachine@{runsOnParallelMachine}!parallel@{parallel}}
+\doxysubsubsection{runsOnParallelMachine()}
+{\footnotesize\ttfamily parallel.\+runs\+On\+Parallel\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function determines if the program runs in parallel or serial environment.
+It returns a boolean variable.
+\end{DoxyVerb}
+ \label{namespaceparallel_a62a37606ea309d752e27f8f62091cd96} 
+\index{parallel@{parallel}!send@{send}}
+\index{send@{send}!parallel@{parallel}}
+\doxysubsubsection{send()}
+{\footnotesize\ttfamily parallel.\+send (\begin{DoxyParamCaption}\item[{}]{Object,  }\item[{}]{Destination,  }\item[{}]{Tag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function sends an object to a defined processor.
+It takes as arguments:
+Object, the object, 
+Destination, the destination processor, and
+Tag, an aditional identifier of the object.
+It returns nothing.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer()}.
+
+\label{namespaceparallel_ac0d8fdb834440e4e746f76d89e6462de} 
+\index{parallel@{parallel}!sendAll@{sendAll}}
+\index{sendAll@{sendAll}!parallel@{parallel}}
+\doxysubsubsection{sendAll()}
+{\footnotesize\ttfamily parallel.\+send\+All (\begin{DoxyParamCaption}\item[{}]{Object,  }\item[{}]{Tag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function send a given object to all processors.
+It takes as arguments:
+Object, the object to be sent, and
+Tag, an aditional identifier of the object.
+It returns nothing.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ optimiser.\+central()}, \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer()}, \textbf{ initiator.\+initial()}, \textbf{ central.\+main()}, and \textbf{ central.\+runner()}.
+
+\label{namespaceparallel_aa7650ef77ea52c0eaadcc0d1112c766d} 
+\index{parallel@{parallel}!totalProcessors@{totalProcessors}}
+\index{totalProcessors@{totalProcessors}!parallel@{parallel}}
+\doxysubsubsection{totalProcessors()}
+{\footnotesize\ttfamily parallel.\+total\+Processors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function provides the amount of processors.
+It returns an integer.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ optimiser.\+ga\+Population\+Scores\+Obtainer()}.
+
+\label{namespaceparallel_a66a46176c04fb602fcaf3199bd8d7b1e} 
+\index{parallel@{parallel}!waitProcessors@{waitProcessors}}
+\index{waitProcessors@{waitProcessors}!parallel@{parallel}}
+\doxysubsubsection{waitProcessors()}
+{\footnotesize\ttfamily parallel.\+wait\+Processors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function makes all the processors to wait up to that point.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\label{namespaceparallel_a016b6155b4c1ff36697b5a4d2b785628} 
+\index{parallel@{parallel}!communicator@{communicator}}
+\index{communicator@{communicator}!parallel@{parallel}}
+\doxysubsubsection{communicator}
+{\footnotesize\ttfamily parallel.\+communicator = None}
+
+\label{namespaceparallel_a164fe090767474e7f56b1403d76902ef} 
+\index{parallel@{parallel}!internalBuffer@{internalBuffer}}
+\index{internalBuffer@{internalBuffer}!parallel@{parallel}}
+\doxysubsubsection{internalBuffer}
+{\footnotesize\ttfamily dict parallel.\+internal\+Buffer = \{\}}
+

@@ -1,0 +1,82 @@
+\doxysection{sensitivity\+Analyzer Namespace Reference}
+\label{namespacesensitivity_analyzer}\index{sensitivityAnalyzer@{sensitivityAnalyzer}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Class\+Sensitivity\+Analyzer}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (model, metamodel, outputfiles)
+\item 
+\textbf{ components\+Checker} (model, metamodel)
+\item 
+\textbf{ get\+Node\+Name} (value, model)
+\item 
+\textbf{ get\+Position\+Node} (field, model)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacesensitivity_analyzer_abe6397a6977b5ebc16ab4cc56f5d7b28} 
+\index{sensitivityAnalyzer@{sensitivityAnalyzer}!central@{central}}
+\index{central@{central}!sensitivityAnalyzer@{sensitivityAnalyzer}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+central (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This is the central function of the module.
+It directs the flow of the program for the sensitivity analysis and the identifiability analysis.
+\end{DoxyVerb}
+ 
+
+References \textbf{ components\+Checker()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespacesensitivity_analyzer_ae9775716ed121d86115a902975a33701} 
+\index{sensitivityAnalyzer@{sensitivityAnalyzer}!componentsChecker@{componentsChecker}}
+\index{componentsChecker@{componentsChecker}!sensitivityAnalyzer@{sensitivityAnalyzer}}
+\doxysubsubsection{componentsChecker()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+components\+Checker (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function is an initial checking of the parameters we want to study:
+first that they exist on the model and second that they are constant during the simulation.
+Finally we select the parameters to study on a new working variable.
+At the very end we set the new parameters values set by "parameter" variable.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ identifiability\+Analyzer.\+central()}, \textbf{ optimal\+Experimental\+Design.\+central()}, and \textbf{ central()}.
+
+\label{namespacesensitivity_analyzer_a5105200a2980a6d5cfc0bec5840bb0dc} 
+\index{sensitivityAnalyzer@{sensitivityAnalyzer}!getNodeName@{getNodeName}}
+\index{getNodeName@{getNodeName}!sensitivityAnalyzer@{sensitivityAnalyzer}}
+\doxysubsubsection{getNodeName()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+get\+Node\+Name (\begin{DoxyParamCaption}\item[{}]{value,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Given the position of a node in model.nodes list
+this function returns its name. 
+In the case of multicellular models the index positions
+are added in the format: "nodeName(yindex,xindex)".
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+\_\+\+\_\+obtain\+Sensitivity()}.
+
+\label{namespacesensitivity_analyzer_afa73a76f61c0ec1b965066e0c8cb7a47} 
+\index{sensitivityAnalyzer@{sensitivityAnalyzer}!getPositionNode@{getPositionNode}}
+\index{getPositionNode@{getPositionNode}!sensitivityAnalyzer@{sensitivityAnalyzer}}
+\doxysubsubsection{getPositionNode()}
+{\footnotesize\ttfamily sensitivity\+Analyzer.\+get\+Position\+Node (\begin{DoxyParamCaption}\item[{}]{field,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Given a target field ("node/xindex,yindex/experimentalValue/variance"),
+this function returns the column position of this node 
+in the simulation output file.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+\_\+\+\_\+obtain\+Sensitivity()}.
+

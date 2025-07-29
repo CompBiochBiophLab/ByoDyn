@@ -1,0 +1,227 @@
+\doxysection{identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer Class Reference}
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer}\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\textbf{ calculate\+FIM} (self, parameters\+To\+Study, metamodel\+Target)
+\item 
+\textbf{ confidence\+Intervals} (self, i, threshold)
+\item 
+\textbf{ criteria\+Writer} (self, outputfiles, MA, D, E, ME)
+\item 
+\textbf{ get\+Dcriteria} (self)
+\item 
+\textbf{ get\+Ecriteria} (self)
+\item 
+\textbf{ get\+MAcriteria} (self)
+\item 
+\textbf{ get\+MEcriteria} (self)
+\item 
+\textbf{ residuals\+Computation} (exp\+Values, model, metamodel, outputfiles)
+\item 
+\textbf{ set\+Correlation\+Matrix} (self, parameters\+To\+Study)
+\item 
+\textbf{ set\+COV} (self, parameters\+To\+Study)
+\item 
+\textbf{ set\+Sensitivity} (self, coefficients)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Correlation\+Matrix}
+\item 
+\textbf{ COV}
+\item 
+\textbf{ FIM}
+\item 
+\textbf{ sensitivity\+Coefficients}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for the identifiability analysis.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a5c96f58eda1518bbb9f19ed622681299} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{\_\_init\_\_()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This is the constructor.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a3df4cc0dde38cb7483b3957180588c64} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!calculateFIM@{calculateFIM}}
+\index{calculateFIM@{calculateFIM}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{calculateFIM()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+calculate\+FIM (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parameters\+To\+Study,  }\item[{}]{metamodel\+Target }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method calculates of Fisher Information Matrix (FIM) from sensitivity coefficients.
+\end{DoxyVerb}
+ \label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_af8f17458dddd2dd0589bcddf37da0180} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!confidenceIntervals@{confidenceIntervals}}
+\index{confidenceIntervals@{confidenceIntervals}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{confidenceIntervals()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+confidence\+Intervals (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{i,  }\item[{}]{threshold }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method calculates the confidence interval for one parameter.
+\end{DoxyVerb}
+ 
+
+References \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+COV}, and \textbf{ pca.\+Class\+PCA.\+COV}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_ad4b30b8252ed37f33d847c855fe44fe0} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!criteriaWriter@{criteriaWriter}}
+\index{criteriaWriter@{criteriaWriter}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{criteriaWriter()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+criteria\+Writer (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{outputfiles,  }\item[{}]{MA,  }\item[{}]{D,  }\item[{}]{E,  }\item[{}]{ME }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method write the criteria information in its output file.
+\end{DoxyVerb}
+ \label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_ab84a9309935f5b99d61a13c3563633ac} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!getDcriteria@{getDcriteria}}
+\index{getDcriteria@{getDcriteria}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{getDcriteria()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+Dcriteria (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method returns the D-optimal design criteria, which it is to maximise the determinant of FIM.
+\end{DoxyVerb}
+ 
+
+References \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+FIM}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a26407583453787c0acb80c261b5e7e79} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!getEcriteria@{getEcriteria}}
+\index{getEcriteria@{getEcriteria}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{getEcriteria()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+Ecriteria (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method returns the E-optimal design criteria, which it is to maximise the lowest FIM eigenvalue.
+\end{DoxyVerb}
+ 
+
+References \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+FIM}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a2146de2206dd560832f9f050a123ecef} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!getMAcriteria@{getMAcriteria}}
+\index{getMAcriteria@{getMAcriteria}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{getMAcriteria()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+MAcriteria (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method returns the modified A-optimal design criteria, which it is to maximise the trace of FIM.
+\end{DoxyVerb}
+ 
+
+References \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+FIM}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_ad18ff614f9a6a36c48b1d3f54c5808d5} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!getMEcriteria@{getMEcriteria}}
+\index{getMEcriteria@{getMEcriteria}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{getMEcriteria()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+MEcriteria (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method returns the modified E-optimal design criteria, which it is to minimise the ratio among the largest to lowest eigenvalue.
+\end{DoxyVerb}
+ 
+
+References \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+FIM}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a6ba45f225812ca5084b4a6381a972e73} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!residualsComputation@{residualsComputation}}
+\index{residualsComputation@{residualsComputation}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{residualsComputation()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+residuals\+Computation (\begin{DoxyParamCaption}\item[{}]{exp\+Values,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method calculates the residual for one experimental value.
+\end{DoxyVerb}
+ \label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a1db9b22944e934dfe6b0add396437843} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!setCorrelationMatrix@{setCorrelationMatrix}}
+\index{setCorrelationMatrix@{setCorrelationMatrix}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{setCorrelationMatrix()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+Correlation\+Matrix (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parameters\+To\+Study }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method calculate the Correlation Marix from the COV.
+\end{DoxyVerb}
+ 
+
+References \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+Correlation\+Matrix}, \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+COV}, \textbf{ pca.\+Class\+PCA.\+COV}, \textbf{ pca.\+Class\+PCA.\+set\+COV()}, and \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+COV()}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_ad471d916bdf639e2dbadfa7eb58341eb} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!setCOV@{setCOV}}
+\index{setCOV@{setCOV}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{setCOV()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+COV (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parameters\+To\+Study }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This mehtod set the covariance Matrix and calculates its EigenValues, it is the inverse of FIM.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+Correlation\+Matrix()}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a38166832693bd36af11a467b45059f7c} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!setSensitivity@{setSensitivity}}
+\index{setSensitivity@{setSensitivity}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{setSensitivity()}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+Sensitivity (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{coefficients }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method set the sensitivity coefficients. 
+\end{DoxyVerb}
+ 
+
+References \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+sensitivity\+Coefficients}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a4f45effeac9dd2b3a2f01dd57697fe3a} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!CorrelationMatrix@{CorrelationMatrix}}
+\index{CorrelationMatrix@{CorrelationMatrix}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{CorrelationMatrix}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+Correlation\+Matrix}
+
+
+
+Referenced by \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+Correlation\+Matrix()}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_a96bbbd80d394b1669d0cae72599ac0f9} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!COV@{COV}}
+\index{COV@{COV}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{COV}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+COV}
+
+
+
+Referenced by \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+confidence\+Intervals()}, \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+Correlation\+Matrix()}, \textbf{ pca.\+Class\+PCA.\+set\+COV()}, and \textbf{ pca.\+Class\+PCA.\+set\+Eigen()}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_ac03dfc48772b5ec5079731425d77cad6} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!FIM@{FIM}}
+\index{FIM@{FIM}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{FIM}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+FIM}
+
+
+
+Referenced by \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+Dcriteria()}, \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+Ecriteria()}, \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+MAcriteria()}, and \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+get\+MEcriteria()}.
+
+\label{classidentifiability_analyzer_1_1_class_identifiability_analyzer_ac01969c96946eecab49d35c84c93543e} 
+\index{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}!sensitivityCoefficients@{sensitivityCoefficients}}
+\index{sensitivityCoefficients@{sensitivityCoefficients}!identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer@{identifiabilityAnalyzer.ClassIdentifiabilityAnalyzer}}
+\doxysubsubsection{sensitivityCoefficients}
+{\footnotesize\ttfamily identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+sensitivity\+Coefficients}
+
+
+
+Referenced by \textbf{ identifiability\+Analyzer.\+Class\+Identifiability\+Analyzer.\+set\+Sensitivity()}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ identifiability\+Analyzer.\+py}\end{DoxyCompactItemize}

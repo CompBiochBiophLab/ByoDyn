@@ -1,0 +1,229 @@
+\doxysection{simulator Namespace Reference}
+\label{namespacesimulator}\index{simulator@{simulator}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Class\+Epithelium}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ central} (metamodel, model, outputfiles)
+\item 
+\textbf{ check\+Results} (metamodel, trajectories\+File)
+\item 
+\textbf{ compatibility\+Checker} (metamodel, model)
+\item 
+\textbf{ create\+Epiplot} (model, metamodel, outputfiles)
+\item 
+\textbf{ create\+Gnuplot} (model, metamodel, outputfiles, type)
+\item 
+\textbf{ create\+PDFFormulae} (model, metamodel, outputfiles)
+\item 
+\textbf{ events\+Dealer} (metamodel, model, outputfiles)
+\item 
+\textbf{ flat\+File\+Writer} (outputfiles, grid)
+\item 
+\textbf{ is\+AGene} (node)
+\item 
+\textbf{ last\+State\+Retriever} (metamodel, model, outputfiles)
+\item 
+\textbf{ obtain\+Simulation\+Values} (metamodel, model, outputfiles, type)
+\item 
+\textbf{ plot\+Maker} (outputfiles, grid, model)
+\item 
+\textbf{ set\+Integration\+Option} (model, tester)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespacesimulator_a3d6d8e32998959455bd8cf371bb3c46d} 
+\index{simulator@{simulator}!central@{central}}
+\index{central@{central}!simulator@{simulator}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily simulator.\+central (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function controls the flow of the simulation depending on the simulation options.
+It checks the correctness of the input data, 
+it creates a pdf format file with the system of equations, 
+it integrates the system with the selected integrator and
+it finally builds the graphs of the simulation.
+\end{DoxyVerb}
+ 
+
+References \textbf{ check\+Results()}, \textbf{ compatibility\+Checker()}, \textbf{ create\+Epiplot()}, \textbf{ create\+Gnuplot()}, \textbf{ create\+PDFFormulae()}, \textbf{ events\+Dealer()}, \textbf{ central\+Functions.\+matlab\+Integrator()}, \textbf{ central\+Functions.\+octave\+Integration()}, \textbf{ central\+Functions.\+python\+Integration()}, and \textbf{ set\+Integration\+Option()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespacesimulator_a8a3d7b6f38dba47a2f9d447cef2d0f7d} 
+\index{simulator@{simulator}!checkResults@{checkResults}}
+\index{checkResults@{checkResults}!simulator@{simulator}}
+\doxysubsubsection{checkResults()}
+{\footnotesize\ttfamily simulator.\+check\+Results (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{trajectories\+File }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks the integration output file. 
+It returns an error if the results are missing and a warning if the results are incomplete.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespacesimulator_aecabcfd66aae7341c2b8f8c232e2ef81} 
+\index{simulator@{simulator}!compatibilityChecker@{compatibilityChecker}}
+\index{compatibilityChecker@{compatibilityChecker}!simulator@{simulator}}
+\doxysubsubsection{compatibilityChecker()}
+{\footnotesize\ttfamily simulator.\+compatibility\+Checker (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks the compatibility of some simulation options:
+if the model holds events has to be integrated by OpenModelica and
+that a certain parameter of the model exists for which its value is specified.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, \textbf{ fitness\+Function\+Evaluator.\+central()}, and \textbf{ sampler.\+central()}.
+
+\label{namespacesimulator_ac95882b18cfe7c133a116ef027c18378} 
+\index{simulator@{simulator}!createEpiplot@{createEpiplot}}
+\index{createEpiplot@{createEpiplot}!simulator@{simulator}}
+\doxysubsubsection{createEpiplot()}
+{\footnotesize\ttfamily simulator.\+create\+Epiplot (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the multicellular plots.
+It calls the class ClassEpithelium, fills the object
+and creates a flat file data and the graph.
+\end{DoxyVerb}
+ 
+
+References \textbf{ flat\+File\+Writer()}, and \textbf{ plot\+Maker()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespacesimulator_a74d5e20b2278a29765c51e9ec058b7a9} 
+\index{simulator@{simulator}!createGnuplot@{createGnuplot}}
+\index{createGnuplot@{createGnuplot}!simulator@{simulator}}
+\doxysubsubsection{createGnuplot()}
+{\footnotesize\ttfamily simulator.\+create\+Gnuplot (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{type }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the postscript plots for the dynamic trajectories.
+It is responsible for the plotting of both the concentration versus time plots
+and the change of concentration versus time plots.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, and \textbf{ obtain\+Simulation\+Values()}.
+
+\label{namespacesimulator_ac3d3339b303ca57f42dc37a311f60b6c} 
+\index{simulator@{simulator}!createPDFFormulae@{createPDFFormulae}}
+\index{createPDFFormulae@{createPDFFormulae}!simulator@{simulator}}
+\doxysubsubsection{createPDFFormulae()}
+{\footnotesize\ttfamily simulator.\+create\+PDFFormulae (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the latex format files with the system of equations. 
+It calls the different affector functions at the affectors module of the lib directory.
+\end{DoxyVerb}
+ 
+
+References \textbf{ formulas.\+formula\+Latex()}, and \textbf{ formulas.\+get\+Math\+Expression()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespacesimulator_a22c1a1fde5323860743c0797256e6dc4} 
+\index{simulator@{simulator}!eventsDealer@{eventsDealer}}
+\index{eventsDealer@{eventsDealer}!simulator@{simulator}}
+\doxysubsubsection{eventsDealer()}
+{\footnotesize\ttfamily simulator.\+events\+Dealer (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function simulates the model in the case it holds events.
+It runs the different simulations depending on the number of events and
+it joins them finally.
+\end{DoxyVerb}
+ 
+
+References \textbf{ last\+State\+Retriever()}, and \textbf{ central\+Functions.\+python\+Integration()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespacesimulator_a40af5660a8e70920de64068ddc816d92} 
+\index{simulator@{simulator}!flatFileWriter@{flatFileWriter}}
+\index{flatFileWriter@{flatFileWriter}!simulator@{simulator}}
+\doxysubsubsection{flatFileWriter()}
+{\footnotesize\ttfamily simulator.\+flat\+File\+Writer (\begin{DoxyParamCaption}\item[{}]{outputfiles,  }\item[{}]{grid }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function writes a flat file with the information of the ClassEpithelium.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ create\+Epiplot()}.
+
+\label{namespacesimulator_af89a4ac39dea359f9e3a0cbdca6928ba} 
+\index{simulator@{simulator}!isAGene@{isAGene}}
+\index{isAGene@{isAGene}!simulator@{simulator}}
+\doxysubsubsection{isAGene()}
+{\footnotesize\ttfamily simulator.\+is\+AGene (\begin{DoxyParamCaption}\item[{}]{node }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function returns a boolean determining if the node is or not a gene.
+The function's answer is based on whether the first character of the string is capital or not.
+This function is only used to determine the font of the node at the multicellular plot.
+\end{DoxyVerb}
+ \label{namespacesimulator_a30fb0b364434077d268c0f171c5010c9} 
+\index{simulator@{simulator}!lastStateRetriever@{lastStateRetriever}}
+\index{lastStateRetriever@{lastStateRetriever}!simulator@{simulator}}
+\doxysubsubsection{lastStateRetriever()}
+{\footnotesize\ttfamily simulator.\+last\+State\+Retriever (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function returns the values of the nodes at the last time of the simulation.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ events\+Dealer()}.
+
+\label{namespacesimulator_a96b005fb00e54c86b1bcbb0c0e6af32d} 
+\index{simulator@{simulator}!obtainSimulationValues@{obtainSimulationValues}}
+\index{obtainSimulationValues@{obtainSimulationValues}!simulator@{simulator}}
+\doxysubsubsection{obtainSimulationValues()}
+{\footnotesize\ttfamily simulator.\+obtain\+Simulation\+Values (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{type }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function obtains the simulation values of a given model.
+It is used by the optimiser and the sensitivityAnalyzer modules.
+\end{DoxyVerb}
+ 
+
+References \textbf{ create\+Gnuplot()}, \textbf{ parallel.\+current\+Processor()}, \textbf{ central\+Functions.\+octave\+Integration()}, \textbf{ central\+Functions.\+python\+Integration()}, and \textbf{ set\+Integration\+Option()}.
+
+
+
+Referenced by \textbf{ sensitivity\+Analyzer.\+Class\+Sensitivity\+Analyzer.\+calculate\+Sens()}.
+
+\label{namespacesimulator_abe1225a964f4212963563ffaf6b0cfc5} 
+\index{simulator@{simulator}!plotMaker@{plotMaker}}
+\index{plotMaker@{plotMaker}!simulator@{simulator}}
+\doxysubsubsection{plotMaker()}
+{\footnotesize\ttfamily simulator.\+plot\+Maker (\begin{DoxyParamCaption}\item[{}]{outputfiles,  }\item[{}]{grid,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the postscript files for the multicellular plots.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ create\+Epiplot()}.
+
+\label{namespacesimulator_ab9d75307e1034f78e6414b034cb263d8} 
+\index{simulator@{simulator}!setIntegrationOption@{setIntegrationOption}}
+\index{setIntegrationOption@{setIntegrationOption}!simulator@{simulator}}
+\doxysubsubsection{setIntegrationOption()}
+{\footnotesize\ttfamily simulator.\+set\+Integration\+Option (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{tester }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function set the integration option depending of model characteristics
+and the software installed on the current machine. 
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, \textbf{ obtain\+Simulation\+Values()}, \textbf{ dynamics\+Reconstructer.\+run()}, and \textbf{ optimiser.\+score\+Obtainer()}.
+

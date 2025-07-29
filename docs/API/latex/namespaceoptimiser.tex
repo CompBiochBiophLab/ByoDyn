@@ -1,0 +1,355 @@
+\doxysection{optimiser Namespace Reference}
+\label{namespaceoptimiser}\index{optimiser@{optimiser}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ calculate\+Confidence\+Intervals} (model, metamodel, outputfiles)
+\item 
+\textbf{ central} (metamodel, model, outputfiles, solutions)
+\item 
+\textbf{ check\+Data\+Points} (model, metamodel)
+\item 
+\textbf{ check\+Initial\+Conditions\+To\+Vary} (model, metamodel)
+\item 
+\textbf{ check\+Parameters\+To\+Vary} (model, metamodel)
+\item 
+\textbf{ check\+Target\+Nodes} (model, metamodel)
+\item 
+\textbf{ evaluate\+Iteration} (karyotype, model, metamodel, outputfiles, scores, iteration)
+\item 
+\textbf{ evaluate\+Solution} (iteration, score, metamodel, model, outputfiles)
+\item 
+\textbf{ evaluate\+Stopping} (metamodel, iteration, scores)
+\item 
+\textbf{ ga\+Initialise\+Population} (model, metamodel)
+\item 
+\textbf{ ga\+Natural\+Selection} (karyotype, iteration, scores, metamodel, outputfiles)
+\item 
+\textbf{ ga\+Population\+Scores\+Obtainer} (iteration, karyotype, metamodel, model, outputfiles)
+\item 
+\textbf{ ga\+Population\+Scores\+Obtainer\+Local} (iteration, karyotype, metamodel, model, outputfiles)
+\item 
+\textbf{ ga\+Sex} (karyotype, best\+Chromosomes, sex\+Chromosomes, model, metamodel)
+\item 
+\textbf{ get\+Simulate\+Value} (original\+Simulation\+Values, node, target, model, metamodel)
+\item 
+\textbf{ linear\+Variation} (minimal\+Value, maximal\+Value)
+\item 
+\textbf{ logarithmic\+Variation} (minimal\+Value, maximal\+Value)
+\item 
+\textbf{ normal\+Variation\+For\+Initial\+Condition} (metamodel, model)
+\item 
+\textbf{ random\+Search} (metamodel, model, outputfiles)
+\item 
+\textbf{ score\+Obtainer} (metamodel, model, outputfiles)
+\item 
+\textbf{ store\+Solution} (score, metamodel, model, working\+Directory)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\label{namespaceoptimiser_af564f7b66293dad6d28436098e3f8518} 
+\index{optimiser@{optimiser}!calculateConfidenceIntervals@{calculateConfidenceIntervals}}
+\index{calculateConfidenceIntervals@{calculateConfidenceIntervals}!optimiser@{optimiser}}
+\doxysubsubsection{calculateConfidenceIntervals()}
+{\footnotesize\ttfamily optimiser.\+calculate\+Confidence\+Intervals (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the covariance matrix and returns the object identifiability.
+This object is necessary to calculate the confidence intervals.
+The implementation of confidence intervals is still under development, not finished yet.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ evaluate\+Solution()}.
+
+\label{namespaceoptimiser_a1dcccbad34ddbe513c2e361f6c84c208} 
+\index{optimiser@{optimiser}!central@{central}}
+\index{central@{central}!optimiser@{optimiser}}
+\doxysubsubsection{central()}
+{\footnotesize\ttfamily optimiser.\+central (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles,  }\item[{}]{solutions }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function directs the optimisation to the different optimisation options.
+\end{DoxyVerb}
+ 
+
+References \textbf{ local\+Optimiser.\+central()}, \textbf{ check\+Data\+Points()}, \textbf{ check\+Initial\+Conditions\+To\+Vary()}, \textbf{ check\+Parameters\+To\+Vary()}, \textbf{ check\+Target\+Nodes()}, \textbf{ evaluate\+Solution()}, \textbf{ evaluate\+Stopping()}, \textbf{ ga\+Initialise\+Population()}, \textbf{ ga\+Natural\+Selection()}, \textbf{ ga\+Population\+Scores\+Obtainer()}, \textbf{ ga\+Population\+Scores\+Obtainer\+Local()}, \textbf{ ga\+Sex()}, \textbf{ linear\+Variation()}, \textbf{ logarithmic\+Variation()}, \textbf{ parallel.\+main\+Processor()}, \textbf{ normal\+Variation\+For\+Initial\+Condition()}, \textbf{ random\+Search()}, \textbf{ parallel.\+receive\+Any()}, \textbf{ score\+Obtainer()}, and \textbf{ parallel.\+send\+All()}.
+
+
+
+Referenced by \textbf{ central.\+runner()}.
+
+\label{namespaceoptimiser_a5398e06847a16ae5161ecfb4623e2633} 
+\index{optimiser@{optimiser}!checkDataPoints@{checkDataPoints}}
+\index{checkDataPoints@{checkDataPoints}!optimiser@{optimiser}}
+\doxysubsubsection{checkDataPoints()}
+{\footnotesize\ttfamily optimiser.\+check\+Data\+Points (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks for the consistency of the target.
+It checks if the target constrain has a time value larger than the simulation time.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, \textbf{ fitness\+Function\+Evaluator.\+central()}, and \textbf{ sampler.\+central()}.
+
+\label{namespaceoptimiser_ab8fc51e9db6db7191db23095c9968e36} 
+\index{optimiser@{optimiser}!checkInitialConditionsToVary@{checkInitialConditionsToVary}}
+\index{checkInitialConditionsToVary@{checkInitialConditionsToVary}!optimiser@{optimiser}}
+\doxysubsubsection{checkInitialConditionsToVary()}
+{\footnotesize\ttfamily optimiser.\+check\+Initial\+Conditions\+To\+Vary (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks for the consistency of the initial conditions to vary.
+It checks that the values of the initial conditions are part of the nodes.
+Apart it checks for incompatibilities about model boundary conditions.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_a7aecf31649e80dc4c067251dd544f0b6} 
+\index{optimiser@{optimiser}!checkParametersToVary@{checkParametersToVary}}
+\index{checkParametersToVary@{checkParametersToVary}!optimiser@{optimiser}}
+\doxysubsubsection{checkParametersToVary()}
+{\footnotesize\ttfamily optimiser.\+check\+Parameters\+To\+Vary (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks for the consistency of the introduced parameters to vary:
+the parameter to vary has to be one of the model's,
+the parameter to vary cannot be a constant parameter and
+the lower value of the exploring range has to be specified before the higher value.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, and \textbf{ sampler.\+central()}.
+
+\label{namespaceoptimiser_a5197e6a47066edff8f67d7fd439794ee} 
+\index{optimiser@{optimiser}!checkTargetNodes@{checkTargetNodes}}
+\index{checkTargetNodes@{checkTargetNodes}!optimiser@{optimiser}}
+\doxysubsubsection{checkTargetNodes()}
+{\footnotesize\ttfamily optimiser.\+check\+Target\+Nodes (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks that the nodes of the experimental data are part of the model.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, \textbf{ fitness\+Function\+Evaluator.\+central()}, and \textbf{ sampler.\+central()}.
+
+\label{namespaceoptimiser_a45b253398eeb5f0f846526a8d4e62c11} 
+\index{optimiser@{optimiser}!evaluateIteration@{evaluateIteration}}
+\index{evaluateIteration@{evaluateIteration}!optimiser@{optimiser}}
+\doxysubsubsection{evaluateIteration()}
+{\footnotesize\ttfamily optimiser.\+evaluate\+Iteration (\begin{DoxyParamCaption}\item[{}]{karyotype,  }\item[{}]{model,  }\item[{}]{metamodel,  }\item[{}]{outputfiles,  }\item[{}]{scores,  }\item[{}]{iteration }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function helps the evaluation of the stopping of the program.
+It evaluates at the same time the stopper options and the stopper variables.
+It modifies the stopper options for the proper evaluation of the stopping by evaluateStopping.
+\end{DoxyVerb}
+ 
+
+References \textbf{ evaluate\+Solution()}.
+
+
+
+Referenced by \textbf{ ga\+Population\+Scores\+Obtainer()}, and \textbf{ ga\+Population\+Scores\+Obtainer\+Local()}.
+
+\label{namespaceoptimiser_ad816b453e42b42b8ebeaf90eb0952abb} 
+\index{optimiser@{optimiser}!evaluateSolution@{evaluateSolution}}
+\index{evaluateSolution@{evaluateSolution}!optimiser@{optimiser}}
+\doxysubsubsection{evaluateSolution()}
+{\footnotesize\ttfamily optimiser.\+evaluate\+Solution (\begin{DoxyParamCaption}\item[{}]{iteration,  }\item[{}]{score,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function evaluates if the solution is susceptible of being stored.
+It involves the creation of solution directories and files.
+\end{DoxyVerb}
+ 
+
+References \textbf{ calculate\+Confidence\+Intervals()}, \textbf{ local\+Optimiser.\+central()}, \textbf{ sbml\+Worker.\+sbml\+Writer()}, and \textbf{ store\+Solution()}.
+
+
+
+Referenced by \textbf{ central()}, \textbf{ evaluate\+Iteration()}, and \textbf{ ga\+Population\+Scores\+Obtainer()}.
+
+\label{namespaceoptimiser_ad4fdddd622d60ba323d9c9a0d359fa57} 
+\index{optimiser@{optimiser}!evaluateStopping@{evaluateStopping}}
+\index{evaluateStopping@{evaluateStopping}!optimiser@{optimiser}}
+\doxysubsubsection{evaluateStopping()}
+{\footnotesize\ttfamily optimiser.\+evaluate\+Stopping (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{iteration,  }\item[{}]{scores }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function evaluates if the program needs to stop due to the score value or the iteration number.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_ad51e60e9595ff271635b4ccaf32a1e0f} 
+\index{optimiser@{optimiser}!gaInitialisePopulation@{gaInitialisePopulation}}
+\index{gaInitialisePopulation@{gaInitialisePopulation}!optimiser@{optimiser}}
+\doxysubsubsection{gaInitialisePopulation()}
+{\footnotesize\ttfamily optimiser.\+ga\+Initialise\+Population (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function create the initial random karyotype for the genetic algorithm.
+\end{DoxyVerb}
+ 
+
+References \textbf{ linear\+Variation()}, and \textbf{ logarithmic\+Variation()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_a46b6023ab750eb715f4fa23036b716b2} 
+\index{optimiser@{optimiser}!gaNaturalSelection@{gaNaturalSelection}}
+\index{gaNaturalSelection@{gaNaturalSelection}!optimiser@{optimiser}}
+\doxysubsubsection{gaNaturalSelection()}
+{\footnotesize\ttfamily optimiser.\+ga\+Natural\+Selection (\begin{DoxyParamCaption}\item[{}]{karyotype,  }\item[{}]{iteration,  }\item[{}]{scores,  }\item[{}]{metamodel,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function selects the best fit elements from the last generation karyotype.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_aeeee085c3175f1e9abf00895d43ee82c} 
+\index{optimiser@{optimiser}!gaPopulationScoresObtainer@{gaPopulationScoresObtainer}}
+\index{gaPopulationScoresObtainer@{gaPopulationScoresObtainer}!optimiser@{optimiser}}
+\doxysubsubsection{gaPopulationScoresObtainer()}
+{\footnotesize\ttfamily optimiser.\+ga\+Population\+Scores\+Obtainer (\begin{DoxyParamCaption}\item[{}]{iteration,  }\item[{}]{karyotype,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function evaluates the score of the karyotype by calling scoreObtainer function.
+Special emphasis is given for the parallel code.
+\end{DoxyVerb}
+ 
+
+References \textbf{ parallel.\+current\+Processor()}, \textbf{ evaluate\+Iteration()}, \textbf{ evaluate\+Solution()}, \textbf{ parallel.\+main\+Processor()}, \textbf{ parallel.\+receive()}, \textbf{ parallel.\+receive\+Any()}, \textbf{ score\+Obtainer()}, \textbf{ parallel.\+send()}, \textbf{ parallel.\+send\+All()}, and \textbf{ parallel.\+total\+Processors()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_a8fd28d42d13ef633638b067d09a1d6d8} 
+\index{optimiser@{optimiser}!gaPopulationScoresObtainerLocal@{gaPopulationScoresObtainerLocal}}
+\index{gaPopulationScoresObtainerLocal@{gaPopulationScoresObtainerLocal}!optimiser@{optimiser}}
+\doxysubsubsection{gaPopulationScoresObtainerLocal()}
+{\footnotesize\ttfamily optimiser.\+ga\+Population\+Scores\+Obtainer\+Local (\begin{DoxyParamCaption}\item[{}]{iteration,  }\item[{}]{karyotype,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function evaluates the fitness function for the hybridOnePhase algorithm.
+For each element it launches a local search algorithm and takes as fitness function value the result of the local optimisation.
+\end{DoxyVerb}
+ 
+
+References \textbf{ local\+Optimiser.\+central()}, and \textbf{ evaluate\+Iteration()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_ac6e143096c808322afea7788ea5a95b6} 
+\index{optimiser@{optimiser}!gaSex@{gaSex}}
+\index{gaSex@{gaSex}!optimiser@{optimiser}}
+\doxysubsubsection{gaSex()}
+{\footnotesize\ttfamily optimiser.\+ga\+Sex (\begin{DoxyParamCaption}\item[{}]{karyotype,  }\item[{}]{best\+Chromosomes,  }\item[{}]{sex\+Chromosomes,  }\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function directs the crossing over and mutation from one to the next generation.
+\end{DoxyVerb}
+ 
+
+References \textbf{ linear\+Variation()}, and \textbf{ logarithmic\+Variation()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_aa03906ab9fc93497de7c3d739fa9a75b} 
+\index{optimiser@{optimiser}!getSimulateValue@{getSimulateValue}}
+\index{getSimulateValue@{getSimulateValue}!optimiser@{optimiser}}
+\doxysubsubsection{getSimulateValue()}
+{\footnotesize\ttfamily optimiser.\+get\+Simulate\+Value (\begin{DoxyParamCaption}\item[{}]{original\+Simulation\+Values,  }\item[{}]{node,  }\item[{}]{target,  }\item[{}]{model,  }\item[{}]{metamodel }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function retrieves the simulation value of a single node at a single time point.
+\end{DoxyVerb}
+ \label{namespaceoptimiser_acf5265a791d54e19fcc0bb6185f75ee9} 
+\index{optimiser@{optimiser}!linearVariation@{linearVariation}}
+\index{linearVariation@{linearVariation}!optimiser@{optimiser}}
+\doxysubsubsection{linearVariation()}
+{\footnotesize\ttfamily optimiser.\+linear\+Variation (\begin{DoxyParamCaption}\item[{}]{minimal\+Value,  }\item[{}]{maximal\+Value }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function generates a random value for a parameter explored in a linear scale range.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, \textbf{ sampler.\+Class\+Sample.\+create\+Random\+Set\+Of\+Parameters()}, \textbf{ ga\+Initialise\+Population()}, \textbf{ ga\+Sex()}, and \textbf{ random\+Search()}.
+
+\label{namespaceoptimiser_a7a81014f3fad682b6885205336d99dbd} 
+\index{optimiser@{optimiser}!logarithmicVariation@{logarithmicVariation}}
+\index{logarithmicVariation@{logarithmicVariation}!optimiser@{optimiser}}
+\doxysubsubsection{logarithmicVariation()}
+{\footnotesize\ttfamily optimiser.\+logarithmic\+Variation (\begin{DoxyParamCaption}\item[{}]{minimal\+Value,  }\item[{}]{maximal\+Value }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function generates a random value for a parameter explored in a logarithmic
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, \textbf{ sampler.\+Class\+Sample.\+create\+Random\+Set\+Of\+Parameters()}, \textbf{ ga\+Initialise\+Population()}, \textbf{ ga\+Sex()}, and \textbf{ random\+Search()}.
+
+\label{namespaceoptimiser_a456608bc47926be83fb59e9cad0a2dfe} 
+\index{optimiser@{optimiser}!normalVariationForInitialCondition@{normalVariationForInitialCondition}}
+\index{normalVariationForInitialCondition@{normalVariationForInitialCondition}!optimiser@{optimiser}}
+\doxysubsubsection{normalVariationForInitialCondition()}
+{\footnotesize\ttfamily optimiser.\+normal\+Variation\+For\+Initial\+Condition (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function variates the initial condition of the model based on a normal distribution.
+\end{DoxyVerb}
+ 
+
+Referenced by \textbf{ central()}, and \textbf{ random\+Search()}.
+
+\label{namespaceoptimiser_a46698f6bfe280aed683f5ee72ed47349} 
+\index{optimiser@{optimiser}!randomSearch@{randomSearch}}
+\index{randomSearch@{randomSearch}!optimiser@{optimiser}}
+\doxysubsubsection{randomSearch()}
+{\footnotesize\ttfamily optimiser.\+random\+Search (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function evaluates the score of a new random point in the parameter space.
+\end{DoxyVerb}
+ 
+
+References \textbf{ linear\+Variation()}, \textbf{ logarithmic\+Variation()}, \textbf{ normal\+Variation\+For\+Initial\+Condition()}, and \textbf{ score\+Obtainer()}.
+
+
+
+Referenced by \textbf{ central()}.
+
+\label{namespaceoptimiser_a2c80b6ed119cecd3c0e5330b4f710c0e} 
+\index{optimiser@{optimiser}!scoreObtainer@{scoreObtainer}}
+\index{scoreObtainer@{scoreObtainer}!optimiser@{optimiser}}
+\doxysubsubsection{scoreObtainer()}
+{\footnotesize\ttfamily optimiser.\+score\+Obtainer (\begin{DoxyParamCaption}\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{outputfiles }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function obtains the fitness function value given a model and the experimental target.
+It involves the simulation of the model.
+A set of target values are determined, with its corresponding importance, that is, the ponderation.
+Then a set of corresponding values at the simulation are searched. Because at the corresponding time there are several simulation values, depending on the time step, the simulation value of the earlier data point is taken. 
+The values are substracted from one list to the other.
+\end{DoxyVerb}
+ 
+
+References \textbf{ central\+Functions.\+octave\+Integration()}, \textbf{ central\+Functions.\+python\+Integration()}, and \textbf{ simulator.\+set\+Integration\+Option()}.
+
+
+
+Referenced by \textbf{ sampler.\+Class\+Sample.\+calculate\+Fitness\+Function()}, \textbf{ surface.\+central()}, \textbf{ central()}, \textbf{ fitness\+Function\+Evaluator.\+central()}, \textbf{ ga\+Population\+Scores\+Obtainer()}, \textbf{ local\+Optimiser.\+pcalcr()}, and \textbf{ random\+Search()}.
+
+\label{namespaceoptimiser_a80aad75bd56349bda14f33f24dbd4059} 
+\index{optimiser@{optimiser}!storeSolution@{storeSolution}}
+\index{storeSolution@{storeSolution}!optimiser@{optimiser}}
+\doxysubsubsection{storeSolution()}
+{\footnotesize\ttfamily optimiser.\+store\+Solution (\begin{DoxyParamCaption}\item[{}]{score,  }\item[{}]{metamodel,  }\item[{}]{model,  }\item[{}]{working\+Directory }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function saves a solution in the tags or SBML format.
+\end{DoxyVerb}
+ 
+
+References \textbf{ sbml\+Worker.\+sbml\+Writer()}.
+
+
+
+Referenced by \textbf{ evaluate\+Solution()}.
+
